@@ -1,0 +1,34 @@
+html,
+body {
+  margin: 1em;
+  padding: 0;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, â€œSegoe UIâ€, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+@media (min-width: 38em) {
+  html {
+    font-size: 20px;
+  }
+}
+
+body {
+  color: #5e5a54;
+  font-size: 1rem;
+  background-color: #f2f2f2;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+.logo {
+  font-family: Salsa;
+}
+
+.wrapper {
+  max-width: 960px;
+  padding: none;
+  margin-left:  auto;
+  margin-right: auto;
+}
