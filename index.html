@@ -2,16 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Salsa&display=swap" rel="stylesheet">
 
     <!-- styles -->
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
+
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
 
   </head>
 
@@ -19,35 +24,105 @@
 
     <div class="wrapper">
 
-      <p><img src="images/logoTEST-520x140" / style="width: 65%; margin-left: -33px;"></p>
+      <div class="contents">
 
-      <p>
-        <span class="logo">magiCSfirst</span> offers lessons about the arts of
-        computer science &mdash; about interactive stories, animated drawings,
-        and synthesized sound created by writing code.
-      </p>
+        <!--Navigation bar-->
+        <div id="nav-placeholder">
 
-      <p>
-        Written especially for middle school students,
-        lessons focus on learning by tinkering.
-        They use concrete examples and take small steps.
-        They offer plenty of time for experimentation before focusing on formal ideas like
-        syntax (the proper order of commands and symbols), structure, and
-        the computer that runs the code. Skills and concepts spiral across
-        lessons, re-examined repeatedly, so they have time to sink in.
-      </p>
+        </div>
 
-      <p>
-        Last but not least, the lessons each contain a little magic, I hope.
-        Because learning is best when magic's first.
-      </p>
+        <script>
+        /* disable cache so it menu changes it propagates appropriately */
+        $.ajaxSetup({
+            cache: false
+        });
+        $(function(){
+          $("#nav-placeholder").load("navbar.html");
+        });
+        </script>
+        <!--end of Navigation bar-->
 
 
-      <p class="footer">
-        I welcome questions and comments at [[TBD EMAIL ADDRESS]]. [[CONTACT INFORMATION]]
-      </p>
+        <!-- start of page -->
+        <p class="logo">
+          <img src="images/logo520x140-transparent-c.png" width="60%" />
+        </p>
 
-    </div>
+        <div class="row">
+          <div class="triple-column">
 
+            <p style="font-size: 1rem; margin-bottom: 0.5rem;"><span class="logo">magiCSfirst</span>
+              offers online computer science lessons focused on the arts. You'll make
+              interactive stories, animated drawings, digital sound, and more.
+              And, curiously, all these artistic creations will be born from yet another art &mdash;
+              the captivating and expressive art called coding.
+            </p>
+            <p style="font-size: 1rem; margin-bottom: 0.5rem;">
+              Written especially for beginners and particularly for tweens and teens,
+              these lessons focus on learning by tinkering.
+              They offer concrete examples and take small steps, with
+              plenty of time for experimentation and lots of room for invention.
+            </p>
+            <p style="font-size: 1rem; margin-bottom: 0.5rem;">
+              And in each lesson <a href="#">there's a little magic first, like this.</a>
+            </p>
+
+          </div>
+
+          <div class="column">
+
+            <!-- updates -->
+
+            <div style="margin-left: 1rem; border-left: 1px solid black;">
+
+              <p style="color: #aaa; font-size: 1rem; font-family: arial;">updates</p>
+              <ul style="font-size: 0.9rem;">
+                <li style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                  <a style="color: #4c9e9e; text-decoration: none;" href="#">
+                    p5.js in 3 minutes
+                  </a>
+                  <span style="color: #99a814;">video</span>
+                  added Jul 24
+                </li>
+                <!-- &#x2022;&nbsp; -->
+
+                <li style="margin-left: 1.5rem;">
+                  <a style="color: #4c9e9e; text-decoration: none;" href="#">
+                    what's in a lesson?
+                  </a>
+                  <span style="color: #99a814;">blog</span>
+                  added Jul 22
+                </li>
+              </ul>
+
+            </div>
+
+          </div> <!-- column -->
+        </div> <!-- row -->
+
+        <div class="row">
+          <div class="triple-column">
+            <!--
+            <p class="footer">
+              Many thanks to Dan Shiffman at <a href="https://thecodingtrain.com/">The Coding Train</a>
+              for all his delightful and informative lessons in Processing and p5.js,
+              most especially his instructions for making the spring animation on this page.
+            </p>
+          -->
+
+            <p class="footer">
+                © 2022. The text of this work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.
+                Additionally, code examples are provided as <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>.
+            </p>
+          </div>
+        </div> <!-- row -->
+
+      </div> <!-- contents -->
+
+
+    </div> <!-- wrapper -->
+
+    <!-- background animation -->
+    <script src="sketch.js"></script>
   </body>
   </html>
