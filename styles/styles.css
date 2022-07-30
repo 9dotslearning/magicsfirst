@@ -22,7 +22,7 @@ body {
   /* font-family: 'Open Sans'; */
   font-family: 'Quicksand';
   color: #5e5a54;
-  font-size: 0.9rem;
+  font-size: 1rem;
   background-color: #f2f2f2;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
@@ -51,7 +51,8 @@ nav li {
 }
 
 
-.contents p {
+.contents {
+/* 220730 .contents p { */
   margin: 1em;
 }
 
@@ -110,7 +111,7 @@ nav li {
  display: flex;
  align-items: center;
  justify-content: space-between;
- padding: 20px;
+ padding: 0px 20px 0 0;
  color: #4c9e9e;
 }
 

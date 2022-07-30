@@ -26,7 +26,7 @@
 
       <div class="contents">
 
-        <!--Navigation bar-->
+        <!--Navigation bar
         <div id="nav-placeholder">
 
         </div>
@@ -36,10 +36,30 @@
           $("#nav-placeholder").load("navbar.html");
         });
         </script>
-        <!--end of Navigation bar-->
+
+        >>> end of Navigation bar-->
+
+<!-- manual navbar -->
+        <nav class="navbar">
+          <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+            <div class="menu">
+              <li><a href="#"><span class="logo">magiCSfirst</span></a></li>
+              <li><a href="#">p5.js</a>
+              <li><a href="#">twine</a></li>
+              <li><a href="#">scratch</a></li>
+              <li style="color: #5e5a54;">&#9654; about</li>
+              <li><a href="/">blog</a></li>
+            </div>
+          </ul>
+        </nav>
 
 
         <!-- start of page -->
+        <h1><span class="accentuate">About</span></h1>
+
         <div class="row">
           <div class="triple-column">
             <p style="font-size: 1rem; margin-bottom: 1.25rem;">
@@ -50,23 +70,23 @@
               moment, acquired a&nbsp;masters degree in education from
               Harvard&nbsp;that was&nbsp;otherwise completely useless. At the
               elementary school, she rescued a precious few moments each week from
-              insatiable demands of hardware and software systems to teach students in grades 2 through 9 about
+              ravenous hardware and software systems to teach students in grades 2 through 9 about
               digital citizenship, troubleshooting, typing, and &mdash; most joyfully &mdash; about
               coding.
             </p>
             <p style="font-size: 1rem; margin-bottom: 1.25rem;">
               And then she retired. But in a completely unexpected
-              twist of fate, her local school system almost simultaneously launched its first middle school computer
-              science classes. Since computer science is the
-              most joyful thing she knows, and teaching is the second most joyful thing,
-              she unretired. For the next 8 years, she taught Scratch, Python, JavaScript,
+              twist of fate, her local school system almost simultaneously launched a middle school computer
+              science program. Since teaching computer science is the
+              most joyful thing she knows, she unretired.
+              For the next 8 years, she taught Scratch, Python, JavaScript,
               HTML, CSS, Twine, and robotics, and she hung out
-              with a lively cohort of tweens in a classroom of her own.
+              with a lively cohort of tweens.
             </p>
             <p style="font-size: 1rem; margin-bottom: 1.25rem;">
               <span class="logo">magiCSfirst</span> is the distillation of what those students taught her.
-              The best learning starts with a little magic. Once students feel the magic,
-              they teach you what they need to know.
+              In the best learning, the magic's first. After students
+              feel the magic, they teach you what they need to know.
             </p>
           </div>
         </div>
@@ -82,17 +102,17 @@
 
 
         <!--
-        <p class="footer">
-          Many thanks to Dan Shiffman at <a href="https://thecodingtrain.com/">The Coding Train</a>
-          for all his delightful and informative lessons in Processing and p5.js,
-          most especially his instructions for making the spring animation on the home page.
-        </p>
       -->
         <div class="row">
           <div class="triple-column">
             <p class="footer">
                	© 2022. The text of this work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.
                 Additionally, code examples are provided as <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>.
+            </p>
+            <p class="footer">
+              Many thanks to Dan Shiffman at <a href="https://thecodingtrain.com/">The Coding Train</a>
+              for all his delightful and informative lessons in Processing and p5.js,
+              most especially his instructions for making the spring animation on the home page.
             </p>
           </div>
         </div>

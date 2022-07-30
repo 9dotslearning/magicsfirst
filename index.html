@@ -26,7 +26,7 @@
 
       <div class="contents">
 
-        <!--Navigation bar-->
+        <!--Navigation bar
         <div id="nav-placeholder">
 
         </div>
@@ -40,21 +40,66 @@
           $("#nav-placeholder").load("navbar.html");
         });
         </script>
-        <!--end of Navigation bar-->
+        end of Navigation bar-->
+
+
+        <!-- nav bar -->
+        <nav class="navbar">
+          <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+            <div class="menu">
+              <li><span class="logo" style="color: #5e5a54;">magiCSfirst</span></li>
+              <li><a href="#">p5.js</a></li>
+              <li><a href="#">twine</a></li>
+              <li><a href="#">scratch</a></li>
+              <li><a href="#about.html">about</a></li>
+              <li><a href="#">blog</a></li>
+            </div>
+          </ul>
+        </nav>
+
 
 
         <!-- start of page -->
         <p class="logo">
-          <img src="images/logo520x140-transparent-c.png" width="60%" />
+          <img src="images/logo920x220-transparent-d.png" width="60%" />
         </p>
 
         <div class="row">
           <div class="triple-column">
 
+            <p style="font-size: 1rem; margin-bottom: 0.5rem;">
+              At <span class="logo">magiCSfirst</span>, you'll learn about
+              creating art with computer science. You'll make interactive stories,
+              animated drawings, digital sounds, and more. And to make
+              that art you'll explore yet another art &mdash; the captivating art called coding.
+              <!--
+              <span class="logo">magiCSfirst</span> is about the arts you can create
+              with computer science &mdash; interactive stories, animated drawings,
+              and digital sounds &mdash; and also about the captivating art called coding
+              that creates them.
+              -->
+            </p>
+            <p style="font-size: 1rem; margin-bottom: 0.5rem;">
+              Written especially for beginners and particularly for tweens and teens,
+              our lessons focus on learning by tinkering.
+              They offer concrete examples and take small steps, with
+              plenty of time for experimentation and lots of room for invention.
+              Most importantly, in each lesson <a href="#">there's a little magic first, like this.</a>
+            </p>
+            <p>
+              Our blog unspools thoughts about teaching computer science,
+              with some successes and many more questions than answers.
+            </p>
+
+           <!-- 220728
             <p style="font-size: 1rem; margin-bottom: 0.5rem;"><span class="logo">magiCSfirst</span>
               offers online computer science lessons focused on the arts. You'll make
               interactive stories, animated drawings, digital sound, and more.
-              And, curiously, all these artistic creations will be born from yet another art &mdash;
+              To make these works of art,  you'll use
+              yet another art &mdash;
               the captivating and expressive art called coding.
             </p>
             <p style="font-size: 1rem; margin-bottom: 0.5rem;">
@@ -66,6 +111,7 @@
             <p style="font-size: 1rem; margin-bottom: 0.5rem;">
               And in each lesson <a href="#">there's a little magic first, like this.</a>
             </p>
+          -->
 
           </div>
 
@@ -78,8 +124,8 @@
               <p style="color: #aaa; font-size: 1rem; font-family: arial;">updates</p>
               <ul style="font-size: 0.9rem;">
                 <li style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                  <a style="color: #4c9e9e; text-decoration: none;" href="#">
-                    p5.js in 3 minutes
+                  <a style="color: #4c9e9e; text-decoration: none;" href="5minutes/">
+                    p5.js in 5 minutes
                   </a>
                   <span style="color: #99a814;">video</span>
                   added Jul 24
@@ -87,7 +133,7 @@
                 <!-- &#x2022;&nbsp; -->
 
                 <li style="margin-left: 1.5rem;">
-                  <a style="color: #4c9e9e; text-decoration: none;" href="#">
+                  <a style="color: #4c9e9e; text-decoration: none;" href="beginning/">
                     what's in a lesson?
                   </a>
                   <span style="color: #99a814;">blog</span>
@@ -111,8 +157,11 @@
           -->
 
             <p class="footer">
-                © 2022. The text of this work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.
-                Additionally, code examples are provided as <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>.
+              © 2022. The text of this work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.
+              Additionally, code examples are provided as <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>.
+              Many thanks to Dan Shiffman at <a href="https://thecodingtrain.com/">The Coding Train</a>
+              for his delightful lessons in Processing and p5.js,
+              most especially his instructions for making the spring animation on this page.
             </p>
           </div>
         </div> <!-- row -->
