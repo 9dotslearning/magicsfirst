@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Lesson 5</title>
+
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Salsa&display=swap" rel="stylesheet">
+
+    <!-- styles -->
+    <!-- from https://creative-coding.decontextualize.com/ -->
+    <link href="../../styles/poole.css" rel="stylesheet" type="text/css" />
+
+    <!-- processing -->
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      /* disable cache so menu propagates appropriately */
+      $.ajaxSetup({
+          cache: false
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="contents">
+
+      <!-- ********************* page intro ********************* -->
+
+      <div>
+        <h1>Lesson 5</h1>
+        <h2>Up and Down</h2>
+        <p class="nav"><a href="index.html">&larr; Back to Home</a></p>
+        <p>In the last lesson, you learned about the variables
+          <code>mouseX</code> and <code>mouseY</code>. In this lesson,
+          you'll create your own variables and use them to
+          move shapes up and down the canvas.
+        <p>
+          <img src="../images/lesson5/upOrDownRain.gif" style="margin-bottom: -20px; width: 35%;" alt="many rectangles moving straight down the canvas, creating colorful stripes" /><br />
+          From Emily Xie, <a href="https://www.youtube.com/watch?v=S1TQCi9axzg">Matrix Digital Rain in p5.js</a><br />
+
+          <br />
+          <img src="../images/lesson5/upOrDownVines.gif" style="width: 35%; margin-top: 13px;d" alt="many ellipses wiggling up and down the canvas together, creating a colorful tapestry" />
+        </p>
+      </div>
+
+
+      <div class="grid">
+
+        <!-- ********************* 1. many rectangles falling ********************* -->
+
+        <!-- tinker: many rectangles falling -->
+
+        <div>
+
+          <h2>1. Many Rectangles Falling</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            You'll see many rectangles
+            that appear one after the other, from top to bottom.
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">Look at line 1 of the code:<br />
+              <code>let z = 0;</code><br />
+              This code creates a variable named <code>z</code>
+              that stands in for the number <code>0</code>.<br />
+            </span>
+            <span class="tinkerBullet">In line 1 of the code,
+              change <code>0</code> to different numbers between 10 and 100,
+              clicking <span class="btnPress">&#9654;Play</span> after each change
+              to see the effect. What happens?
+            </span>
+            <span class="tinkerBullet">You've probably discovered
+              that the numbers you type in line 1 change the
+              vertical position where the rectangle starts moving downwards.
+              But line 1, by itself,
+              just associates a number with a variable named <code>z</code>.
+              The code that changes the rectangle's position appears
+              later in the script. Can you find it?
+            </span>
+          <span class="tinkerBullet">Each rectangle appears 8 pixels further down the canvas
+              than the previous rectangle. Can you find the line of code that makes that happen?
+              Change that line to spread the rectangles further apart.
+            </span>
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="400">
+let z = 0;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(30, 10, 30);
+}
+
+function draw() {
+  rect(125, z, 6, 6);
+  z = z + 8;
+}
+          </script>
+        </div>
+
+
+        <!-- help: many rectangles falling -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse" id="handle1" checked="checked">
+            <h2 class="handle">
+              <label for="handle1">Many Rectangles Falling Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                As we mentioned previously, the command <code>let z = 0;</code> creates a variable with the name <code>z</code>
+                that stands in for the number <code>0</code>. We read this line:<br />
+                "let z get 0" or "let z become 0"
+              </p>
+              <p>
+                Inside your computer, the variable <code>z</code> is a location
+                in memory that stores the number <code>0</code>.
+                When you use variable <code>z</code> in your code, your computer goes
+                to that location in memory, gets the <code>0</code> stored there,
+                and then uses that value to run your code.
+              </p>
+              <p>When you change <code>0</code> in line 1 to a different number,
+                the vertical position of the rectangle changes. The rectangle's position on canvas is determined by
+                line 10, later in the script: <br />
+                <code>rect(125, z, 6, 6);</code><br />
+                This code sets the rectangle's vertical position
+                to whatever number <code>z</code> stands in for. So if line 1 contains<br />
+                <code>let z = 100;</code><br />
+                then the rectangle appears at vertical position <code>100</code>, halfway down the canvas.
+              </p>
+              <p>
+                The command <code>z = z + 8;</code> controls how far apart the rectangles appear.
+                This code may seem nonsensical: how can <code>z</code>
+                equal <code>z + 8</code>? It doesn't! Your computer understands this line in an entirely different way
+                than in mathematics.
+                When your computer finds a line of code containing a single <code>=</code>
+                it starts at the righthand side and reads the line moving left.
+                In this case, it gets the number <code>8</code>.
+                Then it finds <code>+</code>, so it knows it's about to add <code>8</code> to something.
+                Then it finds <code>z</code>, so it adds <code>8</code> to whatever number
+                <code>z</code> is standing in for, and it makes that sum the new value of <code>z</code>.
+              </p>
+              <p>
+                For example, in our script <code>z</code> starts at <code>0</code>.
+                So your computer adds <code>8 + 0</code> and then updates
+                <code>z</code> to be <code>8</code>. Since <code>function draw()</code> happens over and over,
+                your computer soon comes to the same line of code again. This time
+                it adds <code>8 + 8</code>
+                and updates <code>z</code> to be <code>16</code>. And so on!
+                As <code>z</code> becomes larger and larger, the rectangles move down the canvas.
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+<div>
+
+  <h2>2. Broken Code</h2>
+  <p class="tinkerHeadingTop">Tinker</p>
+  <p class="tinkerHeadingBottom">
+    Click <span class="btnPress">&#9654;Play</span>.
+    You'll see an error message at the bottom of the script,
+    and no drawing appears. Your job is to fix the script
+    so that there's no error and you see falling rectangles
+    when you click <span class="btnPress">&#9654;Play</span>.
+    <br class="tinkerNewLine" />
+    Try these hints:
+    <span class="tinkerBullet">Look at line 1 of the code.<br />
+      <code>let a = 0;</code><br />
+      This code creates a variable named <code>a</code>
+      that stands in for the number <code>0</code>.
+    </span>
+    <span class="tinkerBullet">Look at line 10 of the code.<br />
+      <code>rect(125, b, 6, 6);</code><br />
+      There's a mistake. Can you fix it?
+    </span>
+    <span class="tinkerBullet">Look at line 11 of the code.<br />
+      <code>h = h + 8;</code><br />
+      There's a mistake. Can you fix it?
+    </span>
+
+</p>
+  <script type="text/p5" data-preview-width="250" data-height="400">
+let a = 0;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(30, 10, 30);
+}
+
+function draw() {
+  rect(125, b, 6, 6);
+  z = z + 8;
+}
+  </script>
+</div>
+
+
+<!-- help:  broken code -->
+
+<div class="sidebar">
+
+  <section class="accordion">
+    <input type="checkbox" name="collapse2" id="handle2" checked="checked">
+    <h2 class="handle">
+      <label for="handle2">Broken Code Help</label>
+    </h2>
+
+    <div class="content">
+      <p>Here's one possible correct answer:<br />
+        <code><pre>
+let a = 0;
+...
+function draw() {
+  rect(125, a, 6, 6);
+  a = a + 8;
+}
+        </pre></code>
+      </p>
+      <p>
+        To fix this example, you must use the same variable name throughout the code. So if you
+        create a variable named <code>a</code> on line 1, you must also use <code>a</code>
+        on lines 10 and 11. That way, your computer goes to the correct memory location
+        to get the value it needs for each line.
+      </p>
+      <p>
+        There's more than one correct answer! If your code shows no error messages and you see falling rectangles, then
+        your code is correct even if it's different.
+      </p>
+    </div>
+  </section>
+
+</div>
+
+
+        <!-- ********************* 3. stacking rectangles ********************* -->
+
+        <!-- tinker: stacking rectangles -->
+
+        <div>
+
+          <h2>3. Stacking Rectangles</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            You'll see larger, colorful rectangles moving down the canvas.
+            <br class="tinkerNewLine" />
+            Try this challenge:
+            <span class="tinkerBullet">Change the script to make the
+              rectangles appear closer together, overlapping each other.
+              They should look like a stack of squished rectangles!
+            </span>
+            <span class="tinkerBullet">In the previous example,
+              the variable was named <code>z</code>. In this example,
+              it's called <code>y</code>. Does the name make any difference?
+            </span>
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="400">
+let y = 0;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(30, 10, 30);
+}
+
+function draw() {
+  stroke(0, 100, 0);
+  fill(0, 100, 100);
+  rect(4, y, 20, 20);
+  y = y + 25;
+}
+          </script>
+        </div>
+
+
+        <!-- help: stacking rectangles -->
+        <div class="sidebar">
+          <section class="accordion">
+            <input type="checkbox" name="collapse3" id="handle3" checked="checked">
+            <h2 class="handle">
+              <label for="handle3">Stacking Rectangles Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                It doesn't matter what you name the variable
+                as long as the name is valid. Generally names begin with letters
+                and contain only letters and<br />numbers or - or _
+              </p>
+            </div>
+        </div>
+
+
+
+        <!-- ********************* 4. rippling rectangles ********************* -->
+
+        <!-- tinker: rippling rectangles -->
+
+        <div>
+
+          <h2>4. Rippling Rectangles</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            You'll see a slight ripple through the stacked rectangles.
+            There's also a new line of code at the end of the script:<br />
+            <code>if (y > 200) y = 0;</code>
+            <br class="tinkerNewLine" />
+            Let's explore these ideas. Try these challenges:
+            <span class="tinkerBullet">In the new line of code
+              at the end of the script, change <code>200</code> to a smaller number
+              and then click <span class="btnPress">&#9654;Play</span>.
+              What happens?
+            </span>
+            <span class="tinkerBullet">Click <span class="btnPress">Revert</span>
+              to restore the previous script. In the same line of code, change <code>0</code> to a
+              larger number between 0 and 100 and then click <span class="btnPress">&#9654;Play</span>.
+              What happens?
+            </span>
+            <span class="tinkerBullet">Click <span class="btnPress">Revert</span>
+              to restore the previous script. Now add commands to make a second rectangle,
+              so that you see two rippling rectangles on canvas next to each other.
+            </span>
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="480">
+let y = 0;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(30, 10, 30);
+}
+
+function draw() {
+  stroke(0, 100, 0);
+  fill(0, 100, 100);
+  rect(4, y, 20, 20);
+  y = y + 8;
+
+  if (y > 200) y = 0;
+}
+          </script>
+        </div>
+
+
+        <!-- help: rippling rectangles -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse4" id="handle4" checked="checked">
+            <h2 class="handle">
+              <label for="handle4">Rippling Rectangles Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                The command <code>if (y > 200) y = 0;</code> means
+                "if the variable <code>y</code> becomes greater than 200,
+                reset the variable <code>y</code> to <code>0</code>."
+              </p>
+              <p>
+                We read this line:<br />
+                "if y is greater than 200 then y becomes (or gets) 0."
+              </p>
+
+              <p>
+                What does this line do on screen? Remember that vertical
+                position <code>200</code> is at the bottom of the canvas,
+                and vertical position <code>0</code> is at the top.
+                So as soon as the rectangle reaches the bottom of the
+                canvas, it jumps back to the top and starts falling back down again.
+              </p>
+              <p>
+                If you change this line of code to something like:<br />
+                <code>if (y > 44) y = 0;</code><br />
+                then as soon as the rectangle reaches the vertical position
+                <code>44</code>, about 1/5 of the way down the canvas,
+                it jumps back to the top.
+              </p>
+              <p>
+                If you change this line of code to something like:<br />
+                <code>if (y > 200) y = 125;</code><br />
+                then as soon as the rectangle reaches the bottom of the canvas,
+                it jumps back to vertical position <code>125</code>,
+                a little more than halfway down the canvas. This makes
+                the ripples appear a little more than halfway down the stack.
+              </p>
+              <p>
+                Here's a second rectangle that moves alongside the first one:<br />
+                <code>rect(100, y, 20, 20);</code>
+            </div>
+          </section>
+
+        </div>
+
+
+
+        <!-- ********************* 5. colored rectangles ********************* -->
+
+        <!-- tinker: colored rectangles -->
+
+        <div>
+
+          <h2>5. Colored Rectangles</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            All the rectangles are yellow.
+            You might also notice the new line of code at the beginning of the script:
+            <code>let h = 50;</code> Let's investigate it.
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">On line 1,
+              change <code>50</code> to another number between 0-360.
+              Then click <span class="btnPress">&#9654;Play</span>. What happens? Why?
+            </span>
+            <span class="tinkerBullet">Click <span class="btnPress">Revert</span>
+              to restore the previous code.
+            </span>
+            <span class="tinkerBullet"><a href="https://codepen.io/HunorMarton/details/eWvewo" target="_blank">Click here
+              to open the HSB color picker in a new tab</a>.
+              Use the circular slider to choose a hue. Make note of its number and then
+              type that number to replace the number 50 on line 1.
+              Click <span class="btnPress">&#9654;Play</span>. What happens? Why?
+              Try some other hue numbers from the HSB color picker, too.
+            </span>
+            <span class="tinkerBullet">Find the line of code:
+              <code>fill(h, 100, 100);</code><br />
+              Delete the variable name <code>h</code> and replace it with
+              a number between 0-360. Now go back to line 1 and
+              change its number a few times, clicking <span class="btnPress">&#9654;Play</span>
+              after each change. You'll see that the color no longer changes.
+              Can you explain what's happening?
+            </span>
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="480">
+let h = 50;
+let y = 0;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(30, 10, 30);
+}
+
+function draw() {
+  fill(h, 100, 100);
+  rect(4, y, 20, 20);
+  y = y + 8;
+
+  if (y > 200) y = 0;
+}
+          </script>
+        </div>
+
+
+        <!-- help: colored rectangles -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse5" id="handle5" checked="checked">
+            <h2 class="handle">
+              <label for="handle5">Colored Rectangles Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                The commmand <code>let h = 50;</code> creates a variable with the name <code>h</code>
+                that stands in for the number <code>50</code>.
+              </p>
+              <p>
+                Later in the script, the command<br />
+                <code>fill(h, 100, 100);</code><br />
+                sets the hue,
+                or basic color, of the rectangle to whatever number <code>h</code> has gotten.
+              </p>
+              <p>
+                You can see in the HSB Color Picker that <code>50</code> means yellow.
+                So when<br />
+                <code>let h = 50;</code><br />
+                then<br />
+                <code>fill(h, 100, 100);</code><br />
+                makes the rectangle yellow.
+              </p>
+              <p>
+                If you change the command <code>fill(h, 100, 100);</code>
+                by replacing <code>h</code> with a number,
+                then that number becomes the
+                rectangle's color. The variable <code>h</code> on line 1 is no longer connected
+                to the rectangle's color.
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- ********************* 6. changing colors ********************* -->
+
+        <!-- tinker: changing colors -->
+
+        <div>
+
+          <h2>6. Changing Colors</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            When the animation begins, there are two yellow rectangles that
+            quickly turn pink.
+            You might also notice the new code on line 16:<br />
+            <code>if (y > 200) h = 325;</code>
+            <br class="tinkerNewLine" />
+            Let's investigate. Try these challenges:
+            <span class="tinkerBullet">On line 16,
+              change <code>325</code> to another number between 0-360.
+              Then click <span class="btnPress">&#9654;Play</span>.
+              What happens? Why?
+            </span>
+            <span class="tinkerBullet">Switch the order of the
+              two lines of code at the end of the script
+              so they look like this:<br />
+              <code>if (y > 200) y = 0;</code><br />
+              <code>if (y > 200) h = 325;</code><br />
+              Click <span class="btnPress">&#9654;Play</span>.
+              The rectangles don't change color. Why?
+            </span>
+            <span class="tinkerBullet">Click <span class="btnPress">Revert</span>
+              to restore the previous script. Then
+              change line 16 again so that <code>h</code> gets a random number
+              between 0-360.
+              Then click <span class="btnPress">&#9654;Play</span>. What happens? Why?
+            </span>
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="520">
+let h = 50;
+let y = 0;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(30, 10, 30);
+}
+
+function draw() {
+  fill(h, 100, 100);
+  rect(4, y, 20, 20);
+  rect(34, y, 20, 20);
+  y = y + 8;
+
+  if (y > 200) h = 325;
+  if (y > 200) y = 0;
+}
+          </script>
+        </div>
+
+
+        <!-- help: changing colors -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse6" id="handle6" checked="checked">
+            <h2 class="handle">
+              <label for="handle6">Changing Colors Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                Click <span class="btnPress">Revert</span> to restore the original script.
+              </p>
+              <p>
+                On line 1 of the script, the variable <code>h</code> gets 50.
+                That makes the first rectangles yellow.
+              </p>
+              <p>
+                But on line 16, the variable <code>h</code> changes again.
+                This time, if the variable <code>y</code> becomes greater than 200 then
+                <code>h</code> gets 325. What does that mean?
+                We know that the variable <code>y</code> becomes 200 when the rectangle
+                reaches the bottom of the canvas. At that moment, <code>h</code>
+                becomes 325 and that makes the rectangles turn pink.
+              </p>
+              <p>
+                If you replace <code>325</code>
+                with a different number, then after the rectangles reach the
+                bottom of the canvas they will change to that color.
+              </p>
+              <p>
+                If you reverse the order of the final lines of code:</br>
+                <code>if (y > 200) y = 0;</code><br />
+                <code>if (y > 200) h = 325;</code><br />
+                then the color will never change! Let's see why.
+              </p>
+              <p>
+                First, your computer checks whether the variable <code>y</code>
+                is greater than 200. If so, then <code>y</code> gets <code>0</code>.
+                Then your computer reads the next line of code and checks again
+                to see if <code>y</code> is greater than 200. But it isn't! The variable <code>y</code>
+                is now <code>0</code>, so your computer doesn't complete that next line of code,
+                never changes the variable <code>h</code>, and therefore never changes the color.
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- ********************* 7. slowing down ********************* -->
+
+        <!-- tinker: slowing down -->
+
+        <div>
+
+          <h2>7. Slowing Down</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            You'll see the same animation as in the previous step,
+            but slower. The animation speed has been changed by the
+            <code>frameRate</code> command in <code>function setup</code>.
+            Let's investigate.
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">On line 8,
+              change the number in the <code>frameRate</code> command
+              to any number from 1-60.
+              Then click <span class="btnPress">&#9654;Play</span>. What happens?
+              Change it a few more times, clicking <span class="btnPress">&#9654;Play</span>
+              after each change.
+            </span>
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="560">
+let h = 50;
+let y = 0;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(30, 10, 30);
+  frameRate(10);
+}
+
+function draw() {
+  fill(h, 100, 100);
+  rect(4, y, 20, 20);
+  rect(34, y, 20, 20);
+  y = y + 8;
+
+  if (y > 200) h = 325;
+  if (y > 200) y = 0;
+}
+          </script>
+        </div>
+
+
+        <!-- help: changing colors -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse7" id="handle7" checked="checked">
+            <h2 class="handle">
+              <label for="handle7">Slowing Down Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                The <em>frame rate</em> is the number of times each second
+                that your computer refreshes (redraws) the images on your screen.
+                For example, when the frame rate is 10, your computer
+                refreshes the images 10 times each second.
+              </p>
+              <p>
+                The normal frame rate is 60 times per second,
+                much faster than 10!
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- ********************* 8. many ellipses rising ********************* -->
+
+        <!-- tinker: many ellipses rising -->
+
+        <div>
+
+          <h2>8. Many Ellipses Rising</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>. You'll see many ellipses
+            that appear one after the other, from bottom to top.
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">On line 1,
+              change 200 to a smaller number. What happens?
+            </span>
+            <span class="tinkerBullet">Click <span class="btnPress">Revert</span>
+              to restore the previous script.
+              Then change the script to make the ellipses appear further apart.
+            </span>
+            <span class="tinkerBullet">Click <span class="btnPress">Revert</span>
+              to restore the previous script.
+              Then change the script to make the ellipses appear closer together, so they're overlapping.
+            </span>
+            <span class="tinkerBullet">Change the script to make the ellipses move in the opposite direction,
+              moving from top to bottom. You'll need to make several changes.
+            </span>
+        </p>
+          <script type="text/p5" data-preview-width="250" data-height="420">
+let y = 200;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(30, 10, 30);
+  frameRate(10);
+}
+
+function draw() {
+  fill(0, 100, 100);
+  ellipse(125, y, 20, 20);
+  y = y - 20;
+}
+          </script>
+        </div>
+
+
+        <!-- help: many ellipses rising -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse8" id="handle8" checked="checked">
+            <h2 class="handle">
+              <label for="handle8">Many Ellipses Rising Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                When you change <code>200</code> to a smaller number on line 1, the
+                rising ellipses begin their animation somewhere above the bottom of the canvas,
+                at a location determined by the number you typed. For example,
+                if you change line 1 to<br /> <code>y = 150;</code><br />then instead of
+                beginning at the bottom of the canvas where their vertical position is 200 pixels,
+                the ellipses begin about 1/4 of the canvas above the bottom,
+                where their vertical position is 150 pixels.
+              </p>
+              <p>
+                To make the ellipses appear further apart, change <code>20</code>
+                to a larger number such as <code>30</code>:<br />
+                <code>y = y - 30;</code>
+              </p>
+              <p>
+                To make the ellipses move from top to bottom, see
+                the code in the first step on this page. The ellipses should
+                start at the top of the screen, and they should add a small amount to their
+                vertical position over and over.
+              </p>
+              </div>
+          </section>
+
+        </div>
+
+        <!-- ********************* 9. rippling ellipses  ********************* -->
+
+        <!-- tinker: rippling ellipses -->
+
+        <div>
+
+          <h2>9. Rippling Ellipses</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            You'll see overlapping ellipses.
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">Add a line of code so that when the ellipse reaches
+              the top of the canvas, it jumps back down to the bottom and begins its
+              upward journey again.
+            </span>
+            <span class="tinkerBullet"><em>Hints!</em> The line of code you're adding
+              should check if the ellipse's vertical position is less than 0,
+              which is the top of the canvas.
+              The <code>less than sign</code> looks
+              like this: &nbsp;&nbsp; <code>&lt;</code><br />
+              To type it, press <span class="btnPress">Shift</span> + the comma key.
+            </span>
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="480">
+let y = 200;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(30, 10, 30);
+  frameRate(10);
+}
+
+function draw() {
+  fill(0, 100, 100);
+  ellipse(125, y, 20, 20);
+  y = y - 12;
+
+}
+          </script>
+        </div>
+
+
+        <!-- help: rippling ellipses -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse9" id="handle9" checked="checked">
+            <h2 class="handle">
+              <label for="handle9">Rippling Ellipses Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                Notice that the ellipse's vertical position is determined by the variable <code>y</code>:<br />
+                <code>ellipse(125, y, 20, 20);</code>.
+              </p>
+              <p>
+                When the ellipse reaches the top of the canvas,
+                its vertical position &mdash; and the variable <code>y</code> &mdash; become less than 0.
+                At that moment, the ellipse should reset its
+                vertical position to the bottom of the canvas,
+                where its vertical position and the variable <code>y</code> are 200.
+              </p>
+              <p>
+                Here's the line of code to add:<br />
+                <code>if (y < 0) y = 200;</code><br />
+              </p>
+              <p>
+                If <code>y</code> is less than 0, then <code>y</code> gets 200.
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ********************* 10. another stack  ********************* -->
+
+        <!-- tinker: another stack -->
+
+        <div>
+
+          <h2>10. Another Stack</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            We've added a command that causes the rising ellipse to
+            jump back to the bottom. And we've added
+            a second stack of rising ellipses. Let's investigate.
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">Find the new variable called
+              <code>x</code> and all 3 commands that use it.
+            </span>
+            <span class="tinkerBullet">On line 1, change <code>125</code>
+              to another number from 1-200. Do that a few times.
+              Click <span class="btnPress">&#9654;Play</span>
+              after each change. What happens? Why?
+            </span>
+            <span class="tinkerBullet">Click <span class="btnPress">Revert</span>
+              to restore the previous script.
+            </span>
+            <span class="tinkerBullet">Change the code again so that when you
+              click <span class="btnPress">&#9654;Play</span> the there's one
+              stack in the middle and a new stack rippling at the left
+              edge of the canvas.
+            </span>
+            <span class="tinkerBullet">Change the code again so that
+              when you click <span class="btnPress">&#9654;Play</span>
+              the second stack appears at a random sideways position.
+              You should see many random stacks now!
+            </span>
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="560">
+let x = 125;
+let y = 200;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(30, 10, 30);
+  frameRate(10);
+}
+
+function draw() {
+  fill(0, 100, 100);
+  ellipse(x, y, 20, 20);
+  y = y - 12;
+
+  if (y < 0) x = 220;
+  if (y < 0) y = 200;
+}
+          </script>
+        </div>
+
+
+        <!-- help: another stack -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse10" id="handle10" checked="checked">
+            <h2 class="handle">
+              <label for="handle10">Another Stack Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                This script contains only one <code>ellipse</code> command, but you see two or more stacks of ellipses!
+                Let's see why.
+              </p>
+              <p>
+                When the script begins, the variable <code>x</code> gets <code>125</code>.<br />
+                <code>let x = 125;</code>
+              </p>
+              <p>
+                The variable <code>x</code> controls the sideways position of the ellipse:<br />
+                <code>ellipse(x, y, 20, 20); </code><br />
+                Remember that the sideways positon of the ellipse is called its <em>x-</em>coordinate.
+              </p>
+              <p>
+                Notice also that the variable <code>y</code> controls the vertical position,
+                or <em>y-</em>coordinate, of the ellipse. We'll need that piece of information in a moment.
+              </p>
+              <p>
+                When you click <span class="btnPress">&#9654;Play</span> the first
+                stack of ellipses appears at sideways position, or <em>x-</em>coordinate, 125.
+                That's exactly halfway across the canvas.
+              </p>
+              <p>
+                When the ellipse reaches the top of the canvas,
+                its vertical position and the variable <code>y</code> become less than 0.
+                At that moment, the following line of code changes variable <code>x</code>
+                to <code>220</code>:<br />
+                <code>if (y < 0) x = 220;</code><br />
+                That makes the a 2nd stack of ellipses appear at <em>x-</em>coordinate <code>220</code>,
+                near the right edge of the canvas.
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- ********************* 11. diagonals  ********************* -->
+
+        <!-- tinker: diagonals -->
+
+        <div>
+
+          <h2>11. Diagonals</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            You'll see many stacks of ellipses at random sideways positions, and they
+            make diagonals that tilt to the right as they move up the canvas.
+            <br class="tinkerNewLine" />
+            Try this challenge:
+            <span class="tinkerBullet">Change the code so that
+              the ellipses make diagonals that tilt left
+              as they move up the canvas.
+            </span>
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="560">
+let x = 125;
+let y = 200;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(30, 10, 30);
+}
+
+function draw() {
+  fill(0, 100, 100);
+  ellipse(x, y, 20, 20);
+  y = y - 12;
+
+  x = x + 1;
+
+  if (y < 0) x = random(200);
+  if (y < 0) y = 200;
+}
+          </script>
+        </div>
+
+
+        <!-- help: diagonals -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse11" id="handle11" checked="checked">
+            <h2 class="handle">
+              <label for="handle11">Diagonals Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                To make the diagonals tilt left, change line 15 to:<br />
+                <code>x = x - 1;</code><br />
+                Let's see why that works.
+              </p>
+              <p>
+                When the script begins, the variable <code>x</code> gets <code>125</code>.<br />
+                <code>let x = 125;</code>
+              </p>
+              <p>
+                The variable <code>x</code> controls the sideways position of the ellipse:<br />
+                <code>ellipse(x, y, 20, 20); </code><br />
+                Remember that the sideways positon of the ellipse is called its <em>x-</em>coordinate.
+              </p>
+              <p>
+                When you click <span class="btnPress">&#9654;Play</span> the first
+                ellipse appears at sideways position, or <em>x-</em>coordinate, <code>125</code>.
+                That's exactly halfway across the canvas.
+              </p>
+              <p>
+                But then <code>x</code> gets a different value:<br />
+                <code>x = x + 1;</code><br />
+                Remember that when the computer encounters a single <code>=</code>
+                it reads the commands from right to left. In this case,
+                the computer gets <code>1</code> and then adds it to whatever
+                number <code>x</code> got. So when the script begins, the computer
+                adds <code>1 + 125</code>, gets <code>126</code>, and then changes <code>x</code> to <code>126</code>.
+              </p>
+              <p>
+                But changing <code>x</code> to <code>126</code> also means that the next ellipse will appear at sideways position
+                or <em>x-</em>coordinate <code>126</code>. That's 1 pixel to the right of the previous ellipse.
+              </p>
+              <p>
+                And the next ellipse after that is drawn 1 more pixel to the right, at
+                sideways position or <em>x-</em>coordinate <code>127</code>. The rightward movement
+                of each ellipse makes a diagonal.
+              </p>
+              <p>
+                To make the diagonals tilt left, we need to subtract 1 each time a new
+                ellipse is drawn. To say this another way, we want to draw the first ellipse at sideways position
+                or <em>x-</em>coordinate <code>125</code>, and the next ellipse at <code>124</code>, and
+                the next one at <code>123</code>, and so on. We want, in other words:<br />
+                <code>x = x - 1;</code>
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- ********************* 12. wiggling ellipses  ********************* -->
+
+        <!-- tinker: wiggling ellipses -->
+
+        <div>
+          <h2>12. Wiggling Ellipses</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            You'll see that the ellipses wiggle from side to side as they move up the canvas.
+
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">Which line of code is making the ellipses wiggle?
+            </span>
+            <span class="tinkerBullet">Change the code so that the ellipses wiggle a lot more.
+            </span>
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="560">
+let x = 125;
+let y = 200;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(30, 10, 30);
+}
+
+function draw() {
+  fill(0, 100, 100);
+  ellipse(x, y, 20, 20);
+  y = y - 12;
+
+  x = x + random(-3, 3);
+
+  if (y < 0) x = random(200);
+  if (y < 0) y = 200;
+}
+          </script>
+        </div>
+
+
+        <!-- help: wiggling ellipses -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse12" id="handle12" checked="checked">
+            <h2 class="handle">
+              <label for="handle12">Wiggling Ellipses Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                The line:<br />
+                <code>x = x + random(-3, 3);</code><br />
+                makes the wiggle.
+              </p>
+              <p>
+                The command <code>random(-3, 3);</code> randomly chooses a
+                number between -3 and 3. If the number is negative, the
+                next ellipse is drawn a little to the left. If the number
+                is positive, the next ellipse is drawn a little to the right.
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ********************* 13. make your own project ********************* -->
+
+
+        <div>
+
+          <h2>13. Make Your Own Project</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            To make and save your own project, you'll work in the <span class="accentuate">p5.js Web Editor</span>.
+            <span class="tinkerBullet">Click this link to open the <a href="https://editor.p5js.org" target="_blank">p5.js Web Editor</a>
+              in another tab. A new project opens. If you haven't already signed into the
+              <span class="accentuate">p5.js Web Editor</span>, do so now.
+            </span>
+            <span class="tinkerBullet">Select all the code and press <span class="btnPress">Delete</span>
+              or <span class="btnPress">Backspace</span> to delete it.
+              Then paste the code you copied.
+              Rename the project "Up or Down," or something similar.
+            </span>
+            <span class="tinkerBullet">You can copy and paste one of the code examples below to use as a starter project or
+              simply use the examples as a reference for making a completely new project of your own.
+              The first example creates falling rectangles, and the second one
+              creates rising ellipses.
+            </span>
+            <span class="tinkerBullet">Change the code to make an animation of your own, similar to either of the GIFs at the beginning of this lesson.
+            </span>
+            <span class="tinkerBullet">Have fun! 👏
+            </span>
+
+          </p>
+
+<pre class="example-codeonly">
+/* *** FALLING RECTANGLES *** */
+
+let h = 50;
+let y = 0;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(30, 10, 30);
+  frameRate(10);
+}
+
+function draw() {
+  fill(h, 100, 100);
+  rect(4, y, 20, 20);
+  rect(34, y, 20, 20);
+  y = y + 8;
+
+  if (y > 200) h = 325;
+  if (y > 200) y = 0;
+}
+</pre>
+
+<pre class="example-codeonly">
+/* *** RISING ELLIPSES *** */
+
+let x = 125;
+let y = 200;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(30, 10, 30);
+}
+
+function draw() {
+  fill(0, 100, 100);
+  ellipse(x, y, 20, 20);
+  y = y - 12;
+
+  if (y < 0) x = random(200);
+  if (y < 0) y = 200;
+}
+</pre>
+        </div>
+
+        <!-- help: make your own project - intentionally empty -->
+
+        <div class="sidebar"></div>
+
+
+      </div> <!-- grid -->
+
+      <p class="nav">
+      <span class="item">
+        &larr; <a href="lesson4.html">Lesson 4</a>
+      </span>
+      <span class="item">
+        <a href="lesson6.html">Lesson 6</a> &rarr;
+      </span>
+      </p>
+
+      <!-- footer -->
+      <div class="row">
+        <div class="triple-column">
+          <div id="footer-placeholder">
+
+          </div>
+
+          <script>
+            $(function(){
+              $("#footer-placeholder").load("../../footer.html");
+            });
+          </script>
+
+
+      </div> <!-- contents -->
+    </div> <!-- wrapper -->
+
+
+    <script src="../script.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="../sketchui.js"></script>
+    <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+    <script src="https://kit.fontawesome.com/9ac34343ed.js" crossorigin="anonymous"></script>
+  </body>
+</html>

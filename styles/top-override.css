@@ -1,0 +1,56 @@
+/* responsive hamburger menu, https://www.makeuseof.com/responsive-navigation-bar-using-html-and-css/ */
+
+img {
+  display: block;
+  max-width: 100%;
+  margin: 0 0 2rem;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+/* COLUMNS */
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  flex-basis: 100%;
+  flex: 1;
+  margin: 0 20px 0 0;
+}
+
+.double-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 2;
+  margin: 0 20px 0 0;
+}
+
+.triple-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 3;
+  margin: 0 20px 0 0;
+}
+
+
+
+/* APPLYING MEDIA QUERIES */
+
+@media (max-width: 768px) {
+
+  /* TBD this is the same as full screen but shouldn't be */
+
+  .triple-column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    margin: 0 20px 0 0;
+  }
+
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Home</title>
+    <!-- <link href="style.css" rel="stylesheet" type="text/css" /> -->
+    <link href="styles/poole.css" rel="stylesheet" type="text/css" />
+    <link href="syntax" rel="stylesheet" type="text/css" />
+
+    <!-- processing -->
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.js"></script>
+  </head>
+
+  <body>
+    <div class="container content">
+      <main>
+        <article class="page">
+
+          <!-- top nav -->
+          <p class="nav">pages&nbsp;&nbsp;<a href="index.html">1 &bull;</a> <a href="page2.html">2 &bull;</a> <a href="page3.html">3</a> &bull; 4</p>
+
+            <!-- challenge -->
+            <div>
+              <p class="challengeHead">Do This Challenge</p>
+              <p class="challenge">
+                In your own script at replit.com, investigate the 6 highlighted numbers. Change them <em>one at a time</em> and then click <strong>Run</strong> after <em>each</em> change. What changed in the drawing? What is the biggest number you can use in each position? The smallest?</p>
+            </div>
+
+          <!-- code box -->
+          <div class="example-codeonly">
+            <pre>
+function setup() {
+  createCanvas(<span class="accentuate">640</span>, <span class="accentuate">480</span>);
+  background(<span class="accentuate">110</span>);
+
+}
+
+
+function draw() {
+  ellipse(<span class="accentuate">400</span>, <span class="accentuate">150</span>, <span class="accentuate">50</span>);
+}
+            </pre>
+          </div> <!-- class example -->
+
+          <!-- answers -->
+          <p class="showAnswers">Click for answers. But investigate first!</p>
+          <p class="answers hidden"><strong>Answers</strong></p>
+          <p class="answers hidden">In <code>createCanvas</code>, <code>640</code> is the width of the drawing area and <code>480</code> is its height. The drawing area is called the <code>canvas</code>, and its size is measured in <em>pixels</em>. A <em>pixel</em> is the smallest dot on the screen that can show color and is usually about 1/100 inch wide. So our canvas is about 6.4 inches wide x 4.8 inches tall. </p>
+          <p class="answers hidden">The <code>background</code> command paints the <code>canvas</code> with gray color 110. Numbers range from 0 (black) to 255 (white), with lighter grays as numbers increase.</p>
+          <p class="answers hidden">The <code>ellipse</code> command draws a circle or an oval with:
+            <ul class="answers hidden">
+              <li>horizontal position at <code>400</code> pixels across the screen (about 2/3 of our canvas width)</li>
+              <li>vertical position at <code>150</code> pixels down the screen (about 1/3 of our canvas height)</li>
+              <li>width of <code>50</code> pixels (about 1/2 inch).</li>
+            </ul>
+
+          <div class="answers hidden">
+
+          <!-- allison parrish code
+
+          <div class="cntrl">
+            <span class="play" data-sketch-id="01_first">&#9658; run sketch</span>
+            <span class="stop" data-sketch-id="01_first">&#9724; stop sketch</span>
+          </div>
+
+
+          <div class="example">
+            <pre style="display: block; float: left; width: 400px;">
+function setup() {
+  createCanvas(640, 480);
+  background(110);
+
+}
+
+
+function draw() {
+  ellipse(400, 150, 50);
+}
+
+            </pre>
+
+            <div id="01_first" class="example-container" data-sketch-src="https://lesson-1.terrydash.repl.co/">
+            </div>
+
+          </div> --> <!--class example -->
+
+          <!-- editable code box -->
+
+          <div class="cntrl">
+            <!-- data-sketch-id must match a container with id "01_first" where the sketch will be displayed -->
+            <span class="play" data-sketch-id="01_first">&#9658; run sketch</span>
+            <span class="stop" data-sketch-id="01_first">&#9724; stop sketch</span>
+          </div>
+
+
+          <div class="example" contenteditable="true">
+            <pre style="display: block; float: left; width: 400px;">
+function setup() {
+  createCanvas(640, 480);
+  background(110);
+
+}
+
+
+function draw() {
+  ellipse(400, 150, 50);
+}
+
+            </pre>
+
+            <div id="01_first" class="example-container" data-sketch-src="https://lesson-1.terrydash.repl.co/">
+            </div>
+
+          </div> <!--class example -->
+
+
+
+
+
+
+
+          </div> <!-- class answers -->
+
+          <!-- bottom nav -->
+          <p class="nav"><a href="page3.html">3 &larr; </a>&nbsp;&nbsp;pages&nbsp;&nbsp;<a href="page5.html">&rarr; 5</a></p>
+
+          <!-- modified allison parrish code -->
+
+
+
+
+
+        </article>
+      </main>
+    </div> <!-- container content -->
+
+    <script src="script.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="sketchui.js"></script>
+    <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Lesson 2</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Salsa&display=swap" rel="stylesheet">
+
+    <!-- styles -->
+    <link href="../../styles/poole.css" rel="stylesheet" type="text/css" />
+
+    <!-- processing -->
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      /* disable cache so menu propagates appropriately */
+      $.ajaxSetup({
+          cache: false
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+
+      <div class="contents">
+
+        <!-- ********************* page intro ********************* -->
+
+        <div>
+          <h1>Lesson 2</h1>
+          <h2>Create an Account</h2>
+          <p>To make new projects and save them, you can create an account at the <span class="accentuate">p5.js Web Editor.</span>
+            Follow the steps below.
+          </p>
+          <p class="nav"><a href="index.html">&larr; Back to Home</a></p>
+        </div>
+
+        <div class="grid">
+
+
+          <!-- create login -->
+
+          <div>
+
+            <section class="accordion">
+              <input type="checkbox" name="collapse" id="handle1" checked="checked">
+              <h2 class="handle">
+                <label for="handle1">Step 1. Create an account.</label>
+              </h2>
+
+              <div class="content">
+
+                <p>
+                  <ul>
+                    <li>
+                      <a href="https://editor.p5js.org/" target="_blank">Open the the p5.js Web Editor in a new tab</a>.
+                    </li>
+                    <li>
+                      Click <span class="accentuate">Sign up</span> at the top right. <br />
+                      <img src="../images/lesson3/p3signup.png" alt="image of Sign Up button" />
+                    </li>
+                    <li>
+                      Complete the sign up form.<br />
+                      <img src="../images/lesson3/p3signupform.png" style="width: 50%;" alt="image of sign up form" />
+                    </li>
+                    <li>
+                      To verify your email address, sign into the email you used when you filled out the form,
+                      open the message that looks like
+                      the image below, and click the <span class="btnPress">Verify Email</span> button inside.
+
+                      <br class="tinkerNewLine" />
+                      <img src="../images/lesson3/p3emailverification.png" alt="list of email messages showing verification message" />
+
+                      <ul>
+                        <hr>
+                        <p><strong>Troubleshooting Tips</strong></p>
+                        <li style="list-style: circle;">
+                          If you can't find the verification email, check your Spam folder.
+                        </li>
+                        <li style="list-style: circle;">
+                          If there's still no email, go back to the <span class="accentuate"><a href="https://editor.p5js.org/" target="_blank">p5.js Web Editor</a></span>.
+                          Click your name at the top right, and then click <span class="btnPress">Settings</span>. In the next window,
+                          click <span class="btnPress">Resend confirmation email</span> and try again.
+                        </li>
+                        <li style="list-style: circle;">
+                            If you got the email and opened it but don't see the <span class="btnPress">Verify Email</span> button,
+                            find the link provided inside the email, and then copy and paste it into your web browser instead.</span>
+                        </li>
+                      </ul>
+                      <hr>
+                    </li>
+                    <li>
+                      Go to the <a href="https://editor.p5js.org" target="_blank">p5.js Web Editor</a> and sign in.
+                    </li>
+                  </ul>
+                </p>
+
+
+              </div>
+            </section>
+
+
+
+
+
+  <!-- original code begins
+
+            <h3><a name="login" style="text-decoration: none; color: #5e5a54;">Step 1. Create an Account</a></h3>
+            <p>
+              <ul>
+                <li>
+                  <a href="https://editor.p5.org">Click here to open the the p5.js Web Editor in a new tab</a>.
+                </li>
+                <li>
+                  Click <span class="accentuate">Sign Up</span> at the top right. <br />
+                  <img src="../images/p3signup.png" alt="image of Sign Up button" />
+                </li>
+                <li>
+                  Complete the sign up form.<br />
+                  <img src="../images/p3signupform.png" style="width: 50%;" alt="image of sign up form" />
+                </li>
+                <li>
+                  Verify your email address: sign into the email you used when you filled out the form,
+                  open the message that looks like
+                  the image below, and click the <span class="btnPress">Verify Email</span> button inside.
+                  Confused? Click <span class="btnPress">Help</span> at the right.
+                  <br class="tinkerNewLine" />
+                  <img src="../images/p3emailverification.png" alt="list of email messages showing verification message" />
+
+                </li>
+                <li>
+                  Go to the <a href="https://editor.p5js.org">p5.js Web Editor</a> and sign in.
+                </li>
+              </ul>
+            </p>
+
+  original code ends -->
+
+
+            <!-- save, name, and run -->
+
+
+            <section class="accordion">
+              <input type="checkbox" name="collapse2" id="handle2" checked="checked">
+              <h2 class="handle">
+                <label for="handle2">Step 2. Save, name, and run projects.</label>
+              </h2>
+
+              <div class="content">
+                <p>
+                  <ul>
+                    <li>
+                      After signing in, you'll see a screen like the one below. <br />
+                      <img style="width: 100%; margin-top: 1rem;" src="../images/lesson3/p3webeditorsteps.png" alt="image showing the p5.js web editor with 4 steps to do" />
+                    </li>
+                    <li>
+                      Name your project by clicking the <span class="btnPress">pencil icon</span>.
+                      Type a sensible name like <span class="accentuate">practice</span>
+                      and then press the <span class="btnPress">enter</span> or <span class="btnPress">return</span> key.
+                    </li>
+                    <li>Immediately, save the project! Click the <span class="btnPress">File menu</span>
+                      and then click <span class="btnPress">Save</span> in the drop-down menu. After you save the first time,
+                      the <span class="accentuate">p5.js</span> editor will automatically save
+                      any additional work on this project about every 30 seconds.
+                    </li>
+                    <li>Click the <span class="btnPress">Play button</span> to run the code.
+                      In this case, you'll see a gray background on the right side of the screen,
+                      which was created by the commands you see at the left.
+                    </li>
+                    <li>We'll write more code in a moment.
+                    </li>
+                  </ul>
+
+
+                </p>
+              </div>
+            </section>
+
+
+  <!-- get the starter project
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse3" id="handle3" checked="checked">
+            <h2 class="handle">
+              <label for="handle3">Step 3. Open the Starter Project</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                When you sign in, the <span class="accentuate">p5.js Web Editor</span> shows a simple project
+                with a few lines of code. But for these lessons, it will be helpful to begin
+                with a different starter project.
+              </p>
+              <p>
+                <ul>
+                  <li>
+                    <a href="https://editor.p5js.org/9dots/sketches/A2Uk0EdDx">
+                      Click here to open the starter project for these lessons.
+                    </a>
+                  </li>
+                  <li>
+                    In order to save any future changes that you will make to the starter project code,
+                    you must first <em>duplicate</em> the the project.
+                    Pull down the <span class="accentuate">File menu</span>
+                    and click <span class="btnPress">Duplicate</span>.<br />
+                    <img src="../images/lesson3/p3fileduplicate.png" style="width: 50%;" alt="images of File menu > Duplicate option" />
+                  </li>
+                  <li>
+                    When you duplicate a project, it gets a random name.
+                    But meaningful names are better and will help you find the project faster in the future.
+                    Rename your project by clicking the <span class="accentuate">pencil icon</span>
+                    at the top of the editor window. Choose a sensible name.
+                  </li>
+                  <li>
+                    Click <span class="btnPress">&#9654;Play</span> to make sure everything is working.
+                    You should see a blue background with a white ellipse.
+                  </li>
+                  <li>
+                    Pull down the <span class="accentuate">File menu</span> and then click
+                    <span class="btnPress">Save</span> to save changes and turn on autosave.
+                    After autosave has been turned on, <span class="accentuate">File menu</span>
+                    saves your work automatically about every 30 seconds.
+                  </li>
+                </ul>
+              </p>
+            </div>
+          </section>
+  -->
+
+
+  <!-- copy and paste random shapes
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse3" id="handle3" checked="checked">
+            <h2 class="handle">
+              <label for="handle3">Step 3. Copy and Paste Random Shapes</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                <ul>
+                  <li>
+                    <a href="lesson2.html">Get the random shapes code you write for Lesson 2</a>
+                    by going back to that web page.
+                    Copy and paste the code for the last step into the <span class="accentuate">p5.js Web Editor</span>.                </li>
+                  <li>
+                    Run and have fun! Change the code any way you like.
+                  </li>
+                  <li>
+                    Then go onto the next lesson.
+                  </li>
+                </ul>
+              </p>
+            </div>
+          </section>
+
+        </div>
+  -->
+
+  <!-- helpful learning strategioes
+          <div class="sidebar">
+            <section class="accordion">
+              <input type="checkbox" name="collapse" id="handle1" checked="checked">
+              <h2 class="handle">
+                <label for="handle1">Help</label>
+              </h2>
+              <div class="content">
+                <p><strong>Helpful Learning Strategies</strong></p>
+                <ul>
+                  <li>Spend time exploring carefully and thoughtfully. Keep your brain in gear!</li>
+                  <li>Learn how every number and command works.
+                    Change one thing at a time and notice carefully what happens.
+                  </li>
+                  <li>Try to predict what you'll see before you click <span class="btnPress">&#9654;Play</span>.</li>
+                  <li>
+                    Take your time! Spend an hour making animations you like.
+                    Give your brain time and space to learn thoroughly.
+                    Don't go on until you feel comfortable making colors, shapes,
+                    and random effects that do what you want.
+                  </li>
+              </div>
+            </section>
+
+
+  TBD? ends here -->
+
+          </div>
+        </div> <!-- grid -->
+
+        <p class="nav">
+        <span class="item">
+          &larr; <a href="lesson1.html">Lesson 1</a>
+        </span>
+        <span class="item">
+          <a href="lesson3.html">Lesson 3</a> &rarr;
+        </span>
+        </p>
+
+        <!-- footer -->
+        <div class="row">
+          <div class="triple-column">
+            <div id="footer-placeholder">
+
+            </div>
+
+            <script>
+              $(function(){
+                $("#footer-placeholder").load("../../footer.html");
+              });
+            </script>
+
+      </div> <!-- contents -->
+    </div> <!-- wrapper -->
+
+
+    <script src="../script.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="../sketchui.js"></script>
+    <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+    <script src="https://kit.fontawesome.com/9ac34343ed.js" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>

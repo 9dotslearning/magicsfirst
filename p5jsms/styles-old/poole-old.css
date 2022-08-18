@@ -1,0 +1,1015 @@
+@import url('https://fonts.googleapis.com/css2?family=Salsa&display=swap');
+
+
+/* From https://creative-coding.decontextualize.com/public/css/poole.css
+ *
+ *                        ___
+ *                       /\_ \
+ *  _____     ___     ___\//\ \      __
+ * /\ '__`\  / __`\  / __`\\ \ \   /'__`\
+ * \ \ \_\ \/\ \_\ \/\ \_\ \\_\ \_/\  __/
+ *  \ \ ,__/\ \____/\ \____//\____\ \____\
+ *   \ \ \/  \/___/  \/___/ \/____/\/____/
+ *    \ \_\
+ *     \/_/
+ *
+ * Designed, built, and released under MIT license by @mdo. Learn more at
+ * https://github.com/poole/poole.
+ */
+
+
+/*
+ * Contents
+ *
+ * Body resets
+ * Custom type
+ * Messages
+ * Container
+ * Masthead
+ * Posts and pages
+ * Pagination
+ * Reverse layout
+ * Themes
+ */
+
+
+/*
+ * Body resets
+ *
+ * Update the foundational and global aspects of the page.
+ */
+
+/* 220730 added margin, padding 0 */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  /* margin: 1em; */
+  margin: 0;
+  padding: 0;
+}
+
+/* 2201520 - moved font-size to body */
+html {
+  font-family: -apple-system, BlinkMacSystemFont, â€œSegoe UIâ€, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  /* color: #515151; */
+  color: #5e5a54;
+  /* font-family: 'Montserrat'; */
+  /* font-family: 'Open Sans'; */
+  font-family: 'Quicksand';
+  font-size: 1rem;
+  background-color: #f2f2f2; /* #f9f9f9;  */
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+/* No `:visited` state is required by default (browsers will use `a`) */
+/* 0220521 commmented out text-decoration: none; */
+a {
+  color: #407abd;
+  /* text-decoration: none; */
+}
+a strong {
+  color: inherit;
+}
+/* `:focus` is linked to `:hover` for basic accessibility */
+a:hover,
+a:focus {
+  /* text-decoration: underline; */
+  color: #f941f9; /* pink */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: .5rem;
+  font-weight: bold;
+  line-height: 1.25;
+  color: #313131;
+  text-rendering: optimizeLegibility;
+}
+h1 {
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+h2 {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+}
+h3 {
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+}
+h4, h5, h6 {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+
+/* Body text */
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+strong {
+  color: #303030;
+}
+
+
+/* Lists */
+ul, ol, dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  /* added 220514 */
+  padding-left: 1rem;
+}
+
+/* added 220625 */
+ul {
+  list-style-type: square;
+}
+/* added 220514 */
+li {
+  margin-bottom: 10px;
+}
+
+/* added 220514 */
+li img {
+  width: 70%;
+}
+
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-bottom: .5rem;
+}
+
+
+/* Misc */
+hr {
+  position: relative;
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #fff;
+}
+
+abbr {
+  font-size: 85%;
+  font-weight: bold;
+  color: #555;
+  text-transform: uppercase;
+}
+abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted #e5e5e5;
+}
+
+/* Code */
+
+/* commented out 220526 */
+
+/*
+code,
+pre {
+  font-family: 'ABeeZee', Menlo, Monaco, "Courier New", monospace;
+}
+*/
+
+/* changes 220525 */
+code {
+  /* padding: .25em .5em; */
+  font-family: 'ABeeZee', Menlo, Monaco, "Courier New", monospace;
+  /* font-size: 85%; */
+  /* color: #333; */
+  /* color: #6b0000; */
+  /* background-color: #eee;
+  border-radius: 3px; */
+}
+
+/* commented out 220526
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-size: .8rem;
+  line-height: 1.4;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #eee;
+}
+pre code {
+  padding: 0;
+  font-size: 100%;
+  color: inherit;
+  background-color: transparent;
+}
+*/
+
+
+/*
+ * Additions and revisions from magiCSfirst
+ *
+ * Columns
+ * Collapsibles
+ * Responsive navbar menu
+ * Misc
+ *
+ */
+
+
+/*
+ *
+ * Page structure
+ *
+ */
+
+.wrapper {
+  max-width: 1200px;
+  padding: none;
+  margin-left:  auto;
+  margin-right: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 640px auto;
+  grid-column-gap: 24px;
+  grid-row-gap: 36px;
+}
+
+.grid-gallery {
+  display: grid;
+  grid-template-columns: auto;
+  grid-column-gap: 12px;
+  grid-row-gap: 36px;
+}
+
+.grid-gallery-item1 {
+  grid-column: 1 / 2;
+}
+
+.grid-gallery-item2 {
+  grid-column: 2 / 3;
+}
+
+.grid-gallery-item3 {
+  grid-column: 3 / 4;
+}
+
+.grid-gallery-item4 {
+  grid-column: 4/ 5;
+}
+
+.contents {
+  margin: 1em;
+}
+
+.contents .footer {
+  width: 70%;
+  margin-top: 3rem;
+  font-size: 0.7rem;
+  border-top: 1px solid #752abf;
+}
+
+.sidebar {
+  /* color: #989590; */
+  font-size: 0.7rem;
+  padding-top: 4rem;
+}
+
+.sidebar p {
+  width: 95%;
+}
+
+
+/*
+ * Collapsibles
+ *
+ * from https://codepen.io/markcaron/pen/RVvmaz
+ *
+ */
+
+.accordion > input[type="checkbox"] {
+  position: absolute;
+  left: -100vw;
+}
+
+.accordion .content {
+  overflow-y: hidden;
+  height: 0;
+  transition: height 0.3s ease;
+}
+
+/* not checked */
+ .accordion > input[type="checkbox"]:not(:checked) ~ .content {
+   height: auto;
+   overflow: visible;
+}
+
+/*
+.accordion > input[type="checkbox"]:checked ~ .content {
+  height: auto;
+  overflow: visible;
+}
+*/
+
+.accordion label {
+  display: block;
+}
+
+
+/* styling */
+
+/*
+body {
+  font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
+  color: #333;
+  font-weight: 300;
+}
+*/
+
+.accordion {
+  margin-bottom: 1em;
+}
+
+/* not checked */
+.accordion > input[type="checkbox"]:not(:checked) ~ .content {
+  padding: 15px;
+  border: 1px solid #e8e8e8;
+  border-top: 0;
+}
+
+
+/*
+.accordion > input[type="checkbox"]:checked ~ .content {
+  padding: 15px;
+  border: 1px solid #e8e8e8;
+  border-top: 0;
+}
+*/
+
+/* border added 220524 */
+/* added background color 220611 */
+.accordion .handle {
+  margin: 0;
+  /* font-size: 1.125em; */
+  font-size: 1.05em;
+  line-height: 1.2em;
+  border: 1px solid #cccccc;
+  background: #e8e8e8;
+}
+
+/* changes 220524 */
+/* moved background color to .accordion .handle */
+.accordion label {
+  color: #333;
+  font-weight: normal;
+  padding: 15px;
+  cursor: pointer;
+  /* possible text indent, but then hover breaks
+  margin-left: 6px;
+  text-indent: -6px;
+  */
+}
+
+.accordion label:hover,
+.accordion label:focus {
+  background: #d8d8d8;
+  /* possible alternate hover effect :
+  color: #e60060;
+  font-weight: 500; */
+
+}
+
+/* 220611 */
+.accordion .handle label:before {
+  font-family: 'fontawesome';
+  content: "\f078";
+  display: inline-block;
+  margin-right: 10px;
+  font-size: .58em;
+  line-height: 1.556em;
+  vertical-align: middle;
+
+}
+
+.accordion > input[type="checkbox"]:checked ~ .handle label:before {
+  content: "\f054";
+}
+
+
+/*
+ * Responsive navbar menu
+ */
+
+/* navbar  */
+
+nav a {
+ text-decoration: none;
+}
+
+nav ul {
+  padding-left: 0; /* remove padding left applied by main CSS */
+}
+
+nav li {
+ list-style: none;
+}
+
+.navbar {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 0px 20px 0 0;
+ color: #4c9e9e;
+}
+
+.navbar .nav-links a {
+ color: #4c9e9e;
+}
+
+/* secondary navigation - same as .navbar except for top margin and color */
+.navbar2 {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ margin-top: -1rem;
+ padding: 0px 20px 0 0;
+ color: #74800e;
+}
+
+.navbar2 .nav-links a {
+ color: #74800e;
+}
+
+.menu {
+ display: flex;
+ /* flex-direction: column; */
+ gap: 0.5em; /* was 1 em */
+ font-size: 0.8rem;
+}
+
+.menu li a:hover {
+ color: #f241f2;
+ border-radius: 5px;
+ transition: 0.3s ease;
+}
+
+.menu li {
+ padding: 0px 28px 0px 0px;
+}
+
+input[type=checkbox]{
+ display: none;
+}
+
+.menu-selectedItem {
+  color: #74800e;
+}
+
+.menu-selectedItem::before {
+   content: "\25b6 \2000";
+}
+
+.menu-selectedBranch {
+  color: #74800e;
+}
+
+
+/* hamburger menu */
+
+.hamburger {
+ display: none;
+ font-size: 24px;
+ user-select: none;
+}
+
+
+/*
+ *
+ * Miscellaneous
+ *
+ *
+ */
+
+.logo {
+ font-family: Salsa;
+}
+
+
+
+/*
+ *
+ * Media queries
+ *
+ *
+ */
+
+/* from poole */
+@media (min-width: 38em) {
+   html {
+     font-size: 20px;
+   }
+ }
+
+@media (max-width: 768px) {
+
+  .menu {
+     display:none;
+     /* background-color:teal; */
+     right: 0;
+     left: 0;
+     padding: 16px 0;
+  }
+
+  .menu li a:hover {
+     display: inline-block;
+     color: #f241f2;;
+     transition: 0.3s ease;
+  }
+
+  /* plus means 'li immediately after but not inside menu li' */
+  .menu li + li {
+     /* margin-top: 12px; */
+  }
+
+  /* ~ means input and menu share same parent (they are siblings) */
+  input[type=checkbox]:checked ~ .menu{
+     display: block;
+  }
+
+  .hamburger {
+     margin-left:  -8px; /* move hamburger icon left */
+     display: block;
+  }
+
+  .triple-column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    margin: 0 20px 0 0;
+  }
+
+  .wrapper {
+    margin: 0;
+  }
+}
+
+
+
+
+/* added 220514 */
+.showAnswers {
+  color: #407abd; /* same as link color */
+}
+
+.showAnswersVisited {
+  visibility: hidden;
+}
+
+/* added 220514 */
+.hidden {
+  visibility: hidden;
+}
+
+/* added 220514 */
+.visible {
+  visibility: visible;
+}
+
+/* added 220520 */
+.btnPress {
+  font-variant: small-caps;
+}
+
+/* added 220514 */
+.challengeHead {
+  font-size: 1.2rem;
+  padding: 6px;
+  color: #fcfbfa;
+  background-color: #b8b0a3;
+}
+
+/* added 220514 */
+.challenge {
+  color: #5e5a54;
+}
+
+/* added 220514 */
+.clickable {
+  font-variant: small-caps;
+}
+
+/* Pygments via Jekyll */
+.highlight {
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+.highlight pre {
+  margin-bottom: 0;
+}
+
+/* added 220520 */
+.think {
+  font-size: 0.8rem;
+  padding-left: -5px;
+  text-indent: -20px;
+  color: #989590;
+}
+
+.think:before
+{
+    content: "\2610";
+    margin-right: 10px;
+}
+
+.learn {
+  display: block;
+  font-size: 0.8rem;
+  padding-left: 24px;
+  text-indent: -24px;
+}
+
+.learn:before {
+  content: "\2610";
+  margin-right: 10px;
+}
+
+.tinkerBullet {
+  display: block;
+  margin-left: 22px;
+  text-indent: -12px;
+}
+
+.tinkerBullet:before {
+  content: "\2610";
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.tinkerNewLine {
+  margin-bottom: 13px;
+}
+
+.tinkerHeadingTop {
+  font-size: 1.2rem;
+  font-weight: 550;
+  color: #e60060;
+  border: 1px solid #e60060;
+  padding: 0.25rem;
+  margin-bottom: 0;
+}
+
+.tinkerHeadingBottom {
+  border-right: 1px solid #e60060;
+  border-bottom: 1px solid #e60060;
+  border-left: 1px solid #e60060;
+  font-size: 0.8rem;
+  padding: 0.25rem;
+  margin-top: 0;
+}
+
+/* #4c9e9e; */
+
+.tinkerHeading2Top {
+  font-size: 1rem;
+  font-weight: 550;
+  color: black; /* #4c9e9e; */
+  border: 1px solid #6b0000;
+  padding: 0.25rem;
+  margin-bottom: 0;
+}
+
+.tinkerHeading2Bottom {
+  border-right: 1px solid #6b0000;
+  border-bottom: 1px solid #6b0000;
+  border-left: 1px solid #6b0000;
+  font-size: 0.8rem;
+  padding: 0.25rem;
+  margin-top: 0;>
+}
+
+
+/* 150526 same visual treatment as code */
+.accentuate {
+    font-family: 'ABeeZee', Menlo, Monaco, "Courier New", monospace;
+    /* color: #333; */
+    color: #666;
+}
+
+/* 220622 */
+.logo {
+  font-family: Salsa;
+}
+
+/* Gist via GitHub Pages */
+.gist .gist-file {
+  font-family: Menlo, Monaco, "Courier New", monospace !important;
+}
+.gist .markdown-body {
+  padding: 15px;
+}
+.gist pre {
+  padding: 0;
+  background-color: transparent;
+}
+.gist .gist-file .gist-data {
+  font-size: .8rem !important;
+  line-height: 1.4;
+}
+.gist code {
+  padding: 0;
+  color: inherit;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+/* added 220514 */
+.nav {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.nav .item {
+  display: inline-block;
+  width: 120px;
+}
+
+/* Quotes */
+blockquote {
+  padding: .5rem 1rem;
+  margin: .8rem 0;
+  color: #444;
+  border-left: .25rem solid #e5e5e5;
+}
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 30em) {
+  blockquote {
+    padding-right: 5rem;
+    padding-left: 1.25rem;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  margin: 0 0 2rem;
+  border-radius: 5px;
+  box-shadow: 20px 20px 40px grey;
+}
+
+/* Tables */
+table {
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
+}
+td,
+th {
+  padding: .25rem .5rem;
+  border: 1px solid #e5e5e5;
+}
+tbody tr:nth-child(odd) td,
+tbody tr:nth-child(odd) th {
+  background-color: #f9f9f9;
+}
+
+
+/*
+ * Custom type
+ *
+ * Extend paragraphs with `.lead` for larger introductory text.
+ */
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+
+/*
+ * Messages
+ *
+ * Show alert messages to users. You may add it to single elements like a `<p>`,
+ * or to a parent if there are multiple elements to show.
+ */
+
+.message {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  color: #717171;
+  background-color: #f9f9f9;
+}
+
+
+/*
+ * Container
+ *
+ * Center the page content.
+ */
+
+.container {
+  max-width: 802px;
+  padding: none;
+  margin-left:  auto;
+  margin-right: auto;
+}
+
+
+/*
+ * Masthead
+ *
+ * Super small header above the content for site name and short description.
+ */
+
+.masthead {
+  padding-top:    1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+}
+.masthead-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #505050;
+}
+.masthead-title a {
+  color: #505050;
+}
+.masthead-title small {
+  font-size: 75%;
+  font-weight: 400;
+  color: #c0c0c0;
+  letter-spacing: 0;
+}
+
+
+/*
+ * Posts and pages
+ *
+ * Each post is wrapped in `.post` and is used on default and post layouts. Each
+ * page is wrapped in `.page` and is only used on the page layout.
+ */
+
+.page,
+.post {
+  margin-bottom: 4em;
+}
+
+/* Blog post or page title */
+.page-title,
+.post-title,
+.post-title a {
+  color: #303030;
+}
+.page-title,
+.post-title {
+  margin-top: 0;
+}
+
+/* Meta data line below post title */
+.post-date {
+  display: block;
+  margin-top: -.5rem;
+  margin-bottom: 1rem;
+  color: #9a9a9a;
+}
+
+/* Related posts */
+.related {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid #eee;
+}
+.related-posts {
+  padding-left: 0;
+  list-style: none;
+}
+.related-posts h3 {
+  margin-top: 0;
+}
+.related-posts li small {
+  font-size: 75%;
+  color: #999;
+}
+.related-posts li a:hover {
+  color: #268bd2;
+  text-decoration: none;
+}
+.related-posts li a:hover small {
+  color: inherit;
+}
+
+
+/*
+ * Pagination
+ *
+ * Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
+ * there are no more previous or next posts to show.
+ */
+
+.pagination {
+  overflow: hidden; /* clearfix */
+  margin-left: -1rem;
+  margin-right: -1rem;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  color: #ccc;
+  text-align: center;
+}
+
+/* Pagination items can be `span`s or `a`s */
+.pagination-item {
+  display: block;
+  padding: 1rem;
+  border: 1px solid #eee;
+}
+.pagination-item:first-child {
+  margin-bottom: -1px;
+}
+
+/* Only provide a hover state for linked pagination items */
+a.pagination-item:hover {
+  background-color: #f5f5f5;
+}
+
+@media (min-width: 30em) {
+  .pagination {
+    margin: 3rem 0;
+  }
+  .pagination-item {
+    float: left;
+    width: 50%;
+  }
+  .pagination-item:first-child {
+    margin-bottom: 0;
+    border-top-left-radius:    4px;
+    border-bottom-left-radius: 4px;
+  }
+  .pagination-item:last-child {
+    margin-left: -1px;
+    border-top-right-radius:    4px;
+    border-bottom-right-radius: 4px;
+  }
+}
+
+.example {
+    overflow: auto; zoom: 1;
+    margin-bottom: 1em;
+    background-color: #fcfcfc;
+    border: 1px black solid;
+    min-height: 400px;
+}
+.example pre {
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    padding: 1em;
+}
+.example-container {
+    /*
+    width: 400;
+    height: 400;
+    */
+    width: 640;
+    height: 480;
+    float: right;
+}
+/* added 220515, like .example but no min-height */
+.example-codeonly {
+    overflow: auto; zoom: 1;
+    margin-bottom: 1em;
+    padding: 1em;
+    background-color: #fcfcfc;
+    border: 1px black solid;
+    font-size: 0.8em;
+    color: #6b0000;
+}
+
+.cntrl {
+    font-size: 80%;
+}
+.cntrl span {
+    padding: 4px;
+    margin: 0px;
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+.example iframe { margin: 0; padding: 0; }

@@ -1,0 +1,203 @@
+/* responsive hamburger menu, https://www.makeuseof.com/responsive-navigation-bar-using-html-and-css/ */
+
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+
+html {
+  /*
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-family: 'Salsa', cursive;
+  */
+  line-height: 1.5;
+}
+
+body {
+  /*
+  font-family: 'Montserrat';
+  */
+  /* font-family: 'Open Sans'; */
+  font-family: 'Quicksand';
+  color: #5e5a54;
+  font-size: 1rem;
+  background-color: #f2f2f2;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+a {
+  color: #407abd; /* menu: 4c9e9e */
+  /* text-decoration: none; */
+}
+a strong {
+  color: inherit;
+}
+/* `:focus` is linked to `:hover` for basic accessibility */
+a:hover,
+a:focus {
+  /* text-decoration: underline; */
+  color: #f241f2;
+}
+
+nav a {
+ text-decoration: none;
+}
+
+nav li {
+ list-style: none;
+}
+
+
+.contents {
+/* 220730 .contents p { */
+  margin: 1em;
+}
+
+.contents .footer {
+  width: 70%;
+  margin-top: 3rem;
+  font-size: 0.7rem;
+  border-top: 1px solid #752abf;
+}
+
+.logo {
+  font-family: Salsa;
+}
+
+/* COLUMNS */
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  flex-basis: 100%;
+  flex: 1;
+  margin: 0 20px 0 0;
+}
+
+.double-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 2;
+  margin: 0 20px 0 0;
+}
+
+.triple-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 3;
+  margin: 0 20px 0 0;
+}
+
+.wrapper {
+  max-width: 1200px;
+  padding: 0 0 0 48px;
+  margin-left:  auto;
+  margin-right: auto;
+}
+
+
+/*RESPONSIVE NAVBAR AND MENU W CHECKBOX HACK STARTS */
+
+.navbar {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 0px 20px 0 0;
+ color: #4c9e9e;
+}
+
+.nav-links a {
+ color: #4c9e9e;
+}
+
+.menu {
+ display: flex;
+ /* flex-direction: column; */
+ gap: 0.5em; /* was 1 em */
+ font-size: 0.8rem;
+}
+
+.menu li a:hover {
+ color: #f241f2;
+ border-radius: 5px;
+ transition: 0.3s ease;
+ t
+}
+
+.menu li {
+ padding: 0px 28px 0px 0px;
+}
+
+input[type=checkbox]{
+ display: none;
+}
+
+
+.hamburger {
+ display: none;
+ font-size: 24px;
+ user-select: none;
+}
+
+
+
+/* APPLYING MEDIA QUERIES */
+
+@media (min-width: 38em) {
+  html {
+    font-size: 20px;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .menu {
+     display:none;
+     /* background-color:teal; */
+     right: 0;
+     left: 0;
+     padding: 16px 0;
+  }
+
+  .menu li a:hover {
+     display: inline-block;
+     color: #f241f2;;
+     transition: 0.3s ease;
+  }
+
+  /* plus means 'li immediately after but not inside menu li' */
+  .menu li + li {
+     /* margin-top: 12px; */
+  }
+
+  /* ~ means input and menu share same parent (they are siblings) */
+  input[type=checkbox]:checked ~ .menu{
+     display: block;
+  }
+
+  .hamburger {
+     margin-left:  -8px; /* move hamburger icon left */
+     display: block;
+  }
+
+  .triple-column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    margin: 0 20px 0 0;
+  }
+
+  .wrapper {
+    margin: 0;
+  }
+}

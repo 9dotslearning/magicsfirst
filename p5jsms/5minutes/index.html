@@ -1,0 +1,141 @@
+<!--
+  TO DO AFTER UPLOADING SITE:
+  1) Remove navbar.html from this tree and re-point jquery for navbar.html to main site?
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>p5.js in 5 minutes</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Salsa&display=swap" rel="stylesheet">
+
+    <!-- from https://creative-coding.decontextualize.com/ -->
+    <link href="../../styles/poole.css" rel="stylesheet" type="text/css" />
+    <link href="../../styles/syntax" rel="stylesheet" type="text/css" />
+
+    <!-- styles -->
+
+    <!-- processing -->
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      /* disable cache so menu propagates appropriately */
+      $.ajaxSetup({
+          cache: false
+      });
+    </script>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      <div class="contents">
+        <!--Navigation bar-->
+        <div id="nav-placeholder">
+
+
+        </div>
+
+        <!-- navbar include
+        <script>
+        /* disable cache so it menu changes it propagates appropriately */
+        $.ajaxSetup({
+            cache: false
+        });
+        $(function(){
+          $("#nav-placeholder").load("navbar.html");
+        });
+        </script>
+        -->
+        <!--end of Navigation bar-->
+
+
+<!-- manual navbar -->
+
+        <nav class="navbar">
+          <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+            <div class="menu">
+              <li><a href="/"><span class="logo">magiCSfirst</span></a></li>
+              <li><a href="../index.html"><span class="menu-selectedBranch">p5.js</span></a>
+              <li><a href="../../twine/index.html">twine</a></li>
+              <!-- <li><a href="#">scratch</a></li> -->
+              <li><a href="../../about.html">about</a></li>
+              <li><a href="https://magicsfirst.com/blog/">blog</a></li>
+            </div>
+          </ul>
+        </nav>
+
+        <nav class="navbar2">
+          <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle2" />
+            <label for="checkbox_toggle2" class="hamburger">&#9776;</label>
+
+            <div class="menu">
+              <li><span class="menu-selectedItem">p5.js in 5 minutes</span></li>
+              <li><a href="../beginning/index.html">lessons for beginners</a></li>
+            </div>
+          </ul>
+        </nav>
+
+
+
+        <!-- start of page -->
+          <h1 class="logo"><span class="accentuate">p5.js in 5 Minutes</span></h1>
+          <p style="margin-top: 1.25rem">Learn how to make shapes with random sizes and colors,
+            like the ones at the left side of this page.
+            <ul>
+              <li>
+                <a href="https://editor.p5js.org/magicsfirst/sketches/8Rd-EBa3v" target="_blank">
+                Click this link to open the starter project in a new tab.</a>
+              </li>
+              <li>Then watch the 5-minute video below. As you watch,
+                do the steps in your starter project. Have fun!</li>
+            </ul>
+            <div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/736436999?h=eb5869ddfd&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="p5js in 5 Minutes.mov"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+          </p>
+          <p>
+
+          </p>
+
+          <!-- footer -->
+          <div class="row">
+            <div class="triple-column">
+              <div id="footer-placeholder">
+
+              </div>
+
+              <script>
+                $(function(){
+                  $("#footer-placeholder").load("../../footer.html");
+                });
+              </script>
+
+            </div> <!-- footer row -->
+
+        </div> <!-- contents -->
+    </div> <!-- wrapper -->
+
+
+    <script src="script.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="sketchui.js"></script>
+    <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+    <script src="https://kit.fontawesome.com/9ac34343ed.js" crossorigin="anonymous"></script>
+
+    <!-- background animation -->
+    <script src="sketch-5min.js"></script>
+  </body>
+</html>

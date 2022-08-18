@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Lesson 6</title>
+
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Salsa&display=swap" rel="stylesheet">
+
+    <!-- styles -->
+    <!-- from https://creative-coding.decontextualize.com/ -->
+    <link href="../../styles/poole.css" rel="stylesheet" type="text/css" />
+
+    <!-- processing -->
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      /* disable cache so menu propagates appropriately */
+      $.ajaxSetup({
+          cache: false
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="contents">
+      <!-- ********************* page intro ********************* -->
+
+      <div>
+        <h1>Lesson 6</h1>
+        <h2>Back and Forth</h2>
+        <p class="nav"><a href="index.html">&larr; Back to Home</a></p>
+        <p>
+          In this lesson, you'll learn how to make shapes do something and then undo it.
+          For example, you'll make shapes move to the right and then reverse direction when they touch an edge.
+          You'll see shapes slowly change color and
+          then return to the original color. You'll see other
+          shapes that get bigger and then smaller.
+        </p>
+        <p>
+          You'll also learn how the <code>background</code> command
+          and variables help to create these back-and-forth changes.
+        </p>
+        <p>
+          <img src="../images/lesson6/backAndForth3BouncingCircles.gif" style="width: 35%; margin-top: 13px;d" alt="3 shapes moving back and forth across the canvas endlessly" />
+          <img src="../images/lesson6/backAndForth2Squares.gif" style="width: 35%; margin-top: 13px;d" alt="2 squares changing from one color to another and back again endlessly" />
+          <img src="../images/lesson6/backAndForthGrowingShapes.gif" style="width: 35%; margin-top: 13px;d" alt="ellipses growing and shrinking endlessly" />
+        </p>
+      </div>
+
+
+      <div class="grid">
+
+        <!-- ********************* 1. many ellipses sweeping ********************* -->
+
+        <!-- tinker: sweeping -->
+
+        <div> <!--begin tinker -->
+
+          <h2>1. Many Ellipses Sweeping</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>. You'll see many ellipses
+            that appear one after the other, from left to right.
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">Change the script to make the ellipses appear further apart.</span>
+              <span class="tinkerBullet">Change the script to make the ellipses move from right to left.</span>
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="400">
+let x = 0;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+}
+
+function draw() {
+  ellipse(x, 100, 6, 6);
+  x = x + 8;
+}
+          </script>
+        </div>
+
+
+        <!-- help: many ellipses sweeping -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse" id="handle1" checked="checked">
+            <h2 class="handle">
+              <label for="handle1">Many Ellipses Sweeping Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                To make the ellipses appear further apart, find this line of code:<br />
+                <code>x = x + 8;</code><br />
+                Change <code>8</code> to a larger number and then click <span class="btnPress">&#9654;Play</span>.
+              </p>
+              <p>
+                Why does this work? The command<br />
+                <code>x = x + 8;</code><br />
+                increases <code>x</code> by <code>8</code>
+                over and over each time <code>function draw()</code> repeats. So <code>x</code> becomes
+                <code>0</code>, <code>8</code>, <code>16</code>, and so on.
+                At the same time, the command<br />
+                <code>ellipse(x, 100, 6, 6);</code><br />
+                draws ellipses with their sideways positions at whatever number
+                <code>x</code> got. That means that the ellipses appear at <code>0</code>, <code>8</code>,
+                <code>16</code>, and so on, with each ellipse a little further to the right, 8 pixels apart.
+              </p>
+              <p>
+                If we add a larger number, like <code>x = x + 12;</code> instead of <code>x = x + 8;</code>
+                then the ellipses will appear at <code>0</code>, <code>12</code>, <code>24</code>,
+                and so on &mdash; spreading them further apart.
+              </p>
+              <p>
+                To make the ellipses move from right to left, you must make two changes in the script.
+                Here is one possible solution: <br />
+<code><pre>
+let x = 250;
+...
+function draw() {
+  ellipse(x, 100, 6, 6);
+  x = x - 8;
+}
+</pre></code>
+              </p>
+              <p>
+                On line 1, we give <code>x</code> a number like <code>250</code>, which places the ellipse
+                near the right edge of the canvas. And later, we <em>subtract</em> a small number like <code>8</code>
+                from <code>x</code> each time <code>function draw()</code> runs. This causes each new ellipse
+                to appear a little more to the left than its predecessors.
+              </p>
+
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- one ellipse -->
+
+        <div>
+
+          <h2>2. One Ellipse</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>. You'll see one ellipse
+            traveling across the canvas from left to right. The code is <em>almost</em>
+            the same as in the previous step, but there's one difference. Can you find it?
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">Delete the <code>background</code> command.
+              What happens? Why?
+            </span>
+            <span class="tinkerBullet">Click <span class="btnPress">Revert</span>
+              to restore the original script. Now cut-and-paste the <code>background</code> command
+              into <code>function setup()</code> instead of <code>function draw()</code>.
+              Then click <span class="btnPress">&#9654;Play</span>.
+              What happens? Why?
+            </span>
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="400">
+  let x = 0;
+
+  function setup() {
+    createCanvas(250, 200);
+    colorMode(HSB);
+  }
+
+  function draw() {
+    background(0, 0, 100);
+    ellipse(x, 100, 6, 6);
+    x = x + 8;
+  }
+          </script>
+
+<!--
+          <p class="tinkerHeadingTop" style="margin-top: 13px;">Explanation</p>
+          <p class="tinkerHeadingBottom">
+          </p>
+-->
+
+        </div>
+
+
+        <!-- help: one ellipse -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse2" id="handle2" checked="checked">
+            <h2 class="handle">
+              <label for="handle2">One Ellipse Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                If the <code>background</code> command is in <code>function draw()</code>, you see only one ellipse.
+                But if you delete the <code>background</code> command OR
+                if <code>background</code> is in <code>function setup()</code>, you see many ellipses.
+                Here's why.
+              </p>
+              <p>
+                If the <code>background</code> command is in <code>function draw()</code>,
+                then the background color is painted on the canvas over and over, about 60 times every second.
+                Each time it is painted, the background covers everything, including previously-drawn shapes
+                like the ellipse.
+              </p>
+              <p>
+                <img src="../images/lesson6/canvasInDraw.gif" alt="background covering the ellipse each time it moves, over and over" />
+              </p>
+              <p>
+                When you delete the <code>background</code> command, there is no background!
+                The ellipses painted by <code>function draw()</code> &mdash;
+                which runs over and over &mdash; all appear on the canvas.
+              </p>
+              <p>
+                When the <code>background</code> command is in <code>function setup()</code>,
+                it is painted just once when the project begins.
+                The ellipses painted by <code>function draw()</code> &mdash;
+                which runs over and over &mdash; all appear on the canvas after the background is drawn.
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- ********************* 3. stop ********************* -->
+
+        <div> <!--begin tinker -->
+
+          <h2>3. Stop the Motion</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>. You'll see
+            one ellipse that stops just before the right edge.
+            There's also a new command on line 11 called <code>noLoop</code>.
+            Let's investigate.
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">Change the script to make the ellipse stop halfway across.</span>
+            <span class="tinkerBullet">Change the script to make the ellipse move from right to left, stopping halfway across.</span>
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="400">
+let x = 0;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+}
+
+function draw() {
+  background(0, 0, 100);
+  ellipse(x, 100, 6, 6);
+  x = x + 8;
+
+  if (x > 200) noLoop();
+}
+          </script>
+        </div>
+
+
+        <!-- help: stop the motion -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse3" id="handle3" checked="checked">
+            <h2 class="handle">
+              <label for="handle3">Stop the Motion Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                To make the ellipse stop halfway across, we change line 11 to:<br />
+                <code>if (x > 125) noLoop();</code><br />
+                This command is read: "if x becomes greater than 125, stop looping."
+                <span class="tinkerBullet">By <em>stop looping</em> we mean that <code>function draw()</code> should
+                  stop repeating. This stops the animation.
+                </span>
+                <span class="tinkerBullet">The symbol <code>></code> means "greater than."
+                  We check whether <code>x > 125</code> because <code>x</code> controls the sideways
+                  position of the ellipse and <code>125</code> is exactly halfway
+                  across the canvas.
+                </span>
+              </p>
+              <p>
+                Here's one way to make the ellipse move from right to left and stop halfway across.<br />
+                <span class="tinkerBullet">Change line 1 to:<br />
+                  <code>let x = 250;</code><br />
+                  Since <code>x</code> controls the sideways position of the ellipse,
+                  this change places the ellipse at the right side of the canvas.<br />
+                </span>
+                <span class="tinkerBullet">Change line 11 to:<br />
+                  <code>x = x - 8;</code><br />
+                  We subtract <code>8</code> or any other small number
+                  from <code>x</code> so that each ellipse appears a little to the left of previous ellipses.<br />
+                </span>
+                <span class="tinkerBullet">Change line 13 to:<br />
+                  <code>if (x < 125) noLoop();</code><br />
+                  We check whether <code>x</code> is less than <code>125</code>, halfway
+                  across the canvas.
+                </span>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- keep moving -->
+
+        <div>
+
+          <h2>4. Keep Moving</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>. You'll see a moving ellipse again.
+            When it reaches the right edge it reappears at the left and continues moving.
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">Change the code so that the ellipse moves across the canvas
+              just once and then stops at the right edge.
+            </span>
+            <span class="tinkerBullet">Click <span class="btnPress">Revert</span> to restore the original script.
+              Change the script so that the ellipse moves from the left edge to the center of the canvas
+              and then reappears at the left edge, moving endlessly.
+            </span>
+            <span class="tinkerBullet">Change the script so that the ellipse moves from the top, center
+              straight down to the bottom center. When it reaches the bottom,
+              it reappears at the top center and continues moving, endlessly.
+            </span>
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="400">
+let x = 0;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+}
+
+function draw() {
+  background(0, 0, 100);
+  ellipse(x, 125, 6, 6);
+  x = x + 4;
+  if (x > 250) x = 0;
+}
+        </script>
+
+        </div>
+
+        <!-- help: keep moving -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse4" id="handle4" checked="checked">
+            <h2 class="handle">
+              <label for="handle4">Keep Moving Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                To make the ellipse move across the canvas just once and stop at the right edge,
+                change line 12 to:<br />
+                <code>if (x > 250) noLoop();</code>
+              </p>
+              <p>
+                To make the ellipse move across the canvas halfway and then reappear at the left,
+                change line 12 to:<br />
+                <code>if (x > 125) x = 0;</code>
+              </p>
+              <p>
+                To make the ellipse move from top to bottom:<br />
+                <span class="tinkerBullet">Change line 10 to:<br />
+                  <code>ellipse(125, x, 6, 6);</code><br />
+                  This change causes <code>x</code> to control the ellipse's vertical position
+                  instead of its sideways position.
+                </span>
+                <span class="tinkerBullet">Change line 12 to:<br />
+                  <code>if (x > 200) x = 0;</code><br />
+                  This change checks if <code>x</code> becomes greater than <code>200</code>
+                  and, if so, resets <code>x</code> to <code>0</code>. On screen, this means that when the ellipse
+                  reaches the bottom of the screen, it jumps back to the top.
+                </span>
+              </p>
+
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- bounce -->
+
+
+        <div>
+
+          <h2>5. Bounce</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            You'll see an ellipse that moves from left to right, but this time when it reaches the right edge
+            it reverses direction as if bouncing. Why?
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">Change line 2 so that <code>step</code> gets a bigger number.
+              Then click <span class="btnPress">&#9654;Play</span>.
+              What happens?
+            </span>
+            <span class="tinkerBullet">Change line 2 again so that <code>step</code> gets <code>8</code>.
+              Then click <span class="btnPress">&#9654;Play</span>.
+              When <code>step</code> is <code>8</code>, the ellipse slows down after it
+              touches the right edge. Why? Fix the script so that the ellipse bounces and
+              maintains the faster speed.
+            </span>
+            <span class="tinkerBullet">Change the script so that the ellipse bounces
+              when it touches the left edge, too. <em>Hint!</em> You'll need to add
+              another <code>if</code> command. 🙂
+            </span>
+          </p>
+
+          <script type="text/p5" data-preview-width="250" data-height="450">
+let x = 0;
+let step = 4;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+}
+
+function draw() {;
+  background(0, 0, 100);
+  ellipse(x, 100, 6, 6);
+
+  x = x + step;
+  if (x > 250) step = -4;
+
+
+}
+          </script>
+
+
+        </div>
+
+
+        <!-- help: bounce -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse5" id="handle5" checked="checked">
+            <h2 class="handle">
+              <label for="handle5">Bounce Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                To make the <code>step</code> variable get <code>8</code>, change line 2 to:<br />
+                <code>let step = 8;</code>
+              </p>
+              <p>
+                What is <code>step</code>? On line 13, we add <code>step</code> to <code>x</code>,
+                over and over. That means each ellipse will appear <code>step</code> pixels further to the right
+                than previous ellipses. The bigger the <code>step</code> is, the further apart the ellipses appear.
+                And the futher they are apart, the faster they appear to travel.
+                So <code>step</code> controls the ellipse speed.
+              </p>
+              <p>
+                To make the ellipse bounce and then travel at the same faster speed, change line 14 to:<br />
+                <code>if (x > 250) step = -8;</code><br />
+                The number <code>-8</code> makes the ellipse travel from right to left (instead of left to right).
+                If the ellipse starts at speed <code>8</code>, then <code>-8</code> makes it travel in the
+                opposite direction at the same speed.
+              </p>
+              <p>
+                To make the ellipse bounce when it touches the left edge, too, add the following command
+                at the end of the script:<br />
+                <code>if (x < 0) step = 8;</code><br />
+                This command reads, "If <code>x</code> is less than <code>0</code>,
+                then reset the <code>step</code> variable to <code>8</code>."<br />
+                The variable <code>x</code> becomes less than <code>0</code> when the ellipse reaches the left edge.
+                At that moment, we want the ellipse to begin traveling to the right again.
+                We can make that happen if we change the <code>step</code> variable back to a positive number,
+                like <code>8</code>.
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- 6. bounce everywhere -->
+
+
+        <div>
+
+          <h2>6. Bounce Everywhere</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            You'll see an ellipse bounce off the bottom and then
+            move through the right edge and disappear. We need to make
+            the ellipse bounce off <em>all</em> edges.
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">Add a command that makes
+              the ellipse bounce off the right edge.
+            </span>
+            <span class="tinkerBullet">Add another command that makes
+              the ellipse bounce off the top edge.
+            </span>
+            <span class="tinkerBullet">Add one last command that makes
+              the ellipse bounce off the left edge.
+            </span>
+            <span class="tinkerBullet">Change the script so that the
+              ellipse starts moving at a different angle. For example,
+              make the ellipse move towards the right wall instead of
+              towards the bottom.
+            </span>
+          </p>
+
+          <script type="text/p5" data-preview-width="250" data-height="600">
+let x = 0;
+let xstep = 2;
+let y = 0;
+let ystep = 3;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+
+}
+
+function draw() {;
+  background(0, 0, 80);
+  ellipse(x, y, 20, 20);
+
+  x = x + xstep;
+
+
+  y = y + ystep;
+  if (y > 200) ystep = -3;
+
+
+}
+          </script>
+
+
+        </div>
+
+
+        <!-- help: bounce everywhere -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse6" id="handle6" checked="checked">
+            <h2 class="handle">
+              <label for="handle6">Bounce Everywhere Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                In this script, the variable <code>x</code> controls the sideways position of the ellipse,
+                and the variable <code>y</code> controls its vertical position.<br />
+                <code>ellipse(x, y, 20, 20);</code>
+              </p>
+              <p>
+                The variable <code>xstep</code> controls the sideways <em>speed</em> of the ellipse
+                because it's added to <code>x</code> over and over, each time <code>function draw()</code> runs:<br />
+                <code>x = x + xstep;</code><br />
+                The variable <code>ystep</code> controls the vertical <em>speed</em> of the ellipse
+                because it's added to <code>y</code> over and over, each time <code>function draw()</code> runs:<br />
+                <code>y = y + ystep;</code>
+              </p>
+              <p>
+                To make the ellipse bounce off the right edge, add the following command.
+                Just to keep your script organized, add it on line 17.<br />
+                <code>if (x > 250) xstep = -2;</code><br />
+                This command reads, "If <code>x</code> is greater than <code>250</code>,
+                then reset the <code>xstep</code> variable to <code>-2</code>."<br />
+                The variable <code>x</code> becomes greater than <code>250</code> when the ellipse reaches the right edge.
+                At that moment, we want the ellipse to begin traveling to the left.
+                We can make that happen if we change the <code>xstep</code> variable to a negative number,
+                like <code>-2</code>.
+              </p>
+              <p>
+                To make the ellipse bounce off the top edge, add the following command.
+                Just to keep your script organized, add it towards the end of the script.<br />
+                <code> if (y < 0) ystep = 3;</code><br />
+                This command reads, "If <code>y</code> is less than <code>0</code>,
+                then reset the <code>ystep</code> variable to <code>3</code>."<br />
+                The variable <code>y</code> becomes less than <code>0</code> when the ellipse reaches the top edge.
+                At that moment, we want the ellipse to begin traveling downwards.
+                We can make that happen if we change the <code>ystep</code> variable to a positive number,
+                like <code>3</code>.
+              </p>
+              <p>
+                To make the ellipse bounce off the left edge, add the following command.
+                Just to keep your script organized, add it after line 17.<br />
+                <code>if (x < 0) xstep = 2;</code><br />
+                This command reads, "If <code>x</code> is less than <code>0</code>,
+                then reset the <code>xstep</code> variable to <code>2</code>."<br />
+                The variable <code>x</code> becomes less than <code>0</code> when the ellipse reaches the left edge.
+                At that moment, we want the ellipse to begin traveling to the right.
+                We can make that happen if we change the <code>xstep</code> variable to a positive number,
+                like <code>2</code>.
+              </p>
+              <p>
+                To make the ellipse start at a different angle, change the values given to
+                <code>xstep</code> and <code>ystep</code> at the beginning of the script. Here's one
+                way to change the angle:<br />
+                <code>
+                let xstep = 4;<br />
+                let ystep = 2;<br />
+                </code>
+                These changes make the ellipse travel faster to the right than downwards, which
+                changes its traveling angle.
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- 7. fade in and out -->
+
+
+        <div>
+
+          <h2>7. Fade In and Out</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            You'll see a rectangle that fades out and fades back in.
+            Let's investigate.
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">Notice that the <code>fill</code>
+              command contains a fourth argument which adds transparency.
+              In this case, the transparency is a variable that's changing.
+              Can you make it change more slowly? More quickly?
+            </span>
+            <span class="tinkerBullet">Click <span class="btnPress">Revert</span>
+              to restore the original script.
+            </span>
+            <span class="tinkerBullet">Add a smaller rectangle in a
+              different color. Make it fade in and out, too.
+            </span>
+          </p>
+
+          <script type="text/p5" data-preview-width="250" data-height="600">
+let t = 1;
+let tstep = -0.01;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+}
+
+function draw() {;
+  background(0, 100, 0);
+  noStroke();
+
+  fill(325, 100, 100, t);
+  rect(0, 0, 250, 200);
+
+
+
+  t = t + tstep;
+  if (t < 0) tstep = 0.01;
+  if (t > 1) tstep = -0.01;
+}
+          </script>
+
+
+        </div>
+
+
+        <!-- help: fade in and out -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse7" id="handle7" checked="checked">
+            <h2 class="handle">
+              <label for="handle7">Fade In and Out Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                In this script, the variable <code>t</code> controls the transparency of the ellipse.<br />
+                <code>fill(325, 100, 100, t);</code>
+              </p>
+              <p>
+                The variable <code>tstep</code> controls how fast the transparency changes
+                because it's added to <code>t</code> over and over, each time <code>function draw()</code> runs:<br />
+                <code>t = t + tstep;</code><br />
+              </p>
+              <p>
+                If <code>tstep</code> is positive, then the transparency <code>t</code> gets bigger, and the
+                background fades <em>in</em>. If <code>tstep</code> is negative, then the transparency <code>t</code> gets smaller,
+                and the background fades <em>out</em>.
+              </p>
+              <p>
+                Remember that when transparency <code>t</code> reaches <code>1</code>, the background is completely faded in,
+                and you see its full color.
+                When transparency <code>t</code> goes back down to <code>0</code>, the background is completely faded out, and
+                you see black.
+              </p>
+              <p>
+                To make the background fade out more quickly, give <code>tstep</code> a number that's more negative,
+                like <code>-0.03</code> instead of <code>-0.01</code>. You'll need to make 2 changes.<br />
+                <span class="tinkerBullet">On line 1:<br />
+                  <code>let tstep = -0.03;</code>
+                </span>
+                <span class="tinkerBullet">On the last line:<br />
+                  <code>if (t > 1) tstep = -0.03;</code><br />
+                  This line reads, "If <code>t</code> becomes greater than <code>1</code>, reset <code>tstep</code> to <code>-0.03</code>."
+                  This makes the background fade out after it has faded in fully.
+                </span>
+              </p>
+              <p>
+                When the script begins, the background fades <em>out</em>.
+                After it fades out completely, it starts fading <em>in</em> again on line 19:<br />
+                <code>if (t < 0) tstep = 0.01;</code><br />
+                This line is read, "If <code>t</code> becomes less than <code>0</code> (and the background
+                is completely faded out), reset <code>tstep</code> to <code>0.01</code>."
+                Since <code>tstep</code> is positive, the background fades in.
+              </p>
+                <p>
+                To make the background fade in more quickly, change line 19 so <code>tstep</code> gets a larger, positive number like this:<br />
+                <code>if (t < 0) tstep = 0.03;</code>
+                </span>
+              </p>
+              <p>
+                Here's one possible way to create a second rectangle. Add these lines of code:<br />
+                <code>
+                  fill(195, 100, 100, t);<br />
+                  rect(50, 50, 150, 100);
+                </code>
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- 8. fade out and in -->
+
+
+        <div>
+
+          <h2>8. Fade Out and In</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            You'll see two rectangles. One fades out, and the other fades in.
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">Change the code so that both rectangles fade in.</span>
+            <span class="tinkerBullet">Click <span class="btnPress">Revert</span>
+              to restore the original code.</span>
+            <span class="tinkerBullet">The transparency of the second rectangle is
+              <code>1 - t</code>. How does that make the second rectangle fade in the opposite
+              direction from the first rectangle?
+            </span>
+          </p>
+
+          <script type="text/p5" data-preview-width="250" data-height="600">
+let t = 1;
+let tstep = -0.01;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+}
+
+function draw() {;
+  background(0, 100, 0);
+  noStroke();
+
+  fill(325, 100, 100, t);
+  rect(0, 0, 250, 200);
+  fill(195, 100, 100, 1 - t);
+  rect(50, 50, 150, 100);
+
+  t = t + tstep;
+  if (t < 0) tstep = 0.01;
+  if (t > 1) tstep = -0.01;
+}
+          </script>
+
+
+        </div>
+
+
+        <!-- help: fade in and out -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse8" id="handle8" checked="checked">
+            <h2 class="handle">
+              <label for="handle8">Fade Out and In Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                In this script, the variable <code>t</code> controls the transparency of the ellipse.<br />
+                <code>fill(325, 100, 100, t);</code>
+              </p>
+              <p>
+                To make both rectangles fade in, on line 15 change the transparency for the second rectangle
+                from <code>1 - t</code> to
+                <code>t</code>:<br />
+                <code>fill(195, 100, 100, t);</code>
+              </p>
+              <p>
+                If one rectangle has transparency <code>t</code> and the other one has transparency
+                <code>1 - t</code>, the two transparencies move in opposite directions. Let's explore why.
+              </p>
+              <p>
+                If <code>t</code> is <code>0.01</code> then <code>1 - t</code> is <code>0.99</code>.<br />
+                If <code>t</code> is <code>0.02</code> then <code>1 - t</code> is <code>0.98</code>.<br />
+                If <code>t</code> is <code>0.03</code> then <code>1 - t</code> is <code>0.97</code>.<br />
+                So while <code>t</code> gets more positive, <code>1 - t</code> gets
+                less positive. That means the first rectangle fades in and the second rectangle fades out.
+              </p>
+              <p>
+                If <code>t</code> is <code>-0.01</code> then <code>1 - t</code> is <br />
+                <code>1 - -0.01<br />
+                  = 1 + 0.01<br />
+                  = 0.01</code>.<br /><br />
+                If <code>t</code> is <code>-0.02</code> then <code>1 - t</code> is <code>0.02</code>.<br />
+                If <code>t</code> is <code>-0.03</code> then <code>1 - t</code> is <code>0.03</code>.<br />
+                So while <code>t</code> gets more negative, <code>1 - t</code> gets
+                more positive. That means the first rectangle fades out and the second rectangle fades in.
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- grow and shrink -->
+
+
+        <div>
+
+          <h2>9. Grow and Shrink</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            You will see an ellipse. We need to make it grow and shrink.
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">Add a command that makes the ellipse grow.
+              <em>Hint!</em> The command will include the variables <code>size</code> and <code>sizestep</code>.
+            </span>
+            <span class="tinkerBullet">Add another command to make the ellipse
+              shrink when it gets too big. You can decide what's too big!
+            </span>
+          </p>
+
+          <script type="text/p5" data-preview-width="250" data-height="480">
+let size = 40;
+let sizestep  = 1;
+
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+}
+
+function draw() {
+  background(0, 100, 0);
+  fill(15, 100, 100);
+  ellipse(125, 100, size, size);
+
+
+
+  if (size < 0) sizestep = 1;
+
+}
+          </script>
+
+
+        </div>
+
+
+        <!-- help: grow and shrink -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse9" id="handle9" checked="checked">
+            <h2 class="handle">
+              <label for="handle9">Grow and Shrink Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                To make the ellipse grow, add this command at the end of the script:<br />
+                <code>size = size + sizestep;</code>
+              </p>
+              <p>
+                To make the ellipse shrink when it reaches a certain size, like <code>100</code> pixels,
+                add a command like this at the end of the script:<br />
+                <code>if (size > 100) sizestep = -1;</code><br />
+                You don't have to use <code>100</code> as the maximum size. Try to find a maximum size you like!
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- ********************* 10. make your own project ********************* -->
+
+
+        <div>
+
+          <h2>10. Make Your Own Project</h2>
+
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            To make and save your own project, you'll work in the <span class="accentuate">p5.js Web Editor</span>.
+            <span class="tinkerBullet">Click this link to open the <a href="https://editor.p5js.org" target="_blank">p5.js Web Editor</a>
+              in another tab. A new project opens. If you haven't already signed into the
+              <span class="accentuate">p5.js Web Editor</span>, do so now.
+            </span>
+            <span class="tinkerBullet">Select all the code and press <span class="btnPress">Delete</span>
+              or <span class="btnPress">Backspace</span> to delete it.
+              Then paste the code you copied.
+              Rename the project "Back and Forth," or something similar.
+            </span>
+            <span class="tinkerBullet">You can copy and paste one of the code examples below to use as a starter project or
+              simply use the examples as a reference for making a completely new project of your own.
+              Each example creates one of the images shown at the beginning of this lesson.
+            </span>
+            <span class="tinkerBullet">Have fun! 👏
+            </span>
+
+          </p>
+
+          <!-- example #1 code and hints -->
+
+          <p class="tinkerHeading2Top" style="margin-top: 13px;">Example #1 &mdash; Bouncing Circles</p>
+          <p class="tinkerHeading2Bottom">
+            <span class="tinkerBullet">For this example, see the first GIF image at the beginning of this lesson.
+              The yellow circle moves straight across the canvas and back again.
+              The other two circles move diagonally. The two diagonally-moving circles reflect each other's movement,
+              like the shapes in the <span class="accentuate">Reflections</span> lesson. Feel free to make
+              the same animation or something very different!</span>
+            <span class="tinkerBullet">The code below includes all the variables you'll need, although you
+              may wish to add or change them; many different strategies work successfully!
+              The code contains just one ellipse, so you may want to add more.
+            </span>
+            <span class="tinkerBullet">The ellipse has no fill and a big stroke weight that makes
+              a thick outline. This outline is partially transparent because of the fourth argument in
+              the <code>stroke</code> command, <code>0.2</code>.
+            </span>
+
+          </p>
+
+
+          <pre class="example-codeonly">
+/* *** BOUNCING CIRCLES *** */
+
+let x = 0;
+let xstep = 1;
+let y = 0;
+let ystep = 2;
+
+function setup() {
+  createCanvas(400, 400);
+  colorMode(HSB);
+}
+
+function draw() {
+  background(0, 0, 100);
+
+  noFill();
+  strokeWeight(50);
+
+  stroke(105, 100, 100, 0.8);
+  ellipse(x, y, 200, 200);
+
+
+}
+          </pre>
+
+          <!-- example #2 code and hints -->
+<!--
+          <p class="tinkerHeading2Top" style="margin-top: 13px;">Example #2 &mdash; Colored Squares</p>
+          <p class="tinkerHeading2Bottom">
+            <span class="tinkerBullet">For this example, see the second GIF image at the beginning of this lesson.
+              A large square fades out and fades back in, over and over. A small square inside
+              the large one does the opposite &mdash; it fades in and fades back out, over and over.
+              Feel free to make the same animation or something very different!
+            </span>
+            <span class="tinkerBullet">The example includes all the variables you'll need, although you
+              may wish to add others; many different strategies work successfully!
+              The example code also includes only the bigger square, so you'll need to add the smaller one.</span>
+            <span class="tinkerBullet">The <code>stroke</code> command for the bigger square includes transparency which
+              is changed over time by the variable <code>t</code>. This variable should change from <code>1</code>
+              (the square is completely visible) to <code>0</code> (the square is completely transparent)
+              and back again endlessly.
+            </span>
+            <span class="tinkerBullet">The transparency for the smaller square should also be
+              changed by a variable. Can you figure out how this variable can make the
+              smaller square to begin invisibly and become visible?
+            </span>
+          </p>
+
+
+          <pre class="example-codeonly">
+
+/* *** COLORED SQUARES *** */
+
+let t = 1;
+let tstep = -0.01;
+
+function setup() {
+  createCanvas(400, 400);
+  colorMode(HSB);
+}
+
+function draw() {
+  background(0, 100, 0);
+
+  noFill();
+  stroke(344, 100, 100, t);
+  strokeWeight(100);
+  rect(0, 0, 400, 400);
+
+  t = t + tstep;
+
+
+}
+
+          </pre>
+-->
+          <!-- example #3 code and hints -->
+
+          <p class="tinkerHeading2Top" style="margin-top: 13px;">Example #2 &mdash; Grow and Shrink</p>
+          <p class="tinkerHeading2Bottom">
+            <span class="tinkerBullet">For this example, see the third GIF image at the beginning of this lesson.
+              A large ellipse at the top shows its lower half on the canvas (the other half is there but
+              can't be seen above the canvas). There's a similar large
+              ellipse at the bottom, and they grow and shrink together. Three smaller ellipses at the center of the
+              canvas grow and shrink more quickly. Feel free to make the same animation or something very different!
+            </span>
+            <span class="tinkerBullet">The code below includes only some of the variables you'll need, so
+              you'll need to add more. The example also includes only the two large ellipses, so you'll
+              need to add the smaller ones.
+            </span>
+          </p>
+
+
+          <pre class="example-codeonly">
+/* *** GROW AND SHRINK *** */
+
+let sz = 120;
+let szstep = 1;
+
+let running = false;
+
+function setup() {
+  createCanvas(400, 400);
+  colorMode(HSB);
+}
+
+function draw() {
+  background(30, 10, 30);
+  strokeWeight(24);
+
+  noFill();
+  stroke(105, 100, 100);
+  ellipse(200, 0, sz, sz);
+  ellipse(200, 400, sz, sz);
+
+
+}
+
+
+          </pre>
+        </div>
+
+
+
+
+    <!-- ************************ footer ************************ -->
+
+      </div> <!-- grid -->
+
+      <p class="nav">
+      <span class="item">
+        &larr; <a href="lesson5.html">Lesson 5</a>
+      </span>
+      <span class="item">
+        <a href="lesson7.html">Lesson 7</a> &rarr;
+      </span>
+      </p>
+
+      <!-- footer -->
+      <div class="row">
+        <div class="triple-column">
+          <div id="footer-placeholder">
+
+          </div>
+
+          <script>
+            $(function(){
+              $("#footer-placeholder").load("../../footer.html");
+            });
+          </script>
+
+      </div> <!-- contents -->
+    </div> <!-- wrapper -->
+
+
+    <script src="../script.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="../sketchui.js"></script>
+    <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+    <script src="https://kit.fontawesome.com/9ac34343ed.js" crossorigin="anonymous"></script>
+  </body>
+</html>

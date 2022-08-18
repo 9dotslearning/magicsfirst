@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Salsa&display=swap" rel="stylesheet">
+
+    <!-- styles -->
+    <!-- <link rel="stylesheet" type="text/css" href="styles/styles.css"> -->
+    <link rel="stylesheet" type="text/css" href="styles/poole.css">
+    <link rel="stylesheet" type="text/css" href="styles/top-override.css">
+
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      /* disable cache so menu propagates appropriately */
+      $.ajaxSetup({
+          cache: false
+      });
+    </script>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper" style="max-width: 1200px;">
+
+      <div class="contents">
+
+        <!--Navigation bar
+        <div id="nav-placeholder">
+
+        </div>
+
+        <script> DISABLING CACHE IS NOW IN THE HEADER
+        /* disable cache so it menu changes it propagates appropriately */
+        $.ajaxSetup({
+            cache: false
+        });
+
+        $(function(){
+          $("#nav-placeholder").load("navbar.html");
+        });
+        </script>
+        end of Navigation bar-->
+
+
+        <!-- nav bar -->
+        <nav class="navbar">
+          <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+            <div class="menu">
+              <li><span class="logo" style="color: #5e5a54;">magiCSfirst</span></li>
+              <li><a href="p5jsms/">p5.js</a></li>
+              <li><a href="twine/">twine</a></li>
+              <li><a href="#">scratch</a></li>
+              <li><a href="about.html">about</a></li>
+              <li><a href="blog-test.html">blog</a></li>
+            </div>
+          </ul>
+        </nav>
+
+
+
+        <!-- start of page -->
+        <div class="iframe-container">
+  <!--
+<iframe class="responsive-iframe" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+-->
+           <iframe class="responsive-iframe" src="https://magicsfirst.com/blog/" frameBorder="0"></iframe>
+
+        </div>
+
+        <!-- footer -->
+        <div class="row">
+          <div class="triple-column">
+            <div id="footer-placeholder">
+
+            </div>
+
+            <script>
+              $(function(){
+                $("#footer-placeholder").load("footer.html");
+              });
+            </script>
+
+        </div> <!-- footer row -->
+
+      </div> <!-- contents -->
+
+    </div> <!-- wrapper -->
+
+    <!-- background animation -->
+    <script src="sketch.js"></script>
+  </body>
+  </html>

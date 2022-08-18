@@ -1,0 +1,116 @@
+<!--
+  TO DO AFTER UPLOADING SITE:
+  1) Remove navbar.html from this tree and re-point jquery for navbar.html to main site?
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>twine</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Salsa&display=swap" rel="stylesheet">
+
+    <!-- from https://creative-coding.decontextualize.com/ -->
+    <link href="../styles/poole.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/syntax" rel="stylesheet" type="text/css" />
+
+    <!-- styles -->
+
+    <!-- processing -->
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      /* disable cache so menu propagates appropriately */
+      $.ajaxSetup({
+          cache: false
+      });
+    </script>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      <div class="contents">
+
+        <nav class="navbar">
+          <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+            <div class="menu">
+              <li><a href="/"><span class="logo">magiCSfirst</span></a></li>
+              <li><a href="../p5jsms/">p5.js</li> <!-- #5e5a54 -->
+              <li><span class="menu-selectedItem">twine</span></li>
+              <!-- <li><a href="#">scratch</a></li> -->
+              <li><a href="../about.html">about</a></li>
+              <li><a href="https://magicsfirst.com/blog/">blog</a></li>
+            </div>
+          </ul>
+        </nav>
+
+        <!--
+        <nav class="navbar2">
+          <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle2" />
+            <label for="checkbox_toggle2" class="hamburger">&#9776;</label>
+
+            <div class="menu">
+              <li><a href="5minutes/index.html" style="color: #74800e">TBD</a></li>
+              <li><a href="beginning/index.html" style="color: #74800e">TBD</a></li>
+            </div>
+          </ul>
+        </nav>
+        -->
+
+
+        <!-- start of page -->
+        <h1 class="logo"><span class="accentuate">Twine</span></h1>
+
+        <p>Twine makes interactive stories and games like the two examples below. See if you can win them!
+          Then be sure to visit again in January 2023, when we'll launch our Twine lessons.</p>
+        <p><iframe src="cupcake.html" frameborder="0" width="600px" height="600px"></iframe></p>
+        <p><iframe src="hackandslash-simplified2.html" frameborder="0" width="600px" height="480px"></iframe></p>
+
+
+        <!-- footer -->
+        <div class="row">
+          <div class="triple-column">
+            <div id="footer-placeholder">
+
+            </div>
+
+            <script>
+              $(function(){
+                $("#footer-placeholder").load("../footer.html");
+              });
+            </script>
+
+        </div> <!-- footer row -->
+
+
+
+      </div> <!-- contents -->
+
+    </div> <!-- wrapper -->
+
+
+    <script src="script.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="sketchui.js"></script>
+    <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+    <script src="https://kit.fontawesome.com/9ac34343ed.js" crossorigin="anonymous"></script>
+
+    <!-- background animation -->
+    <script src="sketch-twine.js"></script>
+
+  </body>
+</html>

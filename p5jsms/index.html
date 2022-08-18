@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>p5.js</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Salsa&display=swap" rel="stylesheet">
+
+    <!-- from https://creative-coding.decontextualize.com/ -->
+    <link href="../styles/poole.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/syntax" rel="stylesheet" type="text/css" />
+
+    <!-- styles -->
+
+    <!-- processing -->
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      /* disable cache so menu propagates appropriately */
+      $.ajaxSetup({
+          cache: false
+      });
+    </script>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      <div class="contents">
+        <!--Navigation bar-->
+        <!-- <div id="nav-placeholder">
+
+
+        </div>
+
+        <script>
+        /* disable cache so it menu changes it propagates appropriately */
+        $.ajaxSetup({
+            cache: false
+        });
+        $(function(){
+          $("#nav-placeholder").load("navbar.html");
+        });
+        </script>
+        -->
+        <!--end of Navigation bar-->
+
+
+<!-- manual navbar -->
+
+        <nav class="navbar">
+          <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+            <div class="menu">
+              <li><a href="/index.html"><span class="logo">magiCSfirst</span></a></li>
+              <li><span class="menu-selectedItem">p5.js</span></li> <!-- #5e5a54 -->
+              <li><a href="../twine/index.html">twine</a></li>
+              <!-- <li><a href="#">scratch</a></li> -->
+              <li><a href="../about.html">about</a></li>
+              <li><a href="https://magicsfirst.com/blog/">blog</a></li>
+            </div>
+          </ul>
+        </nav>
+
+        <nav class="navbar2">
+          <!-- <ul class="nav-links" style="border-left: 1px solid #aaa; padding-left: 28px;"> -->
+
+          <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle2" />
+            <label for="checkbox_toggle2" class="hamburger">&#9776;</label>
+
+            <div class="menu">
+              <li><a href="5minutes/index.html" style="color: #74800e">p5.js in 5 minutes</a></li>
+              <li><a href="beginning/index.html" style="color: #74800e">lessons for beginners</a></li>
+            </div>
+          </ul>
+        </nav>
+
+        <!-- start of page -->
+          <h1 class="logo"><span class="accentuate">p5.js</span></h1>
+
+          <div>
+            <p>These pages offer lessons in <span style="font-family: 'ABeeZee'">p5.js</span>,
+              a computer programming language that
+              draws animated art, plays music, and makes games on the web.
+            </p>
+            <p>To start learning, you can explore <a href="5minutes/index.html">p5.js in 5 minutes</a>.</p>
+            <p>Or you can do online <a href="beginning">lessons for beginners</a>.</p>
+            <p>Have fun!</p>
+          </div>
+
+        <!-- footer -->
+          <div class="row">
+            <div class="triple-column">
+              <div id="footer-placeholder">
+
+              </div>
+
+              <script>
+                $(function(){
+                  $("#footer-placeholder").load("../footer.html");
+                });
+              </script>
+
+          </div> <!-- footer row -->
+
+
+
+        </div> <!-- contents -->
+    </div> <!-- wrapper -->
+
+
+    <script src="script.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="sketchui.js"></script>
+    <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+    <script src="https://kit.fontawesome.com/9ac34343ed.js" crossorigin="anonymous"></script>
+
+    <!-- background animation -->
+    <script src="sketch-p5jsms.js"></script>
+
+  </body>
+</html>

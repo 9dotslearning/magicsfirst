@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Lesson 4</title>
+
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Salsa&display=swap" rel="stylesheet">
+
+    <!-- styles -->
+    <!-- from https://creative-coding.decontextualize.com/ -->
+    <link href="../../styles/poole.css" rel="stylesheet" type="text/css" />
+
+    <!-- processing -->
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      /* disable cache so menu propagates appropriately */
+      $.ajaxSetup({
+          cache: false
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="contents">
+
+      <!-- ********************* page intro ********************* -->
+
+      <div>
+        <h1>Lesson 4</h1>
+        <h2>Reflections</h2>
+        <p class="nav"><a href="index.html">&larr; Back to Home</a></p>
+        <p>In this lesson, you'll make shapes that mirror, or reflect, each other's movements.
+        The image below shows one line that follows the pointer and 3 more lines that reflect its movement.</p>
+
+        <p>
+          <img src="../images/lesson4/reflections.gif" width="35%" alt="4 ellipses reflecting each other's movements" />
+        </p>
+      </div>
+
+
+      <!-- ********************* 1. mouseX and mouseY ********************* -->
+
+      <!-- tinker: mouseX and mouseY -->
+
+      <div class="grid">
+
+        <div>
+
+          <h2>1. mouseX and mouseY</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>. Then move the pointer around the canvas
+            by using your mouse or touchpad.
+            You should see a white ellipse that follows the pointer.
+            Can you figure out which part of the code tells the ellipse to follow the pointer?
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">Delete <code>mouseX</code> and type a number between 0-250 instead.
+              Click <span class="btnPress">Play</span> and move the pointer. What happens?
+            </span>
+            <span class="tinkerBullet">Click <span class="btnPress">Revert</span> to restore the previous script.</span>
+            <span class="tinkerBullet">Add a 2nd ellipse with <code>mouseY</code> as the first argument
+              and <code>mouseX</code> as the second argument. Click <span class="btnPress">&#9654;Play</span>.
+              What do you see? Why?
+            </span>
+            <span class="tinkerBullet">Need help? Click <span class="btnPress">mouseX and mouseY Help</span>
+              at the right.
+            </span>
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="300">
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(0, 100, 0);
+}
+
+function draw() {
+  ellipse(mouseX, mouseY, 30, 15);
+}
+
+          </script>
+
+<!--
+          <p class="tinkerHeadingTop" style="margin-top: 13px;">Explanation</p>
+          <p class="tinkerHeadingBottom">
+            Remember that <em>arguments</em> are the numbers within the parentheses of any command.
+            In the <code>ellipse</code> command, the first argument tells the ellipse its distance from the left edge.
+            This distance is also called the ellipse's <em>x-</em>coordinate.
+            The second argument tells the ellipse its distance from the top edge and is called the
+            <em>y-</em>coordinate. If you tell <code>ellipse</code> to go to <code>mouseX, mouseY</code> it will go wherever the pointer is!
+          </p>
+-->
+
+        </div>
+
+        <!-- help: mouseX and mouseY -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse" id="handle1" checked="checked">
+            <h2 class="handle">
+              <label for="handle1">mouseX and mouseY Help</label>
+            </h2>
+
+            <div class="content">
+              <p><em>Arguments</em> are the words and numbers within the parentheses of any command. For example,
+                in<br />
+                <code>ellipse(mouseX, mouseY, 30, 15)</code><br />
+                there are 4 arguments:<br />
+                <code>mouseX</code>, <code>mouseY</code>, <code>30</code>, and <code>15</code>.
+              </p>
+                In the <code>ellipse</code> command, the first argument tells the ellipse its distance from the left edge.
+                This distance is also called the ellipse's <em>x-</em>coordinate.
+              </p>
+              <p>
+                The second argument tells the ellipse its distance from the top edge and is called the
+                <em>y-</em>coordinate.</p>
+              <p>
+                If you tell <code>ellipse</code> to go to <code>mouseX, mouseY</code> it will go wherever the pointer is!
+              <p>
+                To add a second ellipse, change the code in <code>function draw()</code> to look like this:
+                <code><pre>
+function draw() {
+  ellipse(mouseX, mouseY, 30, 15);
+  ellipse(mouseY, mouseX, 30, 15);
+}
+                </pre></code>
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- ********************* 2. mouseX ********************* -->
+
+
+      <div>
+
+        <h2>2. mouseX Again</h2>
+        <p class="tinkerHeadingTop">Tinker</p>
+        <p class="tinkerHeadingBottom">
+          <code>mouseX</code> is called a <span class="accentuate">variable</span>.
+          A variable is a name that stands in for a number, word, phrase, or other value that changes.
+          For example, in this case the name <code>mouseX</code> stands in for the
+          mouse pointer's distance from the left edge
+          of the canvas, which changes every time you move the mouse.
+          When the computer sees the name <code>mouseX</code>, it calculates the mouse's distance from
+          the left edge and plugs in that number to use.
+          <br class="tinkerNewLine" />
+          Try these challenges:
+          <span class="tinkerBullet">In the window below, move your mouse sideways from left to right. What happens to <code>mouseX</code>?
+          </span>
+          <span class="tinkerBullet">Now move the mouse sideways from right to left. What happens to <code>mouseX</code>?
+          </span>
+          <span class="tinkerBullet">Now move the mouse straight up and down. What happens to <em>mouseX</em> now?
+            <br class="tinkerNewLine" />
+            <iframe src="https://editor.p5js.org/magicsfirst/full/i6eRS8-ew" width="320" height="320"></iframe>
+          </span>
+        </p>
+      </div>
+
+      <!-- help: mouseX  -->
+
+      <div class="sidebar">
+
+        <section class="accordion">
+          <input type="checkbox" name="collapse2" id="handle2" checked="checked">
+          <h2 class="handle">
+            <label for="handle2">mouseX Again Help</label>
+          </h2>
+
+          <div class="content">
+            <p>
+              If you move the mouse from left to right, <code>mouseX</code> increases in value.
+            </p>
+            <p>
+              If you move the mouse from right to left, <code>mouseX</code> decreases in value.
+            </p>
+            <p>
+              If you move the mouse straight up and down, <code>mouseX</code> doesn't change.
+            </p>
+          </div>
+        </section>
+
+      </div>
+
+
+      <!-- ********************* 3. mouseY ********************* -->
+
+
+      <div>
+        <h2>3. mouseY Again</h2>
+        <p class="tinkerHeadingTop">Tinker</p>
+        <p class="tinkerHeadingBottom">
+          <code>mouseY</code> is also a <span class="accentuate">variable</span>.
+          Its value is the mouse's distance from the top edge of the canvas.
+          <br class="tinkerNewLine" />
+            <span class="tinkerBullet">In the window below, move your mouse from top to bottom.
+              What happens to <code>mouseY</code>?
+            </span>
+            <span class="tinkerBullet">Now move the mouse from bottom to top.
+              What happens to <code>mouseY</code>?
+            </span>
+            <span class="tinkerBullet">Now move the mouse straight sideways.
+              What happens to <code>mouseY</code>?
+              <br class="tinkerNewLine" />
+              <iframe src="https://editor.p5js.org/magicsfirst/full/C1WlRVNlW" width="320" height="320"></iframe>
+            </span>
+          </p>
+      </div>
+
+      <!-- help: mouseY  -->
+
+      <div class="sidebar">
+
+        <section class="accordion">
+          <input type="checkbox" name="collapse3" id="handle3" checked="checked">
+          <h2 class="handle">
+            <label for="handle3">mouseY Again Help</label>
+          </h2>
+
+          <div class="content">
+            <p>
+              If you move the mouse from top to bottom, <code>mouseY</code> increases in value.
+            </p>
+            <p>
+              If you move the mouse from bottom to top, <code>mouseY</code> decreases in value.
+            </p>
+            <p>
+              If you move the mouse straight sideways, <code>mouseY</code> doesn't change.
+            </p>
+          </div>
+        </section>
+
+      </div>
+
+
+      <!-- ********************* 4. change size  ********************* -->
+
+
+        <div>
+
+          <h2>4. Change Size </h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            Move your mouse <em>sideways</em> through the window below. What happens? Why?
+            <br class="tinkerNewLine" />
+            Try these challenges:<br />
+            <span class="tinkerBullet">
+              Rewrite the code so that the ellipse's width changes when you move the mouse
+              up and down (instead of sideways).
+            </span>
+            <span class="tinkerBullet">
+              Now rewrite the code so that the both ellipse's the height and width change when you move the mouse.
+            </span>
+            <span class="tinkerBullet">
+              Make two side-by-side ellipses that look like eyes.
+              The height and width of the eyes should change when the mouse moves.
+            </span>
+          </p>
+
+          <script type="text/p5" data-preview-width="250" data-height="360">
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(0, 100, 0);
+}
+
+function draw() {
+  ellipse(125, 100, mouseX, 100);
+}
+
+
+          </script>
+        </div>
+
+        <!-- help: Change Size Help -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse4" id="handle4" checked="checked">
+            <h2 class="handle">
+              <label for="handle4">Change Size Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                Notice that you can use the variable <code>mouseX</code> to change parts of the sketch
+                that have nothing to do with location! The same is true for <code>mouseY</code>.
+                The computer plugs in numbers for both <code>mouseX</code> and <code>mouseY</code>, so you can use
+                <code>mouseX</code> and <code>mouseY</code> anywhere
+                that the code expects numbers.
+              </p>
+              <p>
+                Here are 2 ellipses like eyes that change size when the mouse moves.
+              </p>
+              <p>
+                <img src="../images/lesson4/p4eyes.gif" width="80%" alt="two ellipses like eyes that change size when the mouse moves" />
+              </p>
+              <p>
+                <code>
+                  ellipse(75, 100, mouseX, mouseY);
+                  ellipse(175, 100, mouseX, mouseY);
+                </code>
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- ********************* 5. change color ********************* -->
+
+<!-- TBD?
+        <div>
+
+          <h2>5. Change Color </h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            Move your mouse through the window below. What happens? Why?
+            <br class="tinkerNewLine" />
+            Try these challenges:<br />
+            <span class="tinkerBullet">
+              Use <code>mouseY</code> instead of <code>mouseX</code> to change the fill.
+            </span>
+            <span class="tinkerBullet">
+              Add a stroke color that changes with the mouse position.
+            </span>
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="360">
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(0, 100, 0);
+}
+
+function draw() {
+  fill(mouseX, 100, 100);
+  ellipse(125, 100, mouseX, mouseY);
+}
+
+          </script>
+        </div>
+TBD? -->
+
+        <!-- help: Change Color Help -->
+
+<!-- TBD?
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse5" id="handle5" checked="checked">
+            <h2 class="handle">
+              <label for="handle5">Change Color Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                TBD
+              </p>
+            </div>
+          </section>
+
+        </div>
+-->
+
+        <!-- ********************* 5. Twins ********************* -->
+
+
+        <div>
+
+          <h2>5. Twins </h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            Move your mouse through the window below.
+            Notice that there are 2 ellipses.
+            Can you figure out how the code makes the second ellipse appear to the right of the first?
+            Try these challenges.
+            <span class="tinkerBullet">In the second ellipse,
+              change <code>+100</code> to <code>+20</code>.
+              Then click <span class="btnPress">&#9654;Play</span>. What's different?
+              Try some other numbers.
+            </span>
+            <span class="tinkerBullet">Add a third ellipse that moves sideways with the mouse
+              but appears <em>below</em> the others.
+            </span>
+            <span class="tinkerBullet">Add a fourth ellipse that
+              moves sideways with the mouse but appears <em>above</em> the others. You'll need to subtract!
+              To subtract, use &ndash; instead of +.
+            </span>
+
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="360">
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(0, 100, 0);
+}
+
+function draw() {
+  fill(51, 100, 100);
+  ellipse(mouseX, mouseY, 10, 10);
+  ellipse(mouseX+100, mouseY, 10, 10);
+}
+
+          </script>
+
+<!--
+          <p class="tinkerHeadingTop" style="margin-top: 13px;">Explanation</p>
+          <p class="tinkerHeadingBottom">In the previous two tinkers we've explored the idea that <code>mouseX</code> and <code>mouseY</code>
+              stand in for distances. The distances are, of course, numbers. You can use <code>mouseX</code> and <code>mouseY</code> anywhere the code expects a number, including in calculations.
+              Notice that the second ellipse calculates its position by adding <code>mouseX+100</code>,
+              making that ellipse appear 100 pixels to the right of the first ellipse and the mouse.
+              <br class="tinkerNewLine" />
+          </p>
+-->
+        </div>
+
+        <!-- help: Twins -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse5" id="handle5" checked="checked">
+            <h2 class="handle">
+              <label for="handle5">Twins Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                Notice that you can add or subtract numbers with <code>mouseX</code> and <code>mouseY</code>!
+                The computer plugs in numbers for both <code>mouseX</code> and <code>mouseY</code>, so you can
+                always use them in calculations.
+              </p>
+              <p>
+                Here's one possible way to
+                make a third ellipse that moves sideways with the mouse but appears <em>below</em> the others:<br />
+                <code>ellipse(mouseX, mouseY+50, 10, 10);</code>
+              </p>
+              <p>
+                Here's one possible way to
+                make a fourth ellipse that moves sideways with the mouse but appears <em>above</em> the others:<br />
+                <code>ellipse(mouseX, mouseY-20, 10, 10);</code>
+              </p>
+              <p>It's OK if your code is a little different from these examples
+                as long as two new ellipses appear above and below the originals.
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- ********************* 6. reflections ********************* -->
+
+
+        <div>
+          <h2>6. Reflections </h2>
+            <p class="tinkerHeadingTop">Tinker</p>
+            <p class="tinkerHeadingBottom">
+              Move your mouse through the window below.
+              The two dots reflect each other's sideways movement,
+              moving in opposite directions by the same amount.
+              <!-- As the first ellipse moves right, the second ellipse moves left by the same amount &mdash; and vice versa. -->
+              In a moment, we'll write code to create this animation,
+              but first it's important to explore its logic.
+              <br class="tinkerNewLine" />
+              <iframe src="https://editor.p5js.org/magicsfirst/full/04gFL1p-g" width="300" height="300"></iframe>
+            </p>
+
+            <p class="tinkerHeadingTop" style="margin-top: 13px;">Explanation</p>
+            <p class="tinkerHeadingBottom">The green dot moves sideways with the mouse. Its <em>x-</em>coordinate is <code>mouseX</code>.
+              <br class="tinkerNewLine" />
+              The blue dot moves sideways in the opposite direction. Its <em>x-</em>coordinate is <code>250-mouseX</code>.
+              The number <code>250</code> is the width of this particular canvas in pixels.
+              A pixel is the smallest dot on the screen that can be seen or changed.
+              <br class="tinkerNewLine" />
+              How do these settings create opposite movement?
+              We know that <code>mouseX</code> measures the distance from the mouse pointer to the left edge.
+              The calculation <code>250-mouseX</code> subtracts that same distance from the right edge.
+              So the two dots are always equal distances away from their opposite edges, reflecting each other's sideways movement.
+            </p>
+
+          </div>
+
+          <!-- help: Reflections -->
+
+          <div class="sidebar">
+            <section class="accordion">
+              <input type="checkbox" name="collapse6" id="handle6" checked="checked">
+              <h2 class="handle">
+                <label for="handle6">Reflections Help</label>
+              </h2>
+
+              <div class="content">
+                <p>
+                  Here are two more images to help you visualize the logic of sideways reflections.
+                </p>
+                <p>
+                  <img src="../images/lesson4/p4xposition1.png" alt="dots located at x=100 and x=250-100=150. The dots are located 100 pixels from the left and right edges, respectively." />
+                  <br />
+                  <img src="../images/lesson4/p4xposition2.png" alt="dots located at x=60 and x=250-60=190. The dots are located 60 pixels from the left and right edges, respectively." />
+                </p>
+              </div>
+            </section>
+          </div>
+
+
+
+        <!-- ********************* 7. reflections, again ********************* -->
+
+
+        <div>
+
+          <h2>7. Reflections Again </h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            Move your mouse through the window below.
+            Notice that there are 2 ellipses. The first ellipse moves with the pointer.
+            As the first ellipse moves sideways, the second ellipse moves sideways in the opposite direction by the same amount.
+            The two ellipses move up and down together. Why?
+            <br class="tinkerNewLine" />
+            Try this challenge:
+            <span class="tinkerBullet" />Change the code for the
+              second ellipse. When the first ellipse moves down,
+              second ellipse should move up by the same amount.
+              Don't change the sideways movement; the two ellipses
+              should still reflect each other when moving sideways.
+            </span>
+
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="360">
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(0, 100, 0);
+}
+
+function draw() {
+  fill(15, 100, 100);
+  ellipse(mouseX, mouseY, 10, 10);
+  ellipse(250-mouseX, mouseY, 10, 10);
+}
+
+          </script>
+        </div>
+
+        <!-- help: Reflections Again -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse7" id="handle7" checked="checked">
+            <h2 class="handle">
+              <label for="handle7">Reflections Again Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                The code below changes the second ellipse so that it moves up when the first ellipse moves down:<br />
+                <code>
+                  ellipse(250-mouseX, 200-mouseY, 10, 10);
+                </code>
+              </p>
+          </div>
+          </section>
+
+        </div>
+
+
+
+
+
+        <!-- ********************* 8. four reflections ********************* -->
+
+        <div>
+
+            <h2>8. Four Reflections  </h2>
+            <p class="tinkerHeadingTop">Tinker</p>
+            <p class="tinkerHeadingBottom">
+              Click <span class="btnPress">&#9654;Play</span>.
+              You'll see the two ellipses. The first ellipse moves with the pointer.
+              The second ellipse reflects the first one, moving in the opposite direction
+              sideways and vertically.
+              <br class="tinkerNewLine" />
+              Try these challenges:
+              <span class="tinkerBullet" />Add a third ellipse that moves sideways
+                with the pointer but moves in the opposite direction vertically.
+              </span>
+              <span class="tinkerBullet" />Add a fourth ellipse that moves vertically
+                with the pointer but moves in the opposite direction sideways.
+              </span>
+            </p>
+            <script type="text/p5" data-preview-width="250" data-height="360">
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(0, 100, 0);
+}
+
+function draw() {
+  fill(15, 100, 100);
+  ellipse(mouseX, mouseY, 10, 10);
+  ellipse(250-mouseX, 200-mouseY, 10, 10);
+}
+          </script>
+        </div>
+
+        <!-- help: four reflections -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse8" id="handle8" checked="checked">
+            <h2 class="handle">
+              <label for="handle8">Four Reflections Help</label>
+            </h2>
+
+            <div class="content">
+              <p>Here's how the four ellipses should look. Notice that the
+                orange ellipse moves with the pointer. A blue ellipse
+                reflects its vertical movement. A pink ellipse
+                reflects its sideways movement. You don't have to make the colors!<br />
+                <img src="../images/lesson4/p4fourreflections.gif" alt="four ellipses; the 1st moves with the mouse and the others reflect its movement sideways, vertically, or in both directions" />
+              <p>
+                The code below creates a third ellipse that
+                reflects the vertical movement of the pointer. <br />
+                <code>ellipse(mouseX, 200-mouseY, 10, 10);</code><br />
+                The number <code>200</code> is the height of the canvas.
+              </p>
+              <p>
+                The code below creates a fourth ellipse that
+                reflects the sideways movement of the pointer. <br />
+                <code>ellipse(250-mouseX, mouseY, 10, 10);</code><br />
+                The number <code>250</code> is the width of the canvas.
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+
+
+
+      <!-- ********************* 9. transparency ********************* -->
+
+
+      <div>
+
+        <h2>9. Transparency </h2>
+        <p class="tinkerHeadingTop">Tinker</p>
+        <p class="tinkerHeadingBottom">
+          Click <span class="btnPress">&#9654;Play</span>.
+          The ellipses appear hollow and faded. If you use your mouse or trackpad to move the shapes slowly, they get brighter.
+          <br class="tinkerNewLine" />
+          There are 2 new commands:<br />
+          <span style="display: inline-block; margin-left: 22px; text-indent: -22px;">&#9670;&emsp;<code>noFill()</code>
+            makes the <em>inside</em> of ellipses empty, or hollow.
+          </span>
+          <span style="display: inline-block; margin-left: 22px; text-indent: -22px;">&#9670;&emsp;<code>stroke(51, 100, 100, <span style="color: #b50000;">0.2</span>)</code>
+            now has a fourth argument. This argument makes the stroke (outline) <em>partially</em> transparent,
+            so it appears faded.
+            <br />
+          </span>
+          <br class="tinkerNewLine" />
+          Try these challenges:
+          <span class="tinkerBullet">In <code>stroke</code>, change the decimal <code>0.2</code> to
+            other decimals between 0 and 1. Find a decimal you like.
+          </span>
+          <span class="tinkerBullet">Change the stroke hue, or make it random.
+          </span>
+
+        </p>
+        <script type="text/p5" data-preview-width="250" data-height="360">
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(0, 100, 0);
+}
+
+function draw() {
+  noFill();
+  stroke(51, 100, 100, 0.2)
+  ellipse(mouseX, mouseY, 10, 10);
+  ellipse(250-mouseX, 200-mouseY, 10, 10);
+}
+        </script>
+        </div>
+
+        <!-- help: nofill & transparency -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse9" id="handle9" checked="checked">
+            <h2 class="handle">
+              <label for="handle9">Transparency Help</label>
+            </h2>
+
+            <div class="content">
+              <p>
+                For transparency, as the decimal approaches 1 the color is <em>less and less</em>
+                transparent. When transparency is 1, the color is not transparent at all.
+              </p>
+              <p>
+                As the decimal approaches 0, the color is <em>more and more</em>
+                transparent. When transparency is 0, the color is completely transparent,
+                so you can see completely through the shape and all you see is the background.
+              </p>
+              <p>
+                In this example, you made the stroke
+                transparent. But you can also make
+                the fill transparent.
+              <p>
+                Remember that to change the hue, you change the first argument
+                in the <code>stroke</code> command to a number between <code>0-360</code>.
+              </p>
+              <p>
+                To make the stroke a random hue, you can use this code:<br />
+                <code>stroke(random(360), 100, 100, 0.2)</code>
+              </p>
+              </div>
+          </section>
+
+        </div>
+
+
+
+
+
+      <!-- ********************* 10. make your own project ********************* -->
+
+
+        <div>
+
+          <h2>10. Make Your Own Project</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            To make and save your own project, you'll work in the <span class="accentuate">p5.js Web Editor</span>.
+            <span class="tinkerBullet">Copy the code below. You'll use it as a starter project.
+            </span>
+            <span class="tinkerBullet">Click this link to open the <a href="https://editor.p5js.org" target="_blank">p5.js Web Editor</a>
+              in another tab. A new project opens. If you haven't already signed into the
+              <span class="accentuate">p5.js Web Editor</span>, do so now.
+            </span>
+            <span class="tinkerBullet">Select all the code and press <span class="btnPress">Delete</span>
+              or <span class="btnPress">Backspace</span> to delete it.
+              Then paste the code you copied.
+              Rename the project "Reflections," or something similar.
+            </span>
+            <span class="tinkerBullet">Change the code to make an animation of your own.
+              Your animation should include two or more shapes like ellipses or rectangles
+              that reflect each other. If you need an idea, see the GIF image at the beginning of this lesson.
+            </span>
+            <span class="tinkerBullet">Have fun! 👏
+            </span>
+
+          </p>
+          <script type="text/p5" data-preview-width="250" data-height="360">
+function setup() {
+  createCanvas(250, 250);
+  colorMode(HSB);
+  background(0, 100, 0);
+}
+
+function draw() {
+  noFill();
+  stroke(195, 100, 100, 0.2);
+  ellipse(mouseX, mouseY, 6, 6);
+ }
+
+          </script>
+        </div>
+
+        <!-- intentionally empty -->
+        <div class="sidebar"></div>
+
+
+
+      </div> <!-- grid -->
+
+      <p class="nav">
+      <span class="item">
+        &larr; <a href="lesson3.html">Lesson 3</a>
+      </span>
+      <span class="item">
+        <a href="lesson5.html">Lesson 5</a> &rarr;
+      </span>
+      </p>
+
+
+      <!-- footer -->
+      <div class="row">
+        <div class="triple-column">
+          <div id="footer-placeholder">
+
+          </div>
+
+          <script>
+            $(function(){
+              $("#footer-placeholder").load("../../footer.html");
+            });
+          </script>
+
+      </div> <!-- contents -->
+    </div> <!-- wrapper -->
+
+
+    <script src="../script.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="../sketchui.js"></script>
+    <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+    <script src="https://kit.fontawesome.com/9ac34343ed.js" crossorigin="anonymous"></script>
+  </body>
+</html>

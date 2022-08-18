@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Lesson 3</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Salsa&display=swap" rel="stylesheet">
+
+    <!-- styles -->
+    <!-- from https://creative-coding.decontextualize.com/ -->
+    <link href="../../styles/poole.css" rel="stylesheet" type="text/css" />
+
+    <!-- processing -->
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      /* disable cache so menu propagates appropriately */
+      $.ajaxSetup({
+          cache: false
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="contents">
+
+        <!-- ********************* page intro ********************* -->
+
+        <div>
+          <h1>Lesson 3</h1>
+          <h2>Random Shapes</h2>
+          <p class="nav"><a href="index.html">&larr; Back to Home</a></p>
+          <p>In this lesson, you'll make shapes that change position, color, and size randomly.</p>
+          <p><img src="../images/lesson3/p3randomshapes.gif" style="width: 40%;" alt="animated shapes that change color, size and position"/></p>
+        </div>
+
+
+      <!-- ********************* 1. createCanvas + background ********************* -->
+
+      <!-- tinker: createCanvas + background -->
+
+      <div class="grid">
+
+        <div>
+
+          <h2>1. The Canvas</h2>
+  <!-- old colors: #eb3467, #e6006b; -->
+          <p>
+            To begin learning <span class="accentuate">p5.js</span>, you'll tinker in little windows
+            like the ones below. You can't break anything, so be adventurous!
+          </p>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span> in the <span class="accentuate">p5.js</span> window below.
+            You'll see a black area called the <em>canvas</em> to the right of the code.
+            <span class="tinkerBullet">Let's explore the 3 numbers &mdash; <code>250</code>, <code>200</code>, and <code>0</code>.
+              Change them one at a time, and click <span class="btnPress">&#9654;Play</span> after each change.
+              <em>Hint:</em> Use numbers between 0 and 200, for now.
+            </span>
+            <span class="tinkerBullet">What does each number do?</span>
+            <span class="tinkerBullet">What does the command <span class="accentuate">createCanvas</span> do?
+             What about <span class="accentuate">background</span>?
+           </span>
+            <span class="tinkerBullet">You can learn more about these commands by clicking <span class="accentuate">Canvas Help</span> at the right.</span>
+          </p>
+          <script type="text/p5" data-preview-width="250">
+createCanvas(250, 200);
+background(0);
+
+          </script>
+        </div>
+
+        <!-- help: createCanvas + background -->
+
+        <div class="sidebar">
+
+          <!-- collapsible from https://codepen.io/markcaron/pen/RVvmaz -->
+          <section class="accordion">
+            <input type="checkbox" name="collapse" id="handle1" checked="checked">
+            <h2 class="handle">
+              <label for="handle1">Canvas Help</label>
+            </h2>
+
+            <div class="content">
+              <p><code>createCanvas</code> defines the width and height of the <em>canvas</em>, the drawing area that you see after you click <span class="btnPress">&#9654;Play</span>.
+                The width and height are measured in <em>pixels</em>.
+                A pixel is the smallest dot that the screen can show.
+                Each pixel is about 1/100 inch wide and tall. This whole canvas is 250 pixels wide and 200 pixels tall.</p>
+              <p><code>background</code> changes the color of the canvas.</p>
+              <p>The numbers in parentheses are called <em>arguments</em>, and they change how commands work.
+              For example, <code>background(0)</code> creates black and <code>background(255)</code> creates white. Arguments between <code>0</code> and <code>255</code> produce gray, with lighter grays as arguments get bigger.
+              </p>
+              <p>When you click Click <span class="btnPress">&#9654;Play</span>, we say that you <em>run</em> the script.</p>
+              <p>If things get messed up after you make changes, you can restore the starting code by clicking <span class="btnPress">Revert</span>,
+              which appears after you make changes.</p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- ********************* 2. mistakes ********************* -->
+
+        <!-- tinker: mistakes -->
+
+        <div>
+          <h2>2. Mistakes</h2>
+          <p class="tinkerHeadingTop">
+            Tinker
+          </p>
+          <p class="tinkerHeadingBottom">
+            Let's make some mistakes on purpose. They'll help us learn how the code works.
+            <span class="tinkerBullet">Try deleting the comma between the numbers in <code>createCanvas</code>. Then click <span class="btnPress">&#9654;Play</span>.  What happens?</span>
+            <span class="tinkerBullet">Click <span class="btnPress">Revert</span> to reset. Delete a parenthesis ( ) and click <span class="btnPress">&#9654;Play</span>. What happens?</span>
+            <span class="tinkerBullet">Click <span class="btnPress">Revert</span> to reset. Add a space between <code>create</code> and <code>Canvas</code>.
+              Then click <span class="btnPress">&#9654;Play</span>. What happens?
+            </span>
+            <span class="tinkerBullet">Write <code>createcanvas</code> in lowercase letters.
+              Then click <span class="btnPress">&#9654;Play</span>. What happens?
+            ``</span>
+          </p>
+          <script type="text/p5" data-preview-width="300">
+createCanvas(250, 300);
+background(0);
+
+          </script>
+        </div>
+
+        <!-- help: mistakes -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse2" id="handle2" checked="checked">
+            <h2 class="handle">
+              <label for="handle2">Mistakes Help</label>
+            </h2>
+            <div class="content">
+              <p>You must write commands and punctuation <em>exactly</em> as <span class="accentuate">p5.js</span> expects.
+              Otherwise you'll see error messages. The error messages aren't very helpful,
+              so you'll often have to figure out by yourself how to fix things. :-)</p>
+              <p>Since most errors are caused by mistakes in spelling or punctuation, check them carefully whenever you see an error message.</p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- ********************* 3. color ********************* -->
+
+        <!-- tinker: color -->
+
+        <div>
+          <h2>3. Color</h2>
+          <p>Let's add color to our drawing!</p>
+          <p class="tinkerHeadingTop">
+            Tinker
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            You'll see a yellow background. It's created by the commands
+            <code>colorMode(HSB)</code>
+            and <code>background(51, 100, 100)</code>.
+            <br class="tinkerNewLine" />
+            Follow these steps to investigate colors and add your own!
+            <span class="tinkerBullet">Go to <a href="https://codepen.io/HunorMarton/details/eWvewo" target="_blank">HSB Color Picker</a> in a new tab.</span>
+            <span class="tinkerBullet">You'll see 3 sliders. Move them to change colors. Find a color you like!</span>
+            <span class="tinkerBullet">Each slider is represented by a number.
+              Type the numbers one at a time, in order, into the <code>background</code> command below.
+              Make sure there are commas between each number. Don't include &deg; and % symbols.
+              Remember to click <span class="btnPress">&#9654;Play</span>. 🙂</span>
+            <span class="tinkerBullet" style="margin-bottom: 13px;">You can learn more about these ideas by clicking <span class="accentuate">Color Help</span> at the right.</span>
+
+          </p>
+          <script type="text/p5" data-preview-width="300">
+createCanvas(250, 200);
+colorMode(HSB);
+background(51, 100, 100);
+
+          </script>
+
+        </div>
+
+        <!-- help: color -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse3" id="handle3" checked="checked">
+            <h2 class="handle">
+              <label for="handle3">Color Help</label>
+            </h2>
+            <div class="content">
+              <p>
+                At <a href="https://codepen.io/HunorMarton/details/eWvewo" target="_blank">HSB Color Picker</a>,
+                you'll see 3 numbers labeled <em><u>H</u>ue, <u>S</u>aturation,</em> and <em><u>B</u>rightness.</em>
+                These 3 qualities, taken together, create a color.
+              </p>
+              <p>
+                Hue is the basic color &mdash; red, gold, turquoise, and so on.
+                It is represented as degrees around a color circle. For example, our yellow is at 51&deg;.
+                Since there are 360 degrees in a circle, there are 360 possible hues.
+              </p>
+              <p>
+                Saturation is the intensity of the color.
+                It is represented as a percentage, with 100% meaning the greatest intensity and 0% meaning
+                the least intensity (which creates white).
+              </p>
+              <p>
+                Brightness is the shade or amount of black mixed into color.
+                It is represented as a percentage, with 100% meaning
+                no black and 0% meaning all black.
+              </p>
+              <p>
+                Here' are 3 common background colors, as examples:<br />
+                <code>background(0, 100, 100);</code> &larr; red<br />
+                <code>background(0, 0, 100);</code> &larr; white<br />
+                <code>background(0, 100, 0);</code> &larr; black<br />
+              </p>
+              <p>
+                In the <code>colorMode</code> command, the letters <code>HSB</code> must be capitalized.
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- ********************* 4. ellipse ********************* -->
+
+        <!-- tinker: ellipse -->
+
+        <div>
+          <h2>4. Ellipse</h2>
+          <p>Finally, let's draw a shape! We'll add an ellipse, or oval.</p>
+
+          <p class="tinkerHeadingTop">
+            Tinker
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            You'll see a white ellipse (oval) created by the <code>ellipse(150, 100, 50, 35)</code> command.
+            <br class="tinkerNewLine">
+            Try these challenges:
+            <span class="tinkerBullet">  Explore the 4 numbers in <code>ellipse!</code> Change them one at a time, clicking <span class="btnPress">&#9654;Play</span> after each change.
+              What does each number do? <em>Hint:</em> Use numbers between 0 and 200, for now.</span>
+            <span class="tinkerBullet">Can you make a circle?</span>
+            <span class="tinkerBullet">Can you make an oval that touches all the edges?</span>
+            <span class="tinkerBullet">Can you make TWO ellipses? more?</span>
+          </p>
+          <script type="text/p5" data-preview-width="300">
+createCanvas(250, 200);
+colorMode(HSB);
+background(51, 100, 100);
+ellipse(150, 100, 50, 35);
+
+          </script>
+
+        </div>
+
+        <!-- ellipse: help -->
+
+        <div class="sidebar">
+          <section class="accordion">
+            <input type="checkbox" name="collapse4" id="handle4" checked="checked">
+            <h2 class="handle">
+              <label for="handle4">Ellipse Help</label>
+            </h2>
+            <div class="content">
+              <strong>Location on Screen</strong>
+              <p>
+                In <code>ellipse(150, 100, 50, 35)</code>,
+                <span style="color: blue;">the first number, <code>150</code>, is the ellipse's
+                distance from the left edge.</span> <span style="color: red;">The second number, <code>100</code>,
+                is its distance from the top.</span>
+              </p>
+              <p>
+                Here's a picture of the ellipse and distances.
+                <br class="tinkerNewLine">
+                <img style="align: center;" src="../images/lesson2/p2coordinatesystemlabels.png" alt="shows a canvas with a red ellipse at horizontal position (x-positiona) 150 pixels from the left edge and vertical position (y-position) 100 pixels from the top." />
+                These distances are so helpful for placing images on screen that we give them a special name: <em>coordinates</em>.
+                A shape's distance from the left edge is called its <span style="color: blue;"><em>x-</em>coordinate</span>.
+                Its distance from the top is called its <span style="color: red;"><em>y-</em>coordinate</span>.
+                <br class="tinkerNewLine">
+                We write the coordinates like this: <br />
+                <span style="color: blue;">150</span>, <span style="color: red;">100</span><br />
+                The <em>x-</em>coordinate is always first, followed by the <em>y-</em>coordinate.
+                The two coordinates are separated by a comma.
+              </p>
+              <strong>Ellipse</strong>
+              <p>Here are the arguments to <code>ellipse</code>:<br />
+              <img src="../images/lesson2/p2ellipsesyntax.png" alt="In ellipse(150, 100, 50, 35), 150 is the x-coordinate, 100 is the y-coordinate, 50 is the width, and 35 is the height." /></p>
+              <p>Remember to write the arguments in order, separated by commas, and enclosed in parentheses.</p>
+              <p>Add this command to make a second ellipse. Of course there are many other possibilities!
+                Feel free to change the arguments to make an ellipse of your own. <br />
+                <code>ellipse(45, 165, 10, 40);</code>
+              </p>
+            </div>
+          </section>
+        </div>
+
+
+        <!-- ********************* 5. color the ellipse ********************* -->
+
+        <!-- tinker: color the ellipse -->
+
+        <div>
+          <h2>5. Color the Ellipse</h2>
+          <p class="tinkerHeadingTop">
+            Tinker
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>.
+            The ellipse has changed color, and it has a thick outline as well.
+            These changes come from the <code>fill</code>, <code>stroke</code>, and <code>strokeWeight</code> commands.
+            <br class="tinkerNewLine">
+            Try these challenges:
+            <span class="tinkerBullet">Change numbers in the <code>fill</code> command and then click <span class="btnPress">&#9654;Play</span>.
+              What does the <code>fill</code> command do?
+            </span>
+            <span class="tinkerBullet">Change numbers in the <code>stroke</code> command and then click <span class="btnPress">&#9654;Play</span>.
+              What does the <code>stroke</code> command do?
+            </span>
+            <span class="tinkerBullet">Change number in the <code>strokeWeight</code> command and then click <span class="btnPress">&#9654;Play</span>.
+              What does the <code>strokeWeight</code> command do?
+            </span>
+            <span class="tinkerBullet">Use cut and paste to move the <code>fill</code> command
+              so it comes <em>after</em> <code>ellipse</code>. Then click <span class="btnPress">&#9654;Play</span>.
+              Why does <code>fill</code> no longer make the ellipse red?
+            </span>
+          </p>
+          <script type="text/p5" data-preview-width="300">
+createCanvas(250, 200);
+colorMode(HSB);
+background(51, 100, 100);
+fill(5, 100, 100);
+stroke(0, 100, 0);
+strokeWeight(6);
+ellipse(150, 100, 50, 35);
+
+          </script>
+        </div>
+
+        <!-- help: color the ellipse  -->
+
+        <div class="sidebar">
+          <section class="accordion">
+            <input type="checkbox" name="collapse5" id="handle5" checked="checked">
+            <h2 class="handle">
+              <label for="handle5">Color the Ellipse Help</label>
+            </h2>
+            <div class="content">
+              <p><code>fill(5, 100, 100)</code> makes the inside of the ellipse red.</p>
+              <p><code>stroke(0, 100, 0)</code> makes the border around the ellipse black.</p>
+              <p><code>strokeWeight(6)</code> changes the thickness of the border, measured in pixels.</p>
+              <p>The computer runs commands in order, from top to bottom.
+                That means you must place the <code>fill</code>, <code>stroke</code>, and <code>strokeWeight</code>
+                commands <em>before</em> the shape whose color you're changing.
+                Otherwise the colors won't work at all!
+              </p>
+              <p><em>Hint:</em> Use the <a href=
+                "https://codepen.io/HunorMarton/details/eWvewo" target="_blank">HSB Color Picker</a> to choose colors. 😀</p>
+            </div>
+          </section>
+        </div>
+
+
+        <!-- ********************* 6. random gray ********************* -->
+
+        <!-- tinker: random gray -->
+
+        <div>
+          <h2>6. Random Gray Backgrounds</h2>
+          <p class="tinkerHeadingTop">
+            Tinker
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>, <em>several times.</em>
+            Each time you click <span class="btnPress">&#9654;Play</span>, the background changes to a different shade of gray.
+            <br class="tinkerNewLine">
+            Try these challenges:
+            <span class="tinkerBullet">Change <code>225</code> to 100.
+              Click <span class="btnPress">&#9654;Play</span> <em>several times.</em> What happens?
+              Why?
+            </span>
+            <span class="tinkerBullet">To learn more about these ideas, click <span class="accentuate">Random Gray Backgrounds Help</span> at the right.</span>
+          </p>
+          <script type="text/p5" data-preview-width="300">
+createCanvas(250, 200);
+background( random(225) );
+
+          </script>
+        </div>
+
+        <!-- help: random gray -->
+
+        <div class="sidebar">
+          <section class="accordion">
+            <input type="checkbox" name="collapse6" id="handle6" checked="checked">
+            <h2 class="handle">
+              <label for="handle6">Random Gray Help</label>
+            </h2>
+            <div class="content">
+              <p>
+                When we tuck <code>random(225)</code> into <code>background</code>, the punctuation gets a little tricky!
+                We end up with four parentheses, like this:
+              </p>
+              <p>
+                <img src="../images/lesson2/p2randombackground-225.png" alt="image showing background(random(225))">
+              </p>
+              <p>
+                The computer always reads the innermost parentheses first.
+                So the computer chooses a random number from <code>0-225</code>.
+                Then it gives this random number to the <code>background</code> command, producing a random gray color.
+              </p>
+              <p>
+                It's helpful to understand that the random numbers may not seem to change
+                every time you click <span class="btnPress">&#9654;Play</span>.
+                That's because it's possible for the computer to pick the same random number twice in a row,
+                just like you can get "heads" or "tails" twice in a row when you randomly flip coins.
+              </p>
+              <p>
+                Suppose you use a smaller number than <code>225</code> in the <code>random</code> command, like this:<br />
+                <code>background( random(100) )</code><br />
+                Then the computer will choose a random number between <code>0-100</code>, and
+                you'll see random grays that are darker. Remember that lower numbers produce darker grays.
+              </p>
+              <p>
+                When <code>background</code> contains a single number, you see a shade of gray
+                (including black and white). But when <code>background</code> contains 3 numbers &mdash;
+                representing hue, saturation, and brightness &mdash; you see colors.
+              </p>
+            </div>
+          </section>
+        </div>
+
+
+        <!-- ********************* 7. random color ********************* -->
+
+        <!-- tinker: random color -->
+
+        <div>
+          <h2>7. Random Color</h2>
+          <p class="tinkerHeadingTop">
+            Tinker
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>, <em>several times.</em>
+            Each time you click, the background changes color randomly.
+            The random colors come from the command:<br />
+            <code>background( random(360), 100, 100 )</code><br />
+            which randomly changes hue.
+            (If you can't see the whole <code>background</code> command in the code below,
+            click <span class="btnPress">&#9632; Stop</span> to show the full code window.)
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">Make the <code>fill</code> random.</span>
+            <span class="tinkerBullet">Make the <code>stroke</code> random.</span>
+            <span class="tinkerBullet">Make the <code>strokeWeight</code> random.</span>
+            <span class="tinkerBullet">And most fun of all, change the ellipse position and size randomly!</span>
+          </p>
+          <script type="text/p5" data-preview-width="300">
+createCanvas(250, 200);
+colorMode(HSB);
+background( random(360), 100, 100 );
+fill(5, 100, 100);
+stroke(0, 100, 0);
+strokeWeight(6);
+ellipse(150, 100, 50, 35);
+
+          </script>
+        </div>
+
+                <!-- random color help -->
+
+        <div class="sidebar">
+          <section class="accordion">
+            <input type="checkbox" name="collapse7" id="handle7" checked="checked">
+            <h2 class="handle">
+              <label for="handle7">Random Color Help</label>
+            </h2>
+            <div class="content">
+                <p>
+                Notice that in <br />
+                <code>background( random(360), 100, 100 );</code> <br />
+                we chose a random number <em>only</em> for the first number,
+                the hue (the basic color). We didn't randomize saturation or brightness.
+                For the random hue, we chose randomly among the 360 possibilities.
+              </p>
+              <p>But you could randomize saturation and brightness, too. :-)
+                You could write a command like this:<br />
+                <code>background( random(360), random(100), random(100) );</code><br />
+                <br />
+                <img src="../images/lesson2/p2randombackgroundall.png" alt="image showing the code: background( random(255), random(100), random(100) )" />
+                There are 100 possible saturations and 100 possible brightness values,
+                and we randomly choose one of them.
+              </p>
+              <p>
+                You can randomize <code>stroke</code> and <code>fill</code> as well.
+                Make any changes that create colors you like!
+              </p>
+              <p>
+                The argument to <code>strokeWeight</code> can also be random.
+                See if you can figure that out yourself!
+              </p>
+            </div>
+          </section>
+        </div>
+
+
+        <!-- ********************* 8. setup() and draw() ********************* -->
+
+        <!-- tinker: setup and draw -->
+
+        <div>
+          <h2>8. setup() and draw()</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span>. You'll see dozens of ellipses!
+            Where did they come from?
+            <br class="tinkerNewLine" />
+            Notice that the script has been divided into two sections called
+            <code>function setup()</code> and <code>function draw()</code>.
+            These two sections change the order in which the commands run.
+            Here's how it works.
+            <br class="tinkerNewLine">
+            When you click <span class="btnPress">&#9654;Play</span>, <span class="accentuate">p5.js</span>
+            looks for <code>function setup()</code> and runs any commands it finds there <span class="accentuate">once</span>.
+            Then it looks for <code>function draw()</code> and runs any commands it finds there
+            <span class="accentuate">over and over</span>, endlessly
+            &mdash; in this case creating infinite ellipses at random positions. Magic!
+            <br class="tinkerNewLine" />
+            Try these challenges:
+            <span class="tinkerBullet">Change the <code>ellipse</code> command to draw ellipses with random sizes.</span>
+            <span class="tinkerBullet">Draw randomly-colored ellipses by adding <code>fill</code>,
+            <code>stroke</code>, and <code>strokeWeight</code> commands in <code>function draw()</code>.
+            Be sure to add them <em>before the <code>ellipse</code> command</em>. </span>
+          </p>
+          <script type="text/p5" data-preview-width="300">
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(51, 100, 100);
+}
+
+function draw() {
+  ellipse(random(250), random(200), 10, 10);
+}
+
+
+          </script>
+        </div>
+
+        <!-- help: setup() and draw() -->
+
+        <div class="sidebar">
+          <section class="accordion">
+            <input type="checkbox" name="collapse8" id="handle8" checked="checked">
+            <h2 class="handle">
+              <label for="handle8"><code>setup()</code> and <code>draw()</code> Help</label>
+            </h2>
+            <div class="content">
+              <p>A <em>function</em> is a set of commands that work together to do a specific task.
+                <code>function setup()</code> sets up the drawing by running commands once before
+                the drawing appears. Then
+                <code>function draw()</code> draws the sketch over and over, endlessly.
+              </p>
+              <p>
+                As you write code, it's helpful to know rules about
+                <em>syntax</em>. Syntax, pronounced
+                SIN-tax, means the arrangement of letters and symbols in commands.
+                If you use correct syntax, the computer will understand what you want to do.
+                If you use incorrect syntax, the computer will show an error message and stop drawing.
+              </p>
+              <p>
+                Here are some important syntax rules:
+                <ul>
+                  <li>
+                    Most commands end with <code>;</code><br />
+                    which is called a <em>semicolon</em>.
+                  </li>
+                  <li>You can include extra space before or after commands or numbers.
+                    For example, both of the following commands have acceptable syntax: <br />
+                    <code>background ( 51,  100,  100 );</code><br />
+                    <code>&nbsp;&nbsp;background(51,100,100);</code>
+                  </li>
+                  <li>
+                    You can include extra blank lines between commands, usually added for readability.
+                  </li>
+                  <li>There can be as many commands in <code>function setup()</code> and <code>function draw()</code> as you like,
+                    but they all must be written between <code>{</code> and <code>}</code>.
+                    You can think of <code>{ }</code> like bookends, with all the commands lined up between them like books.
+                  </li>
+                </ul>
+              </p>
+            </div>
+          </section>
+        </div>
+
+
+        <!-- ********************* 9. more mistakes ********************* -->
+
+        <!-- tinker: more mistakes -->
+
+        <div>
+          <h2>9. More Mistakes!</h2>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Let's make some more mistakes on purpose. They'll help us learn about <code>function setup()</code> and <code>function draw()</code>.
+            To cut and paste, use keyboard shortcuts (because right-clicking won't work).
+            If you need help with the keyboard shortcuts,
+            click <span class="accentuate">More Mistakes Help</span> at the right.
+            <br class="tinkerNewLine">
+            Try these challenges:
+            <span class="tinkerBullet">Delete a curly brace { or }. Click <span class="btnPress">&#9654;Play</span>. What happens?</span>
+            <span class="tinkerBullet">Click <span class="btnPress">Revert</span> to reset. Then delete the word <code>function</code>. Click <span class="btnPress">&#9654;Play</span>. What happens?</span>
+            <span class="tinkerBullet">Click <span class="btnPress">Revert</span> to reset. Then delete the () after <code>function setup</code> or <code>function draw</code>. Click <span class="btnPress">&#9654;Play</span>. What happens?</span>
+          </p>
+          <script type="text/p5" data-preview-width="300">
+function setup() {
+  createCanvas(250, 200);
+  colorMode(HSB);
+  background(51, 100, 100);
+}
+
+function draw() {
+  ellipse(random(250), random(200), 10, 10);
+}
+
+          </script>
+        </div>
+
+        <!-- help: more mistakes -->
+
+        <div class="sidebar">
+
+          <section class="accordion">
+            <input type="checkbox" name="collapse9" id="handle9" checked="checked">
+            <h2 class="handle">
+              <label for="handle9">More Mistakes Help</label>
+            </h2>
+            <div class="content">
+              <p>To copy with the keyboard, press <span class="btnPress">ctrl+c</span> (or <span class="btnPress">cmd+c</span> on Macintosh computers).</p>
+              <p>To paste with the keyboard, press <span class="btnPress">ctrl+v</span> (or <span class="btnPress">cmd+v</span> on Macintosh computers).</p>
+              <p>Deleting any punctuation or the word <code>function</code> causes an error when you click <span class="btnPress">&#9654;Play</span>.</p>
+            </div>
+          </section>
+
+        </div>
+
+
+        <!-- ********************* 10. make your own ********************* -->
+
+        <div>
+
+          <h2>10. Make Your Own Project</h2>
+          <p style="font-size: 1.2rem; font-weight: 550; color: #E60060; border: 1px solid #e60060; padding: 0.25rem; margin-bottom: 0;">
+            Tinker
+          </p>
+          <p style="border-right: 1px solid #E60060; border-bottom: 1px solid #e60060; border-left: 1px solid #e60060; font-size: 0.8rem; padding: 0.25rem; margin-top: 0;">
+            Now you'll make a project of your own.
+            You'll need to use the <span class="accentuate">p5.js Web Editor</span> for your project
+            so you can save your work.
+            <span class="tinkerBullet">Click this link to open the <a href="https://editor.p5js.org" target="_blank">p5.js Web Editor</a>
+              in another tab. A new project opens. If you haven't already signed into the
+              <span class="accentuate">p5.js Web Editor</span>, do so now.
+            </span>
+            <span class="tinkerBullet">Copy the code below. You'll use it as a starter project.
+            </span>
+            <span class="tinkerBullet">In the <span class="accentuate">p5.js Web Editor</span>,
+            select all the code in the new project and press <span class="btnPress">Delete</span>
+              or <span class="btnPress">Backspace</span> to delete it.
+            </span>
+            <span class="tinkerBullet">Paste the code you copied.
+            </span>
+            <span class="tinkerBullet">Change the code to make an animation of your own, similar to the GIF at the beginning of this lesson.
+              Be sure to explore the new shape called <code>rect</code>
+              as well as <code>ellipse</code>, and
+              include random effects, too.
+            </span>
+            <span class="tinkerBullet">Have fun! 👏
+            </span>
+          </p>
+          <script type="text/p5" data-preview-width="300">
+function setup() {
+  createCanvas(400, 400);
+  colorMode(HSB);
+  background(51, 100, 100);
+}
+
+function draw() {
+  ellipse(300, 300, 10, 10);
+  rect(200, 200, 75, 150);
+}
+        </script>
+      </div>
+
+        <!-- intentionally blank: no help for make your own project -->
+
+        <div></div>
+
+      </div> <!-- grid -->
+
+      <p class="nav">
+      <span class="item">
+        &larr; <a href="lesson2.html">Lesson 2</a>
+      </span>
+      <span class="item">
+        <a href="lesson4.html">Lesson 4</a> &rarr;
+      </span>
+      </p>
+
+      <!-- footer -->
+      <div class="row">
+        <div class="triple-column">
+          <div id="footer-placeholder">
+
+          </div>
+
+          <script>
+            $(function(){
+              $("#footer-placeholder").load("../../footer.html");
+            });
+          </script>
+
+      </div> <!-- contents -->
+    </div> <!-- wrapper -->
+
+
+    <script src="../script.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="../sketchui.js"></script>
+    <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+    <script src="https://kit.fontawesome.com/9ac34343ed.js" crossorigin="anonymous"></script>
+  </body>
+</html>

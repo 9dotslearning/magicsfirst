@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>TEST Lesson 3</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Salsa&display=swap" rel="stylesheet">
+
+    <!-- styles -->
+    <!-- from https://creative-coding.decontextualize.com/ -->
+    <link href="../../styles/poole.css" rel="stylesheet" type="text/css" />
+
+    <!-- processing -->
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="wrapper">
+
+      <!-- ********************* page intro ********************* -->
+
+      <div>
+        <h1>TEST Lesson 3</h1>
+        <h2>Random Shapes</h2>
+        <p class="nav"><a href="../index.html">&larr; Back to Home</a></p>
+        <p>In this lesson, you'll make shapes that change position, color, and size randomly.</p>
+      </div>
+
+
+      <!-- ********************* 1. createCanvas + background ********************* -->
+
+      <!-- tinker: createCanvas + background -->
+
+      <div class="grid">
+
+        <div>
+
+          <h2>1. The Canvas</h2>
+  <!-- old colors: #eb3467, #e6006b; -->
+          <p>
+            To begin learning <span class="accentuate">p5.js</span>, you'll tinker in little windows
+            like the ones below. You can't break anything, so be adventurous!
+          </p>
+          <p class="tinkerHeadingTop">Tinker</p>
+          <p class="tinkerHeadingBottom">
+            Click <span class="btnPress">&#9654;Play</span> in the <span class="accentuate">p5.js</span> window below.
+            You'll see a black area called the <em>canvas</em> to the right of the code.
+            <span class="tinkerBullet">Let's explore the 3 numbers &mdash; <code>250</code>, <code>200</code>, and <code>0</code>.
+              Change them one at a time, and click <span class="btnPress">&#9654;Play</span> after each change.
+              <em>Hint:</em> Use numbers between 0 and 200, for now.
+            </span>
+            <span class="tinkerBullet">What does each number do?</span>
+            <span class="tinkerBullet">What does each command do?</span>
+            <span class="tinkerBullet">You can learn more about these commands by clicking <span class="accentuate">Canvas Help</span> at the right.</span>
+          </p>
+          <script type="text/p5" data-preview-width="250">
+createCanvas(250, 200);
+background(0);
+
+          </script>
+        </div>
+
+        <!-- help: createCanvas + background -->
+
+        <div class="sidebar">
+
+          <!-- collapsible from https://codepen.io/markcaron/pen/RVvmaz -->
+          <section class="accordion">
+            <input type="checkbox" name="collapse" id="handle1" checked="checked">
+            <h2 class="handle">
+              <label for="handle1">Canvas Help</label>
+            </h2>
+
+            <div class="content">
+              <p><code>createCanvas</code> defines the width and height of the <em>canvas</em>, the drawing area that you see after you click <span class="btnPress">&#9654;Play</span>.
+                Its size is measured in <em>pixels</em>.
+                A pixel is the smallest dot that the screen can show; it's about 1/100 inch wide and tall. This canvas is 250 pixels wide and 200 pixels tall.</p>
+              <p><code>background</code> changes the color of the canvas.</p>
+              <p>The numbers in parentheses are called <em>arguments</em>, and they change how commands work.
+              For example, <code>background(0)</code> creates black and <code>background(255)</code> creates white. Arguments between 0 and 255 produce gray, with lighter grays as arguments get bigger.
+              </p>
+              <p>When you click Click <span class="btnPress">&#9654;Play</span>, we say that you <em>run</em> the script.</p>
+              <p>If things get messed up after you make changes, you can restore the starting code by clicking <span class="btnPress">Revert</span>.</p>
+            </div>
+          </section>
+
+        </div>
+
+      </div> <!-- grid -->
+
+      <p class="nav">
+      <span class="item">
+        &larr; <a href="lesson2.html">Lesson 2</a>
+      </span>
+      <span class="item">
+        <a href="lesson4.html">Lesson 4</a> &rarr;
+      </span>
+      </p>
+
+    </div> <!-- wrapper -->
+
+    <!--
+    <script src="../script.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="../sketchui.js"></script>
+    -->
+    <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+    <script src="https://kit.fontawesome.com/9ac34343ed.js" crossorigin="anonymous"></script>
+  </body>
+</html>

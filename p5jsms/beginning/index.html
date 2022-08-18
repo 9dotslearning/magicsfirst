@@ -1,0 +1,154 @@
+<!--
+  TO DO AFTER UPLOADING SITE:
+  1) Remove navbar.html from this tree and re-point jquery for navbar.html to main site?
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>lessons for beginners</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Salsa&display=swap" rel="stylesheet">
+
+    <!-- from https://creative-coding.decontextualize.com/ -->
+    <link href="../../styles/poole.css" rel="stylesheet" type="text/css" />
+    <link href="../../styles/syntax" rel="stylesheet" type="text/css" />
+
+    <!-- styles -->
+
+    <!-- processing -->
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      /* disable cache so menu propagates appropriately */
+      $.ajaxSetup({
+          cache: false
+      });
+    </script>
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      <div class="contents">
+        <!--Navigation bar
+        <div id="nav-placeholder">
+
+
+        </div>
+
+        <script>
+        /* disable cache so it menu changes it propagates appropriately */
+        $.ajaxSetup({
+            cache: false
+        });
+        $(function(){
+          $("#nav-placeholder").load("navbar.html");
+        });
+        </script>
+
+        >>> end of Navigation bar-->
+
+
+<!-- manual navbar -->
+
+        <nav class="navbar">
+
+          <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+            <div class="menu">
+              <li><a href="/"><span class="logo">magiCSfirst</span></a></li>
+              <li><a href="../index.html"><span class="menu-selectedBranch">p5.js</span></a>
+              <li><a href="../../twine/">twine</a></li>
+              <!-- <li><a href="#">scratch</a></li> -->
+              <li><a href="../../about.html">about</a></li>
+              <li><a href="https://magicsfirst.com/blog/">blog</a></li>
+            </div>
+          </ul>
+        </nav>
+
+        <nav class="navbar2">
+
+          <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle2" />
+            <label for="checkbox_toggle2" class="hamburger">&#9776;</label>
+
+            <div class="menu">
+              <li><a href="../5minutes/index.html">p5.js in 5 minutes</a></li>
+              <li><span class="menu-selectedItem">lessons for beginners</span></li>
+            </div>
+          </ul>
+        </nav>
+
+
+
+        <!-- start of page -->
+          <h1><span class="accentuate">p5.js Lessons for Beginners</span></h1>
+          <p>
+            Here are some examples of what you'll make.</p>
+            <div class="grid-gallery">
+              <div class="grid-gallery-item1">
+                <img src="../images/lesson8/spiralsFinalGalaxy.gif" width="80%">
+              </div>
+              <div class="grid-gallery-item2">
+                <img src="../images/lesson4/reflections.gif" width="80%">
+              </div>
+              <div class="grid-gallery-item3">
+                <img src="../images/lesson7/spinsFinal2Lines.gif" width="80%">
+              </div>
+              <div class="grid-gallery-item4">
+                <img src="../images/lesson9/seaCOMPLETE.gif" width="80%">
+              </div>
+            </div>
+          <p>
+            <ul>
+              <li><a href="lesson1.html">Lesson 1: What's Computer Programming? What's Code?</a></li>
+              <li><a href="lesson2.html">Lesson 2: Create an Account</a></li>
+              <li><a href="lesson3.html">Lesson 3: Random Shapes</a></li>
+              <li><a href="lesson4.html">Lesson 4: Reflections</a></li>
+              <li><a href="lesson5.html">Lesson 5: Up or Down</a></li>
+              <li><a href="lesson6.html">Lesson 6: Back and Forth</a></li>
+              <li><a href="lesson7.html">Lesson 7: Spins</a></li>
+              <li><a href="lesson8.html">Lesson 8: Spirals</a></li>
+              <li><a href="lesson9.html">Lesson 9: Scenes</a></li>
+              <li><a href="lesson10.html">Lesson 10: Music</a></li>
+            </ul>
+          </p>
+
+          <!-- footer -->
+          <div class="row">
+            <div class="triple-column">
+              <div id="footer-placeholder">
+
+              </div>
+
+              <script>
+                $(function(){
+                  $("#footer-placeholder").load("../../footer.html");
+                });
+              </script>
+
+        </div> <!-- contents -->
+    </div> <!-- wrapper -->
+
+
+    <script src="script.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="sketchui.js"></script>
+    <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+    <script src="https://kit.fontawesome.com/9ac34343ed.js" crossorigin="anonymous"></script>
+
+    <!-- background animation -->
+    <script src="sketch-beginningp5js.js"></script>
+  </body>
+</html>

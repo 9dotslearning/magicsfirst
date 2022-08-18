@@ -1,5 +1,6 @@
 let cnv;
 let particles = [];
+let particleX = 18;
 let springs = [];
 let spacing = 20;
 let k = 0.1;
@@ -15,7 +16,7 @@ function setup() {
   cnv.style('z-index', '-1');
 
   for (let i = 0; i < 20; i++) {
-    particles[i] = new Particle(42, i * spacing);
+    particles[i] = new Particle(particleX, i * spacing);
     if (i != 0) {
       let a = particles[i];
       let b = particles[i-1];
@@ -40,7 +41,7 @@ function draw() {
 
   // for closed shape
   noFill();
-  stroke(242, 65, 242);
+  stroke(242, 65, 242, 100);
 
 
   beginShape();
@@ -131,13 +132,13 @@ class Spring {
   }
 
   show() {
-    stroke(4, 196, 217); // blue
+    stroke(4, 196, 217, 100); // blue
     // line(this.a.position.x, this.a.position.y, this.b.position.x, this.b.position.y);
 
-    fill(242, 65, 242);
-    ellipse(this.a.position.x, this.a.position.y, 4)
+    fill(242, 65, 242, 100);
+    ellipse(this.a.position.x, this.a.position.y, 4);
     noFill();
     ellipse(this.a.position.x, this.a.position.y, 24);
-
+print(this.a.position.x);
   }
 }

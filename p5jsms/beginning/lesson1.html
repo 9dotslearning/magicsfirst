@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Lesson 1</title>
+
+    <!-- from https://creative-coding.decontextualize.com/ -->
+    <!--
+    <link href="../styles/poole.css" rel="stylesheet" type="text/css" />
+    <link href="../stylessyntax" rel="stylesheet" type="text/css" />
+    -->
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Salsa&display=swap" rel="stylesheet">
+
+    <!-- styles -->
+    <link href="../../styles/poole.css" rel="stylesheet" type="text/css" />
+
+    <!-- processing -->
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      /* disable cache so menu propagates appropriately */
+      $.ajaxSetup({
+          cache: false
+      });
+    </script>
+
+  </head>
+
+  <body>
+    <div class="wrapper">
+
+      <!-- ********************* page intro ********************* -->
+      <div class="contents">
+
+        <div>
+          <h1>Lesson 1</h1>
+          <h2>What's Computer Programming? What's Code?</h2>
+          <p class="nav"><a href="index.html">&larr; Back to Home</a></p>
+        </div>
+
+        <div class="grid">
+
+          <div>
+              <h3>Computer Programming</h3>
+              <p><em>Computer programming</em> means telling a computer what you want it to do in a language it understands.</p>
+              <p>
+                Computers understand hundreds of languages &mdash; JavaScript, Python, Processing, Swift, C#, C++, and many more.
+                Each language has unique strengths.
+                The language you'll learn in these lessons, <span class="accentuate">p5.js</span>,
+                is especially good at making web-based creative projects that involve drawing and sounds,
+                but it has many other capabilities as well.
+              </p>
+              <p>
+                <span class="accentuate">p5.js</span> is closely related to several other languages.
+                It's a specialized version (called a <em>library</em>) of JavaScript, which
+                makes web pages that respond to clicks, mouse movements, time, date, location, and many other events.
+                In addition, <span class="accentuate">p5.js</span> is related to Processing
+                which, like  <span class="accentuate">p5.js</span>, makes creative projects.
+                But Processing projects are more difficult to create and change on the web,
+                so we'll focus on <span class="accentuate">p5.js</span> instead.
+              </p>
+
+              <h3>Code</h3>
+              <p>In these lessons, the words <em>code</em>, <em>program</em>, <em>script</em>, <em>sketch</em>, and <em>commands</em>
+                all mean the same thing &mdash; a series of instructions that tell a computer what to do.
+                Here's a typical <span class="accentuate">p5.js</span> sketch:
+              </p>
+              <p>
+                <code>
+                  createCanvas(250, 200);<br />
+                  background(0);
+                </code>
+              </p>
+              <p>
+                <code>createCanvas(250, 200)</code> creates a window where you see drawings, called the <em>canvas</em>.
+                <code>background(0)</code> paints the window black.
+                You'll learn more about these commands and many others in the lessons that follow, a little at a time.
+              </p>
+              <p>
+                When the computer actually performs these commands, we say that it <em>runs</em>, <em>executes</em>, or <em>plays</em> them.
+                Computers run one command at a time, in order. If the computer doesn't understand a command,
+                it usually stops and shows an error message; the commands after the error often don't run at all until you fix things.
+              </p>
+
+            </div>
+
+            <div class="sidebar" style="margin-top: -2rem;">
+              <section class="accordion">
+                <input type="checkbox" name="collapse" id="handle1" checked="checked">
+                <h2 class="handle">
+                  <label for="handle1">Important Ideas</label>
+                </h2>
+                <div class="content">
+                  <p><span class="accentuate">
+                    Computer programming</span> means telling a computer what you want it to do in a language it understands.
+                  </p>
+                  <p>
+                    The words <span class="accentuate">code</span>, <span class="accentuate">program</span>,
+                    <span class="accentuate">script</span>, <span class="accentuate">sketch</span>, and <span class="accentuate">commands</span>
+                      all mean the same thing &mdash; instructions that tell a computer what to do.
+                  </p>
+                  <p>
+                    When the computer actually performs the commands, we say that it <span class="accentuate">runs, executes,
+                    or plays<span> them.
+                  </p>
+                  <p>
+                    Computers run one command at a time, in order.
+                  </p>
+
+                </div>
+              </section>
+
+            </div> <!-- sidebar -->
+
+
+          </div> <!-- grid -->
+
+          <!-- bottom nav -->
+          <p class="nav">
+          <span class="item">
+            &larr; <a href="index.html">Home</a>
+          </span>
+          <span class="item">
+            <a href="lesson2.html">Lesson 2</a> &rarr;
+          </span>
+          </p>
+
+          <!-- footer -->
+          <div class="row">
+            <div class="triple-column">
+              <div id="footer-placeholder">
+
+              </div>
+
+              <script>
+                $(function(){
+                  $("#footer-placeholder").load("../../footer.html");
+                });
+              </script>
+
+        </div> <!-- contents -->
+      </div> <!-- wrapper -->
+
+    </body>
+
+
+    <script src="../script.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="../sketchui.js"></script>
+    <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+    <script src="https://kit.fontawesome.com/9ac34343ed.js" crossorigin="anonymous"></script>
+
+    <!-- background animation -->
+    <script src="sketch-placeholder.js"></script>
+
+
+  </body>
+</html>
