@@ -1,0 +1,187 @@
+<!-- TO DO!
+
+*** RETURN blog to local href in main nav AND updates ***
+
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Salsa&display=swap" rel="stylesheet">
+
+    <!-- styles -->
+    <!-- <link rel="stylesheet" type="text/css" href="styles/styles.css"> -->
+    <link rel="stylesheet" type="text/css" href="styles/poole.css">
+    <link rel="stylesheet" type="text/css" href="styles/top-override.css">
+
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      /* disable cache so menu propagates appropriately */
+      $.ajaxSetup({
+          cache: false
+      });
+    </script>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper" style="max-width: 1200px;">
+
+      <div class="contents">
+
+        <!--Navigation bar
+        <div id="nav-placeholder">
+
+        </div>
+
+        <script> DISABLING CACHE IS NOW IN THE HEADER
+        /* disable cache so it menu changes it propagates appropriately */
+        $.ajaxSetup({
+            cache: false
+        });
+
+        $(function(){
+          $("#nav-placeholder").load("navbar.html");
+        });
+        </script>
+        end of Navigation bar-->
+
+
+        <!-- nav bar -->
+        <nav class="navbar">
+          <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+            <div class="menu">
+              <li><span class="logo" style="color: #5e5a54;">magiCSfirst</span></li>
+              <li><a href="p5jsms/">p5.js</a></li>
+              <ul>
+                <li><a href="p5jsms/5minutes/">p5.js in 5 Minutes</a></li>
+              </ul>
+              <li><a href="twine/">twine</a></li>
+              <!-- <li><a href="#">scratch</a></li> -->
+              <li><a href="about.html">about</a></li>
+              <li><a href="https://magicsfirst.com/blog/">blog</a></li>
+            </div>
+          </ul>
+        </nav>
+
+
+
+        <!-- start of page -->
+        <h1 class="logo">
+          <img src="images/logo920x220-transparent-d.png" width="60%" />
+        </h1>
+
+        <div class="row">
+          <div class="triple-column">
+
+            <p style="font-size: 1rem; margin-bottom: 0.5rem;">
+              At <span class="logo">magiCSfirst</span>, you'll learn how to create art with computer science. You'll make interactive stories,
+              animated drawings, digital sounds, and more. And you'll make
+              that art from yet another art &mdash; the captivating art called coding.
+              <!--
+              <span class="logo">magiCSfirst</span> is about the arts you can create
+              with computer science &mdash; interactive stories, animated drawings,
+              and digital sounds &mdash; and also about the captivating art called coding
+              that creates them.
+              -->
+            </p>
+            <p style="font-size: 1rem; margin-bottom: 0.5rem;">
+              Written especially for beginners and particularly for tweens and teens,
+              our lessons focus on learning by tinkering.
+              They offer concrete examples and take small steps, with
+              plenty of time for experimentation and lots of room for invention.
+              Most importantly, in each lesson <a href="#">there's a little magic first, like this.</a>
+            </p>
+            <p>
+              Our blog unspools thoughts about teaching computer science,
+              with some successes and many more questions than answers.
+            </p>
+
+           <!-- 220728
+            <p style="font-size: 1rem; margin-bottom: 0.5rem;"><span class="logo">magiCSfirst</span>
+              offers online computer science lessons focused on the arts. You'll make
+              interactive stories, animated drawings, digital sound, and more.
+              To make these works of art,  you'll use
+              yet another art &mdash;
+              the captivating and expressive art called coding.
+            </p>
+            <p style="font-size: 1rem; margin-bottom: 0.5rem;">
+              Written especially for beginners and particularly for tweens and teens,
+              these lessons focus on learning by tinkering.
+              They offer concrete examples and take small steps, with
+              plenty of time for experimentation and lots of room for invention.
+            </p>
+            <p style="font-size: 1rem; margin-bottom: 0.5rem;">
+              And in each lesson <a href="#">there's a little magic first, like this.</a>
+            </p>
+          -->
+
+          </div>
+
+          <div class="column">
+
+            <!-- updates -->
+
+            <div style="margin-left: 1rem; border-left: 1px solid black;">
+
+              <p style="margin-left: 1rem; color: #aaa; font-size: 1rem; font-family: arial;">updates</p>
+              <ul style="font-size: 0.9rem;">
+                <li style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                  <a style="color: #4c9e9e; text-decoration: none;" href="p5jsms/5minutes/">
+                    p5.js in 5 minutes
+                  </a>
+                  <span style="color: #99a814;">video</span>
+                  <span style="color: #aaa;">added Aug 4</span>
+                </li>
+                <!-- &#x2022;&nbsp; -->
+
+                <li style="margin-left: 1.5rem;">
+                  <a style="color: #4c9e9e; text-decoration: none;" href="https://magicsfirst.com/blog/">
+                    the beginning
+                  </a>
+                  <span style="color: #99a814;">blog</span>
+                  <span style="color: #aaa;">added Aug 4</span>
+                </li>
+              </ul>
+
+            </div>
+
+          </div> <!-- column -->
+        </div> <!-- row -->
+
+        <!-- footer -->
+        <div class="row">
+          <div class="triple-column">
+            <div id="footer-placeholder">
+
+            </div>
+
+            <script>
+              $(function(){
+                $("#footer-placeholder").load("footer.html");
+              });
+            </script>
+
+        </div> <!-- footer row -->
+
+      </div> <!-- contents -->
+
+    </div> <!-- wrapper -->
+
+    <!-- background animation -->
+    <script src="sketch.js"></script>
+  </body>
+  </html>
