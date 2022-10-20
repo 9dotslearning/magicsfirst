@@ -32,7 +32,8 @@ function setup() {
 }
 
 function draw() {
-  background(242);
+  // background(242);
+  background(255);
 
   for (let s of springs) {
     s.update();
@@ -41,7 +42,8 @@ function draw() {
 
   // for closed shape
   noFill();
-  stroke(242, 65, 242, 100);
+  // stroke(242, 65, 242, 100); // 221020
+  stroke(242, 65, 242);
 
 
   beginShape();

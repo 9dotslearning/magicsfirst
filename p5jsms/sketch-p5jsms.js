@@ -37,7 +37,8 @@ function setup() {
 }
 
 function draw() {
-  background(242);
+  // background(242);
+  background(255);
 
   // for closed shape
   noFill();
@@ -124,8 +125,9 @@ class Spring {
     this.a = a;
     this.b = b;
 
-    let colors = [color(242, 56, 71, 60), color(139, 65, 242, 60), color(4, 157, 217, 60
-), color(4, 191, 123, 60), color(242, 203, 5, 60)];
+    // let colors = [color(242, 56, 71, 60), color(139, 65, 242, 60), color(4, 157, 217, 60
+// ), color(4, 191, 123, 60), color(242, 203, 5, 60)];
+    let colors = [color(242, 56, 71), color(139, 65, 242), color(4, 157, 217), color(4, 191, 123), color(242, 203, 5)];
     let whichColor = floor(random(colors.length));
     this.clr = colors[whichColor];
   }

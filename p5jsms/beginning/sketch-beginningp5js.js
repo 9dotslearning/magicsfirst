@@ -10,12 +10,15 @@ function setup() {
   cnv.position(0, 0);
   cnv.style('z-index', '-1');
   colorMode(HSB);
-  background(0, 0, 95);
+  // background(0, 0, 95);
+  background(0, 0, 100);
 }
 
 function draw() {
     noStroke();
-    fill(random(360), 100, 100, 0.3);
+    // fill(random(360), 100, 100, 0.3);
+    fill(random(360), 100, 100, 0.5);
+
     ellipse(mouseX % width, mouseY, 6, 6);
 
     ellipse(width - mouseX % width, y, 6, 6);
