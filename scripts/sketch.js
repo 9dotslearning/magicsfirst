@@ -5,6 +5,7 @@ let springs = [];
 let spacing = 20;
 let k = 0.1;
 let gravity;
+let linkClicked = false;
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
@@ -66,7 +67,9 @@ function draw() {
   endShape();
 
   // bottom particle
-  if (mouseIsPressed && mouseY > 150) { // exclude top menus
+  // if (mouseIsPressed && mouseY > 150) { // exclude top menus
+  if (linkClicked) { 
+    linkClicked = false;
     tail = particles[particles.length-1];
     tail.position.set(mouseX, mouseY);
     tail.velocity.set(0, 0);
@@ -74,6 +77,10 @@ function draw() {
   }
 
  }
+
+function setClick() {
+  linkClicked = true;
+}
 
 class Particle {
   constructor(x, y) {

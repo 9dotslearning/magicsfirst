@@ -1,3 +1,9 @@
+<!-- WHAT IS THIS? 
+
+*** Test for drop-down menus ***
+
+-->
+
 <!-- TO DO!
 
 *** RETURN blog to local href in main nav AND updates ***
@@ -10,19 +16,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Home TEST DROP-DOWN MENUS</title>
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Salsa&display=swap" rel="stylesheet">
 
-    <!-- mastodon verification -->
-    <link rel="me" href="https://qoto.org/@magicsfirst">
-
     <!-- styles -->
-    <!-- <link rel="stylesheet" type="text/css" href="styles/styles.css"> -->
+    <link rel="stylesheet" type="text/css" href="styles/menu.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css"> 
     <link rel="stylesheet" type="text/css" href="styles/poole.css">
-    <link rel="stylesheet" type="text/css" href="styles/index-main.css">
+    <link rel="stylesheet" type="text/css" href="styles/index-main.css"> 
 
     <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
     <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.js"></script>
@@ -38,9 +42,11 @@
 
   <body>
 
-    <div class="wrapper" style="max-width: 1200px;">
+
+      <div class="wrapper" style="max-width: 1200px;">
 
       <div class="contents">
+
 
         <!--Navigation bar
         <div id="nav-placeholder">
@@ -60,7 +66,41 @@
         end of Navigation bar-->
 
 
-        <!-- nav bar -->
+    
+        <nav id="nav" role="navigation"> <a href="#nav" title="Show navigation">Show navigation</a> <a href="#" title="Hide navigation">Hide navigation</a>
+          <ul class="clearfix">
+            <li><a href="">Home</a></li>
+            <!--
+            <li> <a href=""><span>Blog</span></a>
+                  <ul>
+                <li><a href="">Design</a></li>
+                <li><a href="">HTML</a></li>
+                <li><a href="">CSS</a></li>
+                <li><a href="">JavaScript</a></li>
+              </ul>
+            </li>
+            -->
+            <li><a href="p5jsms/"><span>Lessons</span>
+              <ul>
+                <li><a href="p5jsms/5minutes/">p5.js in 5 minutes</a></li>
+                <li><a href="p5jsms/beginning">beginning</a></li>
+              </ul>
+            </li>
+            <!-- 
+            <li> <a href=""><span>Work</span></a>
+                  <ul>
+                <li><a href="">Web Design</a></li>
+                <li><a href="">Typography</a></li>
+                <li><a href="">Front-End</a></li>
+              </ul>
+            </li>
+            -->
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://magicsfirst.com/blog/">Blog</a></li>
+          </ul>
+        </nav>
+
+        <!-- nav bar 
         <nav class="navbar">
           <ul class="nav-links">
             <input type="checkbox" id="checkbox_toggle" />
@@ -68,19 +108,21 @@
 
             <div class="menu">
               <li><span class="logo" style="color: #5e5a54;">magiCSfirst</span></li>
-              <li><a href="p5jsms/5minutes/">p5.js in 5 minutes</a></li>
-              <li><a href="p5jsms/beginning">p5.js in 10 lessons</a></li>
-              <li><a href="youtube.html">YouTube</a></li>
-              <!--
+              <li><a href="p5jsms/">lessons</a></li>
+              -->
+
+              <!-- // was here before
               <li><a href="twine/">twine</a></li>
               <li><a href="scratch/">scratch</a></li>
-              -->
+              // was here before --> 
+
+              <!--
               <li><a href="about.html">about</a></li>
               <li><a href="https://magicsfirst.com/blog/">blog</a></li>
             </div>
           </ul>
         </nav>
-
+        -->   
 
 
         <!-- start of page -->
@@ -94,7 +136,7 @@
 
             <p style="font-size: 1rem; margin-bottom: 0.5rem;">
               Create computer-generated images and digital sounds 
-              through the art of coding in a language called p5.js.
+              through the art of coding.
             </p>
             
             <p>
@@ -124,11 +166,7 @@
 
           <div class="column">
             <p style="font-size: 1rem; margin-bottom: 0.5rem;">
-              In our lessons, we try to make sure the magic's first. <a onclick="setClick()" href="#">Like this.</a>
-              <!-- In our lessons, we always try to put the magic of computer science 
-              at the center of learning. 
-              <a href="#">Here's an example.</a> 
-              -->
+              In our lessons, the magic of computer science is always first. <a href="#">Here's an example.</a> 
             </p>
           </div>
           <div class="column">
@@ -139,30 +177,22 @@
 
               <p style="margin-left: 1rem; color: #aaa; font-size: 1rem; font-family: arial;">updates</p>
               <ul style="font-size: 0.9rem;">
-                <li style="margin-left: 1.5rem;">
-                  <a style="color: #4c9e9e; text-decoration: none;" href="https://magicsfirst.com/blog/">
-                    unexpected
-                  </a>
-                  <span style="color: #99a814;">blog</span>
-                  <span style="color: #aaa;">added Dec 9 2022</span>
-                </li>
-
-                <li style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                  <a style="color: #4c9e9e; text-decoration: none;" href="https://outschool.com/teachers/Terry-D">
-                    online classes at Outschool starting in January 2023
-                  </a>
-                  <span style="color: #aaa;">added Dec 7 2022</span>
-                </li>
-
                 <li style="margin-left: 1.5rem; margin-bottom: 1rem;">
                   <a style="color: #4c9e9e; text-decoration: none;" href="p5jsms/5minutes/">
                     p5.js in 5 minutes
                   </a>
                   <span style="color: #99a814;">video</span>
-                  <span style="color: #aaa;">added Nov 12 2022</span>
+                  <span style="color: #aaa;">added Aug 4</span>
                 </li>
+                <!-- &#x2022;&nbsp; -->
 
-
+                <li style="margin-left: 1.5rem;">
+                  <a style="color: #4c9e9e; text-decoration: none;" href="https://magicsfirst.com/blog/">
+                    the beginning
+                  </a>
+                  <span style="color: #99a814;">blog</span>
+                  <span style="color: #aaa;">added Aug 4</span>
+                </li>
               </ul>
 
             </div>
@@ -183,11 +213,9 @@
               });
             </script>
 
-            <p style="font-size: small">mastodon: <a rel="me" href="https://qoto.org/@magicsfirst">qoto.org/@magicsfirst</a></p>
-
         </div> <!-- footer row -->
 
-      </div> <!-- contents -->
+     </div>  <!-- contents -->
 
     </div> <!-- wrapper -->
 

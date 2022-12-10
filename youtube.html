@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Salsa&display=swap" rel="stylesheet">
+
+    <!-- styles -->
+    <link rel="stylesheet" type="text/css" href="styles/poole.css">
+    <link rel="stylesheet" type="text/css" href="styles/top-override.css">
+
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      /* disable cache so menu propagates appropriately */
+      $.ajaxSetup({
+          cache: false
+      });
+    </script>
+
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      <div class="contents">
+
+        <!--Navigation bar
+        <div id="nav-placeholder">
+
+        </div>
+
+        <script>
+        $(function(){
+          $("#nav-placeholder").load("navbar.html");
+        });
+        </script>
+
+        >>> end of Navigation bar-->
+
+        <!-- manual navbar -->
+        <nav class="navbar">
+          <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+            <div class="menu">
+              <li><a href="/"><span class="logo">magiCSfirst</span></a></li>
+              <li><a href="p5jsms/5minutes/">p5.js in 5 minutes</a>
+              <li><a href="p5jsms/beginning/">p5.js in 10 lessons</a>
+              <!--
+              <li><a href="twine/">twine</a></li>
+              <li><a href="scratch/">scratch</a></li>
+              -->
+              <li><span class="menu-selectedItem">YouTube</span></li>
+              <li><a href="about.html">about</a></li>
+              <li><a href="https://magicsfirst.com/blog/">blog</a></li>
+            </div>
+          </ul>
+        </nav>
+
+
+        <!-- start of page -->
+        <h1 class="logo"><span class="accentuate">YouTube</span></h1>
+
+        <div class="row">
+          <div class="triple-column">
+            <p style="font-size: 1rem; margin-bottom: 1.25rem;">
+              Watch for our YouTube Channel – coming soon!
+            </p>
+           </div>
+        </div>
+
+        <!-- footer -->
+        <div class="row">
+          <div class="triple-column">
+            <div id="footer-placeholder">
+
+            </div>
+
+            <script>
+              $(function(){
+                $("#footer-placeholder").load("footer.html");
+              });
+            </script>
+
+          </div> <!-- triple column -->
+
+        </div> <!-- footer row -->
+
+      </div> <!-- contents -->
+
+    </div> <!-- wrapper -->
+
+    <!-- background animation -->
+    <script src="sketch-about.js"></script>
+  </body>
+  </html>

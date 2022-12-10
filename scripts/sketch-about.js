@@ -37,12 +37,12 @@ function setup() {
 }
 
 function draw() {
-  background(242);
+  background(255);
 
   // for closed shape
   noFill();
   stroke(242, 65, 242); // pink
-  stroke(242, 242, 242) // same as website page background
+  stroke(255);  // stroke(242, 242, 242) // same as website page background
 
   beginShape();
 
@@ -64,6 +64,7 @@ function draw() {
   endShape();
 
   // bottom particle
+  /* not being used now --
   if (mouseIsPressed && mouseY > 150 || load == true) { // exclude top menus
     tail = particles[particles.length-1];
     tail.position.set(mouseX, mouseY);
@@ -72,6 +73,8 @@ function draw() {
     if (load) load = false;
 
   }
+  end not being used now */
+
 
   for (let s of springs) {
     s.update();
@@ -80,6 +83,10 @@ function draw() {
 
 
  }
+
+function setClick() {
+  linkClicked = true;
+}
 
 class Particle {
   constructor(x, y) {

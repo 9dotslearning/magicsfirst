@@ -124,7 +124,7 @@ background(0);
             </span>
             <span class="tinkerBullet">Write <code>createcanvas</code> in lowercase letters.
               Then click <span class="btnPress">&#9654;Play</span>. What happens?
-            ``</span>
+            </span>
           </p>
           <script type="text/p5" data-preview-width="300">
 createCanvas(250, 300);
@@ -173,8 +173,10 @@ background(0);
             <span class="tinkerBullet">You'll see 3 sliders. Move them to change colors. Find a color you like!</span>
             <span class="tinkerBullet">Each slider is represented by a number.
               Type the numbers one at a time, in order, into the <code>background</code> command below.
-              Make sure there are commas between each number. Don't include &deg; and % symbols.
-              Remember to click <span class="btnPress">&#9654;Play</span>. 🙂</span>
+              For example, if your numbers are 275&deg;, 75%, and 70%, your <code>background</code> 
+              command should look like this: <code>background(275, 75, 70);</code>
+            </span>
+            <span class="tinkerBullet">Remember to click <span class="btnPress">&#9654;Play</span>. 🙂</span>
             <span class="tinkerBullet" style="margin-bottom: 13px;">You can learn more about these ideas by clicking <span class="accentuate">Color Help</span> at the right.</span>
 
           </p>
@@ -208,14 +210,14 @@ background(51, 100, 100);
                 Since there are 360 degrees in a circle, there are 360 possible hues.
               </p>
               <p>
-                Saturation is the intensity of the color.
-                It is represented as a percentage, with 100% meaning the greatest intensity and 0% meaning
-                the least intensity (which creates white).
+                Saturation is the amount of white mixed into the color.
+                It is represented as a percentage, with 0% meaning no color (completely white) 
+                and 100% meaning full color.
               </p>
               <p>
-                Brightness is the shade or amount of black mixed into color.
-                It is represented as a percentage, with 100% meaning
-                no black and 0% meaning all black.
+                Brightness is the amount of black mixed into color.
+                It is represented as a percentage, with 0% meaning no color (completely black)
+                and 100% meaning full color.
               </p>
               <p>
                 Here' are 3 common background colors, as examples:<br />
@@ -533,7 +535,8 @@ ellipse(150, 100, 50, 35);
             &mdash; in this case creating infinite ellipses at random positions. Magic!
             <br class="tinkerNewLine" />
             Try these challenges:
-            <span class="tinkerBullet">Change the <code>ellipse</code> command to draw ellipses with random sizes.</span>
+            <span class="tinkerBullet">The ellipse appears at random positions. 
+              Change the <code>ellipse</code> command so it has random sizes, too.</span>
             <span class="tinkerBullet">Draw randomly-colored ellipses by adding <code>fill</code>,
             <code>stroke</code>, and <code>strokeWeight</code> commands in <code>function draw()</code>.
             Be sure to add them <em>before the <code>ellipse</code> command</em>. </span>
@@ -609,7 +612,7 @@ function draw() {
           <p class="tinkerHeadingTop">Tinker</p>
           <p class="tinkerHeadingBottom">
             Let's make some more mistakes on purpose. They'll help us learn about <code>function setup()</code> and <code>function draw()</code>.
-            To cut and paste, use keyboard shortcuts (because right-clicking won't work).
+            To cut and paste, use keyboard shortcuts (because right-clicking won't always work).
             If you need help with the keyboard shortcuts,
             click <span class="accentuate">More Mistakes Help</span> at the right.
             <br class="tinkerNewLine">
